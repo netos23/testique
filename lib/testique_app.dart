@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:testique/res/colors.dart';
+import 'package:testique/resources/colors.dart';
 
 class TestiqueApp extends StatelessWidget {
   const TestiqueApp({super.key});
