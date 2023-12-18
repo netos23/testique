@@ -4,5 +4,5 @@ import 'package:testique/testique_app.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const TestiqueApp());
+  runApp(TestiqueApp());
 }
