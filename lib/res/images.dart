@@ -1,4 +1,4 @@
-final class AppIcons{
+final class AppIcons {
   AppIcons._();
 
   static const brain = 'assets/images/brain.png';
