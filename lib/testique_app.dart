@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:testique/res/colors.dart';
 
 class TestiqueApp extends StatelessWidget {
@@ -14,6 +15,7 @@ class TestiqueApp extends StatelessWidget {
         ).copyWith(
           background: AppColors.background,
         ),
+        textTheme: GoogleFonts.montserratTextTheme(),
         useMaterial3: false,
       ),
       home: Container(),
