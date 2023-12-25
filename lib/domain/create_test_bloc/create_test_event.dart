@@ -9,8 +9,17 @@ sealed class CreateTestEvent with _$CreateTestEvent {
   ) = _EditDescription;
 
   const factory CreateTestEvent.addQuestion(
-    Question question,
+    IQuestionTemplate question,
   ) = _AddQuestion;
+
+  const factory CreateTestEvent.editQuestion(
+    int index,
+    IQuestionTemplate question,
+  ) = _EditQuestion;
+
+  const factory CreateTestEvent.deleteQuestion(
+    int index,
+  ) = _DeleteQuestion;
 
   const factory CreateTestEvent.saveTest() = _SaveTest;
 }

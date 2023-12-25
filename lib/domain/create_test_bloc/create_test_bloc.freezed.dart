@@ -20,7 +20,10 @@ mixin _$CreateTestEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) editName,
     required TResult Function(String description) editDescription,
-    required TResult Function(Question question) addQuestion,
+    required TResult Function(IQuestionTemplate question) addQuestion,
+    required TResult Function(int index, IQuestionTemplate question)
+        editQuestion,
+    required TResult Function(int index) deleteQuestion,
     required TResult Function() saveTest,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +31,9 @@ mixin _$CreateTestEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? editName,
     TResult? Function(String description)? editDescription,
-    TResult? Function(Question question)? addQuestion,
+    TResult? Function(IQuestionTemplate question)? addQuestion,
+    TResult? Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult? Function(int index)? deleteQuestion,
     TResult? Function()? saveTest,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +41,9 @@ mixin _$CreateTestEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? editName,
     TResult Function(String description)? editDescription,
-    TResult Function(Question question)? addQuestion,
+    TResult Function(IQuestionTemplate question)? addQuestion,
+    TResult Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult Function(int index)? deleteQuestion,
     TResult Function()? saveTest,
     required TResult orElse(),
   }) =>
@@ -46,6 +53,8 @@ mixin _$CreateTestEvent {
     required TResult Function(_EditName value) editName,
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_AddQuestion value) addQuestion,
+    required TResult Function(_EditQuestion value) editQuestion,
+    required TResult Function(_DeleteQuestion value) deleteQuestion,
     required TResult Function(_SaveTest value) saveTest,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +63,8 @@ mixin _$CreateTestEvent {
     TResult? Function(_EditName value)? editName,
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_AddQuestion value)? addQuestion,
+    TResult? Function(_EditQuestion value)? editQuestion,
+    TResult? Function(_DeleteQuestion value)? deleteQuestion,
     TResult? Function(_SaveTest value)? saveTest,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +73,8 @@ mixin _$CreateTestEvent {
     TResult Function(_EditName value)? editName,
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_AddQuestion value)? addQuestion,
+    TResult Function(_EditQuestion value)? editQuestion,
+    TResult Function(_DeleteQuestion value)? deleteQuestion,
     TResult Function(_SaveTest value)? saveTest,
     required TResult orElse(),
   }) =>
@@ -152,7 +165,10 @@ class _$EditNameImpl implements _EditName {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) editName,
     required TResult Function(String description) editDescription,
-    required TResult Function(Question question) addQuestion,
+    required TResult Function(IQuestionTemplate question) addQuestion,
+    required TResult Function(int index, IQuestionTemplate question)
+        editQuestion,
+    required TResult Function(int index) deleteQuestion,
     required TResult Function() saveTest,
   }) {
     return editName(name);
@@ -163,7 +179,9 @@ class _$EditNameImpl implements _EditName {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? editName,
     TResult? Function(String description)? editDescription,
-    TResult? Function(Question question)? addQuestion,
+    TResult? Function(IQuestionTemplate question)? addQuestion,
+    TResult? Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult? Function(int index)? deleteQuestion,
     TResult? Function()? saveTest,
   }) {
     return editName?.call(name);
@@ -174,7 +192,9 @@ class _$EditNameImpl implements _EditName {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? editName,
     TResult Function(String description)? editDescription,
-    TResult Function(Question question)? addQuestion,
+    TResult Function(IQuestionTemplate question)? addQuestion,
+    TResult Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult Function(int index)? deleteQuestion,
     TResult Function()? saveTest,
     required TResult orElse(),
   }) {
@@ -190,6 +210,8 @@ class _$EditNameImpl implements _EditName {
     required TResult Function(_EditName value) editName,
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_AddQuestion value) addQuestion,
+    required TResult Function(_EditQuestion value) editQuestion,
+    required TResult Function(_DeleteQuestion value) deleteQuestion,
     required TResult Function(_SaveTest value) saveTest,
   }) {
     return editName(this);
@@ -201,6 +223,8 @@ class _$EditNameImpl implements _EditName {
     TResult? Function(_EditName value)? editName,
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_AddQuestion value)? addQuestion,
+    TResult? Function(_EditQuestion value)? editQuestion,
+    TResult? Function(_DeleteQuestion value)? deleteQuestion,
     TResult? Function(_SaveTest value)? saveTest,
   }) {
     return editName?.call(this);
@@ -212,6 +236,8 @@ class _$EditNameImpl implements _EditName {
     TResult Function(_EditName value)? editName,
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_AddQuestion value)? addQuestion,
+    TResult Function(_EditQuestion value)? editQuestion,
+    TResult Function(_DeleteQuestion value)? deleteQuestion,
     TResult Function(_SaveTest value)? saveTest,
     required TResult orElse(),
   }) {
@@ -299,7 +325,10 @@ class _$EditDescriptionImpl implements _EditDescription {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) editName,
     required TResult Function(String description) editDescription,
-    required TResult Function(Question question) addQuestion,
+    required TResult Function(IQuestionTemplate question) addQuestion,
+    required TResult Function(int index, IQuestionTemplate question)
+        editQuestion,
+    required TResult Function(int index) deleteQuestion,
     required TResult Function() saveTest,
   }) {
     return editDescription(description);
@@ -310,7 +339,9 @@ class _$EditDescriptionImpl implements _EditDescription {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? editName,
     TResult? Function(String description)? editDescription,
-    TResult? Function(Question question)? addQuestion,
+    TResult? Function(IQuestionTemplate question)? addQuestion,
+    TResult? Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult? Function(int index)? deleteQuestion,
     TResult? Function()? saveTest,
   }) {
     return editDescription?.call(description);
@@ -321,7 +352,9 @@ class _$EditDescriptionImpl implements _EditDescription {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? editName,
     TResult Function(String description)? editDescription,
-    TResult Function(Question question)? addQuestion,
+    TResult Function(IQuestionTemplate question)? addQuestion,
+    TResult Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult Function(int index)? deleteQuestion,
     TResult Function()? saveTest,
     required TResult orElse(),
   }) {
@@ -337,6 +370,8 @@ class _$EditDescriptionImpl implements _EditDescription {
     required TResult Function(_EditName value) editName,
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_AddQuestion value) addQuestion,
+    required TResult Function(_EditQuestion value) editQuestion,
+    required TResult Function(_DeleteQuestion value) deleteQuestion,
     required TResult Function(_SaveTest value) saveTest,
   }) {
     return editDescription(this);
@@ -348,6 +383,8 @@ class _$EditDescriptionImpl implements _EditDescription {
     TResult? Function(_EditName value)? editName,
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_AddQuestion value)? addQuestion,
+    TResult? Function(_EditQuestion value)? editQuestion,
+    TResult? Function(_DeleteQuestion value)? deleteQuestion,
     TResult? Function(_SaveTest value)? saveTest,
   }) {
     return editDescription?.call(this);
@@ -359,6 +396,8 @@ class _$EditDescriptionImpl implements _EditDescription {
     TResult Function(_EditName value)? editName,
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_AddQuestion value)? addQuestion,
+    TResult Function(_EditQuestion value)? editQuestion,
+    TResult Function(_DeleteQuestion value)? deleteQuestion,
     TResult Function(_SaveTest value)? saveTest,
     required TResult orElse(),
   }) {
@@ -385,9 +424,7 @@ abstract class _$$AddQuestionImplCopyWith<$Res> {
           _$AddQuestionImpl value, $Res Function(_$AddQuestionImpl) then) =
       __$$AddQuestionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Question question});
-
-  $QuestionCopyWith<$Res> get question;
+  $Res call({IQuestionTemplate question});
 }
 
 /// @nodoc
@@ -407,16 +444,8 @@ class __$$AddQuestionImplCopyWithImpl<$Res>
       null == question
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
-              as Question,
+              as IQuestionTemplate,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $QuestionCopyWith<$Res> get question {
-    return $QuestionCopyWith<$Res>(_value.question, (value) {
-      return _then(_value.copyWith(question: value));
-    });
   }
 }
 
@@ -426,7 +455,7 @@ class _$AddQuestionImpl implements _AddQuestion {
   const _$AddQuestionImpl(this.question);
 
   @override
-  final Question question;
+  final IQuestionTemplate question;
 
   @override
   String toString() {
@@ -456,7 +485,10 @@ class _$AddQuestionImpl implements _AddQuestion {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) editName,
     required TResult Function(String description) editDescription,
-    required TResult Function(Question question) addQuestion,
+    required TResult Function(IQuestionTemplate question) addQuestion,
+    required TResult Function(int index, IQuestionTemplate question)
+        editQuestion,
+    required TResult Function(int index) deleteQuestion,
     required TResult Function() saveTest,
   }) {
     return addQuestion(question);
@@ -467,7 +499,9 @@ class _$AddQuestionImpl implements _AddQuestion {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? editName,
     TResult? Function(String description)? editDescription,
-    TResult? Function(Question question)? addQuestion,
+    TResult? Function(IQuestionTemplate question)? addQuestion,
+    TResult? Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult? Function(int index)? deleteQuestion,
     TResult? Function()? saveTest,
   }) {
     return addQuestion?.call(question);
@@ -478,7 +512,9 @@ class _$AddQuestionImpl implements _AddQuestion {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? editName,
     TResult Function(String description)? editDescription,
-    TResult Function(Question question)? addQuestion,
+    TResult Function(IQuestionTemplate question)? addQuestion,
+    TResult Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult Function(int index)? deleteQuestion,
     TResult Function()? saveTest,
     required TResult orElse(),
   }) {
@@ -494,6 +530,8 @@ class _$AddQuestionImpl implements _AddQuestion {
     required TResult Function(_EditName value) editName,
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_AddQuestion value) addQuestion,
+    required TResult Function(_EditQuestion value) editQuestion,
+    required TResult Function(_DeleteQuestion value) deleteQuestion,
     required TResult Function(_SaveTest value) saveTest,
   }) {
     return addQuestion(this);
@@ -505,6 +543,8 @@ class _$AddQuestionImpl implements _AddQuestion {
     TResult? Function(_EditName value)? editName,
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_AddQuestion value)? addQuestion,
+    TResult? Function(_EditQuestion value)? editQuestion,
+    TResult? Function(_DeleteQuestion value)? deleteQuestion,
     TResult? Function(_SaveTest value)? saveTest,
   }) {
     return addQuestion?.call(this);
@@ -516,6 +556,8 @@ class _$AddQuestionImpl implements _AddQuestion {
     TResult Function(_EditName value)? editName,
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_AddQuestion value)? addQuestion,
+    TResult Function(_EditQuestion value)? editQuestion,
+    TResult Function(_DeleteQuestion value)? deleteQuestion,
     TResult Function(_SaveTest value)? saveTest,
     required TResult orElse(),
   }) {
@@ -527,11 +569,340 @@ class _$AddQuestionImpl implements _AddQuestion {
 }
 
 abstract class _AddQuestion implements CreateTestEvent {
-  const factory _AddQuestion(final Question question) = _$AddQuestionImpl;
+  const factory _AddQuestion(final IQuestionTemplate question) =
+      _$AddQuestionImpl;
 
-  Question get question;
+  IQuestionTemplate get question;
   @JsonKey(ignore: true)
   _$$AddQuestionImplCopyWith<_$AddQuestionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EditQuestionImplCopyWith<$Res> {
+  factory _$$EditQuestionImplCopyWith(
+          _$EditQuestionImpl value, $Res Function(_$EditQuestionImpl) then) =
+      __$$EditQuestionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index, IQuestionTemplate question});
+}
+
+/// @nodoc
+class __$$EditQuestionImplCopyWithImpl<$Res>
+    extends _$CreateTestEventCopyWithImpl<$Res, _$EditQuestionImpl>
+    implements _$$EditQuestionImplCopyWith<$Res> {
+  __$$EditQuestionImplCopyWithImpl(
+      _$EditQuestionImpl _value, $Res Function(_$EditQuestionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+    Object? question = null,
+  }) {
+    return _then(_$EditQuestionImpl(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as IQuestionTemplate,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EditQuestionImpl implements _EditQuestion {
+  const _$EditQuestionImpl(this.index, this.question);
+
+  @override
+  final int index;
+  @override
+  final IQuestionTemplate question;
+
+  @override
+  String toString() {
+    return 'CreateTestEvent.editQuestion(index: $index, question: $question)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EditQuestionImpl &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.question, question) ||
+                other.question == question));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index, question);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EditQuestionImplCopyWith<_$EditQuestionImpl> get copyWith =>
+      __$$EditQuestionImplCopyWithImpl<_$EditQuestionImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) editName,
+    required TResult Function(String description) editDescription,
+    required TResult Function(IQuestionTemplate question) addQuestion,
+    required TResult Function(int index, IQuestionTemplate question)
+        editQuestion,
+    required TResult Function(int index) deleteQuestion,
+    required TResult Function() saveTest,
+  }) {
+    return editQuestion(index, question);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? editName,
+    TResult? Function(String description)? editDescription,
+    TResult? Function(IQuestionTemplate question)? addQuestion,
+    TResult? Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult? Function(int index)? deleteQuestion,
+    TResult? Function()? saveTest,
+  }) {
+    return editQuestion?.call(index, question);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? editName,
+    TResult Function(String description)? editDescription,
+    TResult Function(IQuestionTemplate question)? addQuestion,
+    TResult Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult Function(int index)? deleteQuestion,
+    TResult Function()? saveTest,
+    required TResult orElse(),
+  }) {
+    if (editQuestion != null) {
+      return editQuestion(index, question);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EditName value) editName,
+    required TResult Function(_EditDescription value) editDescription,
+    required TResult Function(_AddQuestion value) addQuestion,
+    required TResult Function(_EditQuestion value) editQuestion,
+    required TResult Function(_DeleteQuestion value) deleteQuestion,
+    required TResult Function(_SaveTest value) saveTest,
+  }) {
+    return editQuestion(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_EditName value)? editName,
+    TResult? Function(_EditDescription value)? editDescription,
+    TResult? Function(_AddQuestion value)? addQuestion,
+    TResult? Function(_EditQuestion value)? editQuestion,
+    TResult? Function(_DeleteQuestion value)? deleteQuestion,
+    TResult? Function(_SaveTest value)? saveTest,
+  }) {
+    return editQuestion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EditName value)? editName,
+    TResult Function(_EditDescription value)? editDescription,
+    TResult Function(_AddQuestion value)? addQuestion,
+    TResult Function(_EditQuestion value)? editQuestion,
+    TResult Function(_DeleteQuestion value)? deleteQuestion,
+    TResult Function(_SaveTest value)? saveTest,
+    required TResult orElse(),
+  }) {
+    if (editQuestion != null) {
+      return editQuestion(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditQuestion implements CreateTestEvent {
+  const factory _EditQuestion(
+      final int index, final IQuestionTemplate question) = _$EditQuestionImpl;
+
+  int get index;
+  IQuestionTemplate get question;
+  @JsonKey(ignore: true)
+  _$$EditQuestionImplCopyWith<_$EditQuestionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteQuestionImplCopyWith<$Res> {
+  factory _$$DeleteQuestionImplCopyWith(_$DeleteQuestionImpl value,
+          $Res Function(_$DeleteQuestionImpl) then) =
+      __$$DeleteQuestionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$DeleteQuestionImplCopyWithImpl<$Res>
+    extends _$CreateTestEventCopyWithImpl<$Res, _$DeleteQuestionImpl>
+    implements _$$DeleteQuestionImplCopyWith<$Res> {
+  __$$DeleteQuestionImplCopyWithImpl(
+      _$DeleteQuestionImpl _value, $Res Function(_$DeleteQuestionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$DeleteQuestionImpl(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteQuestionImpl implements _DeleteQuestion {
+  const _$DeleteQuestionImpl(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'CreateTestEvent.deleteQuestion(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteQuestionImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteQuestionImplCopyWith<_$DeleteQuestionImpl> get copyWith =>
+      __$$DeleteQuestionImplCopyWithImpl<_$DeleteQuestionImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String name) editName,
+    required TResult Function(String description) editDescription,
+    required TResult Function(IQuestionTemplate question) addQuestion,
+    required TResult Function(int index, IQuestionTemplate question)
+        editQuestion,
+    required TResult Function(int index) deleteQuestion,
+    required TResult Function() saveTest,
+  }) {
+    return deleteQuestion(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String name)? editName,
+    TResult? Function(String description)? editDescription,
+    TResult? Function(IQuestionTemplate question)? addQuestion,
+    TResult? Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult? Function(int index)? deleteQuestion,
+    TResult? Function()? saveTest,
+  }) {
+    return deleteQuestion?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String name)? editName,
+    TResult Function(String description)? editDescription,
+    TResult Function(IQuestionTemplate question)? addQuestion,
+    TResult Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult Function(int index)? deleteQuestion,
+    TResult Function()? saveTest,
+    required TResult orElse(),
+  }) {
+    if (deleteQuestion != null) {
+      return deleteQuestion(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EditName value) editName,
+    required TResult Function(_EditDescription value) editDescription,
+    required TResult Function(_AddQuestion value) addQuestion,
+    required TResult Function(_EditQuestion value) editQuestion,
+    required TResult Function(_DeleteQuestion value) deleteQuestion,
+    required TResult Function(_SaveTest value) saveTest,
+  }) {
+    return deleteQuestion(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_EditName value)? editName,
+    TResult? Function(_EditDescription value)? editDescription,
+    TResult? Function(_AddQuestion value)? addQuestion,
+    TResult? Function(_EditQuestion value)? editQuestion,
+    TResult? Function(_DeleteQuestion value)? deleteQuestion,
+    TResult? Function(_SaveTest value)? saveTest,
+  }) {
+    return deleteQuestion?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EditName value)? editName,
+    TResult Function(_EditDescription value)? editDescription,
+    TResult Function(_AddQuestion value)? addQuestion,
+    TResult Function(_EditQuestion value)? editQuestion,
+    TResult Function(_DeleteQuestion value)? deleteQuestion,
+    TResult Function(_SaveTest value)? saveTest,
+    required TResult orElse(),
+  }) {
+    if (deleteQuestion != null) {
+      return deleteQuestion(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteQuestion implements CreateTestEvent {
+  const factory _DeleteQuestion(final int index) = _$DeleteQuestionImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$DeleteQuestionImplCopyWith<_$DeleteQuestionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -575,7 +946,10 @@ class _$SaveTestImpl implements _SaveTest {
   TResult when<TResult extends Object?>({
     required TResult Function(String name) editName,
     required TResult Function(String description) editDescription,
-    required TResult Function(Question question) addQuestion,
+    required TResult Function(IQuestionTemplate question) addQuestion,
+    required TResult Function(int index, IQuestionTemplate question)
+        editQuestion,
+    required TResult Function(int index) deleteQuestion,
     required TResult Function() saveTest,
   }) {
     return saveTest();
@@ -586,7 +960,9 @@ class _$SaveTestImpl implements _SaveTest {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? editName,
     TResult? Function(String description)? editDescription,
-    TResult? Function(Question question)? addQuestion,
+    TResult? Function(IQuestionTemplate question)? addQuestion,
+    TResult? Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult? Function(int index)? deleteQuestion,
     TResult? Function()? saveTest,
   }) {
     return saveTest?.call();
@@ -597,7 +973,9 @@ class _$SaveTestImpl implements _SaveTest {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? editName,
     TResult Function(String description)? editDescription,
-    TResult Function(Question question)? addQuestion,
+    TResult Function(IQuestionTemplate question)? addQuestion,
+    TResult Function(int index, IQuestionTemplate question)? editQuestion,
+    TResult Function(int index)? deleteQuestion,
     TResult Function()? saveTest,
     required TResult orElse(),
   }) {
@@ -613,6 +991,8 @@ class _$SaveTestImpl implements _SaveTest {
     required TResult Function(_EditName value) editName,
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_AddQuestion value) addQuestion,
+    required TResult Function(_EditQuestion value) editQuestion,
+    required TResult Function(_DeleteQuestion value) deleteQuestion,
     required TResult Function(_SaveTest value) saveTest,
   }) {
     return saveTest(this);
@@ -624,6 +1004,8 @@ class _$SaveTestImpl implements _SaveTest {
     TResult? Function(_EditName value)? editName,
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_AddQuestion value)? addQuestion,
+    TResult? Function(_EditQuestion value)? editQuestion,
+    TResult? Function(_DeleteQuestion value)? deleteQuestion,
     TResult? Function(_SaveTest value)? saveTest,
   }) {
     return saveTest?.call(this);
@@ -635,6 +1017,8 @@ class _$SaveTestImpl implements _SaveTest {
     TResult Function(_EditName value)? editName,
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_AddQuestion value)? addQuestion,
+    TResult Function(_EditQuestion value)? editQuestion,
+    TResult Function(_DeleteQuestion value)? deleteQuestion,
     TResult Function(_SaveTest value)? saveTest,
     required TResult orElse(),
   }) {
@@ -654,34 +1038,34 @@ mixin _$CreateTestState {
   int? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  List<QuestionTemplate> get questions => throw _privateConstructorUsedError;
+  List<IQuestionTemplate> get questions => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)
+            List<IQuestionTemplate> questions)
         template,
     required TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)
+            List<IQuestionTemplate> questions)
         loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         template,
     TResult? Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         template,
     TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         loading,
     required TResult orElse(),
   }) =>
@@ -721,7 +1105,7 @@ abstract class $CreateTestStateCopyWith<$Res> {
       {int? id,
       String name,
       String description,
-      List<QuestionTemplate> questions});
+      List<IQuestionTemplate> questions});
 }
 
 /// @nodoc
@@ -758,7 +1142,7 @@ class _$CreateTestStateCopyWithImpl<$Res, $Val extends CreateTestState>
       questions: null == questions
           ? _value.questions
           : questions // ignore: cast_nullable_to_non_nullable
-              as List<QuestionTemplate>,
+              as List<IQuestionTemplate>,
     ) as $Val);
   }
 }
@@ -776,7 +1160,7 @@ abstract class _$$CreateTestTemplateStateImplCopyWith<$Res>
       {int? id,
       String name,
       String description,
-      List<QuestionTemplate> questions});
+      List<IQuestionTemplate> questions});
 }
 
 /// @nodoc
@@ -812,7 +1196,7 @@ class __$$CreateTestTemplateStateImplCopyWithImpl<$Res>
       questions: null == questions
           ? _value._questions
           : questions // ignore: cast_nullable_to_non_nullable
-              as List<QuestionTemplate>,
+              as List<IQuestionTemplate>,
     ));
   }
 }
@@ -824,7 +1208,7 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
       {this.id,
       this.name = "",
       this.description = "",
-      final List<QuestionTemplate> questions = const <QuestionTemplate>[]})
+      final List<IQuestionTemplate> questions = const <IQuestionTemplate>[]})
       : _questions = questions;
 
   @override
@@ -835,10 +1219,10 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
   @override
   @JsonKey()
   final String description;
-  final List<QuestionTemplate> _questions;
+  final List<IQuestionTemplate> _questions;
   @override
   @JsonKey()
-  List<QuestionTemplate> get questions {
+  List<IQuestionTemplate> get questions {
     if (_questions is EqualUnmodifiableListView) return _questions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_questions);
@@ -877,10 +1261,10 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)
+            List<IQuestionTemplate> questions)
         template,
     required TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)
+            List<IQuestionTemplate> questions)
         loading,
   }) {
     return template(id, name, description, questions);
@@ -890,10 +1274,10 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         template,
     TResult? Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         loading,
   }) {
     return template?.call(id, name, description, questions);
@@ -903,10 +1287,10 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         template,
     TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         loading,
     required TResult orElse(),
   }) {
@@ -953,7 +1337,7 @@ abstract class _CreateTestTemplateState implements CreateTestState {
       {final int? id,
       final String name,
       final String description,
-      final List<QuestionTemplate> questions}) = _$CreateTestTemplateStateImpl;
+      final List<IQuestionTemplate> questions}) = _$CreateTestTemplateStateImpl;
 
   @override
   int? get id;
@@ -962,7 +1346,7 @@ abstract class _CreateTestTemplateState implements CreateTestState {
   @override
   String get description;
   @override
-  List<QuestionTemplate> get questions;
+  List<IQuestionTemplate> get questions;
   @override
   @JsonKey(ignore: true)
   _$$CreateTestTemplateStateImplCopyWith<_$CreateTestTemplateStateImpl>
@@ -982,7 +1366,7 @@ abstract class _$$CreateTestLoadingStateImplCopyWith<$Res>
       {int? id,
       String name,
       String description,
-      List<QuestionTemplate> questions});
+      List<IQuestionTemplate> questions});
 }
 
 /// @nodoc
@@ -1018,7 +1402,7 @@ class __$$CreateTestLoadingStateImplCopyWithImpl<$Res>
       questions: null == questions
           ? _value._questions
           : questions // ignore: cast_nullable_to_non_nullable
-              as List<QuestionTemplate>,
+              as List<IQuestionTemplate>,
     ));
   }
 }
@@ -1030,7 +1414,7 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
       {this.id,
       this.name = "",
       this.description = "",
-      final List<QuestionTemplate> questions = const <QuestionTemplate>[]})
+      final List<IQuestionTemplate> questions = const <IQuestionTemplate>[]})
       : _questions = questions;
 
   @override
@@ -1041,10 +1425,10 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
   @override
   @JsonKey()
   final String description;
-  final List<QuestionTemplate> _questions;
+  final List<IQuestionTemplate> _questions;
   @override
   @JsonKey()
-  List<QuestionTemplate> get questions {
+  List<IQuestionTemplate> get questions {
     if (_questions is EqualUnmodifiableListView) return _questions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_questions);
@@ -1083,10 +1467,10 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)
+            List<IQuestionTemplate> questions)
         template,
     required TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)
+            List<IQuestionTemplate> questions)
         loading,
   }) {
     return loading(id, name, description, questions);
@@ -1096,10 +1480,10 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         template,
     TResult? Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         loading,
   }) {
     return loading?.call(id, name, description, questions);
@@ -1109,10 +1493,10 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         template,
     TResult Function(int? id, String name, String description,
-            List<QuestionTemplate> questions)?
+            List<IQuestionTemplate> questions)?
         loading,
     required TResult orElse(),
   }) {
@@ -1159,7 +1543,7 @@ abstract class _CreateTestLoadingState implements CreateTestState {
       {final int? id,
       final String name,
       final String description,
-      final List<QuestionTemplate> questions}) = _$CreateTestLoadingStateImpl;
+      final List<IQuestionTemplate> questions}) = _$CreateTestLoadingStateImpl;
 
   @override
   int? get id;
@@ -1168,7 +1552,7 @@ abstract class _CreateTestLoadingState implements CreateTestState {
   @override
   String get description;
   @override
-  List<QuestionTemplate> get questions;
+  List<IQuestionTemplate> get questions;
   @override
   @JsonKey(ignore: true)
   _$$CreateTestLoadingStateImplCopyWith<_$CreateTestLoadingStateImpl>
