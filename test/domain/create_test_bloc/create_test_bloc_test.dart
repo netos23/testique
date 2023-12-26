@@ -24,6 +24,8 @@ void main() {
       createTestBloc = CreateTestBloc(
         testRepository: testRepositoryMock,
       );
+
+      registerFallbackValue(testForEditing);
     });
 
     group('Initial state group', () {
@@ -135,7 +137,7 @@ void main() {
         ),
         expect: () => <CreateTestState>[
           CreateTestState.template(
-            name: (simpleName + veryLongName).substring(0, lengthLimit),
+            name: veryLongName.substring(0, lengthLimit),
           )
         ],
         verify: (_) {
@@ -232,8 +234,7 @@ void main() {
         ),
         expect: () => <CreateTestState>[
           CreateTestState.template(
-            description: (simpleDescription + veryLongDescription)
-                .substring(0, lengthLimit),
+            description: veryLongDescription.substring(0, lengthLimit),
           )
         ],
         verify: (_) {

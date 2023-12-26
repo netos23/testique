@@ -19,6 +19,7 @@ void main() {
       );
 
       repository = TestRepository(database);
+
     });
 
     group('Create new test group', () {
