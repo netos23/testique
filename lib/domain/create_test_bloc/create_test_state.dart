@@ -23,7 +23,7 @@ sealed class CreateTestState with _$CreateTestState {
     required List<IQuestionTemplate> questions,
   }) = _CreateTestCompletedState;
 
-  factory CreateTestState.templateFromTest(Test test) {
+  factory CreateTestState.templateFromTest(ITestTemplate test) {
     return CreateTestState.template(
       id: test.id,
       name: test.name,

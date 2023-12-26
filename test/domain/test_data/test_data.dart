@@ -15,6 +15,16 @@ const testForEditing = Test(
   ],
 );
 
+const testForEditingTemplate = TestTemplate(
+  id: testForEditingId,
+  name: 'Test sample',
+  description: 'This is a simle test',
+  questions: [
+    columnQuestion,
+    gridQuestion,
+  ],
+);
+
 const testTemplate = TestTemplate(
   name: 'Test sample',
   description: 'This is a simle test',

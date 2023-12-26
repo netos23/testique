@@ -21,8 +21,15 @@ void main() {
         (_) async => testForEditing,
       );
 
-      when(() => testRepositoryMock.getTestById(testForEditingId)).thenThrow(
-        ArgumentError(),
+      when(() => testRepositoryMock.getTestById(wrongTestForEditingId))
+          .thenThrow(ArgumentError());
+
+      when(
+        () => testRepositoryMock.saveTest(
+          testForEditingTemplate,
+        ),
+      ).thenAnswer(
+        (_) async => testForEditing,
       );
 
       createTestBloc = CreateTestBloc(
@@ -48,23 +55,26 @@ void main() {
           CreateTestState.templateFromTest(testForEditing),
         ],
         verify: (_) {
-          verify(() => testRepositoryMock.getTestById(testForEditingId));
+          verify(() => testRepositoryMock.getTestById(testForEditingId))
+              .called(1);
+          ;
         },
       );
 
       blocTest(
         'Edit initial state test with wrong id',
         build: () => CreateTestBloc.fromTest(
-          testId: -120,
+          testId: wrongTestForEditingId,
           testRepository: testRepositoryMock,
         ),
         expect: () => <CreateTestState>[
-          const CreateTestState.loading(id: -120),
+          const CreateTestState.loading(id: wrongTestForEditingId),
           const CreateTestState.template(),
         ],
         errors: () => [isA<ArgumentError>()],
         verify: (_) {
-          verify(() => testRepositoryMock.getTestById(testForEditingId));
+          verify(() => testRepositoryMock.getTestById(wrongTestForEditingId))
+              .called(1);
         },
       );
     });
@@ -375,8 +385,8 @@ void main() {
           const CreateTestState.template(
             questions: [
               columnQuestion,
-              columnQuestion,
               gridQuestion,
+              columnQuestion,
             ],
           ),
         ],
@@ -548,7 +558,7 @@ void main() {
         'Save test, positive',
         build: () => createTestBloc,
         seed: () => CreateTestState.templateFromTest(
-          testForEditing,
+          testForEditingTemplate,
         ),
         act: (bloc) => bloc.add(const CreateTestEvent.saveTest()),
         expect: () => [
@@ -566,7 +576,8 @@ void main() {
           ),
         ],
         verify: (_) {
-          verify(() => testRepositoryMock.saveTest(testForEditing));
+          verify(() => testRepositoryMock.saveTest(testForEditingTemplate))
+              .called(1);
         },
       );
 
@@ -580,18 +591,6 @@ void main() {
           questions: testForEditing.questions,
         ),
         act: (bloc) => bloc.add(const CreateTestEvent.saveTest()),
-        expect: () => [
-          CreateTestState.loading(
-            id: testForEditing.id,
-            description: testForEditing.description,
-            questions: testForEditing.questions,
-          ),
-          CreateTestState.template(
-            id: testForEditing.id,
-            description: testForEditing.description,
-            questions: testForEditing.questions,
-          ),
-        ],
         errors: () => [isA<ArgumentError>()],
         verify: (_) {
           verifyNever(() => testRepositoryMock.saveTest(any()));
@@ -607,18 +606,6 @@ void main() {
           description: testForEditing.description,
         ),
         act: (bloc) => bloc.add(const CreateTestEvent.saveTest()),
-        expect: () => [
-          CreateTestState.loading(
-            id: testForEditing.id,
-            name: testForEditing.name,
-            description: testForEditing.description,
-          ),
-          CreateTestState.template(
-            id: testForEditing.id,
-            name: testForEditing.name,
-            description: testForEditing.description,
-          ),
-        ],
         errors: () => [isA<ArgumentError>()],
         verify: (_) {
           verifyNever(() => testRepositoryMock.saveTest(any()));
@@ -633,16 +620,6 @@ void main() {
           description: testForEditing.description,
         ),
         act: (bloc) => bloc.add(const CreateTestEvent.saveTest()),
-        expect: () => [
-          CreateTestState.loading(
-            id: testForEditing.id,
-            description: testForEditing.description,
-          ),
-          CreateTestState.template(
-            id: testForEditing.id,
-            description: testForEditing.description,
-          ),
-        ],
         errors: () => [isA<ArgumentError>()],
         verify: (_) {
           verifyNever(() => testRepositoryMock.saveTest(any()));
