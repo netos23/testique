@@ -566,6 +566,12 @@ void main() {
             description: testForEditing.description,
             questions: testForEditing.questions,
           ),
+          CreateTestState.completed(
+            id: testForEditing.id,
+            name: testForEditing.name,
+            description: testForEditing.description,
+            questions: testForEditing.questions,
+          ),
         ],
         verify: (_) {
           verify(() => testRepositoryMock.saveTest(testForEditing));

@@ -16,6 +16,13 @@ sealed class CreateTestState with _$CreateTestState {
     @Default(<IQuestionTemplate>[]) List<IQuestionTemplate> questions,
   }) = _CreateTestLoadingState;
 
+  const factory CreateTestState.completed({
+    required int id,
+    required String name,
+    required String description,
+    required List<IQuestionTemplate> questions,
+  }) = _CreateTestCompletedState;
+
   factory CreateTestState.templateFromTest(Test test) {
     return CreateTestState.template(
       id: test.id,

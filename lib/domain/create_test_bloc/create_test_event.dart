@@ -21,5 +21,7 @@ sealed class CreateTestEvent with _$CreateTestEvent {
     int index,
   ) = _DeleteQuestion;
 
+  const factory CreateTestEvent.loadTest(int testId) = _LoadTest;
+
   const factory CreateTestEvent.saveTest() = _SaveTest;
 }
