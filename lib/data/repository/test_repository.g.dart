@@ -1,9 +1,9 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'test_dao.dart';
+part of 'test_repository.dart';
 
 // ignore_for_file: type=lint
-mixin _$TestDaoMixin on DatabaseAccessor<AppDatabase> {
+mixin _$TestRepositoryMixin on DatabaseAccessor<AppDatabase> {
   $TestModelsTable get testModels => attachedDatabase.testModels;
   $QuestionModelsTable get questionModels => attachedDatabase.questionModels;
   $QuestionVariantModelsTable get questionVariantModels =>
