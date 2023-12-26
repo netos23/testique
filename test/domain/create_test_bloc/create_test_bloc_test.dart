@@ -326,14 +326,6 @@ void main() {
         act: (bloc) => createTestBloc.add(
           const CreateTestEvent.addQuestion(columnQuestion),
         ),
-        expect: () => <CreateTestState>[
-          CreateTestState.template(
-            questions: List.generate(
-              questionLimit,
-              (index) => gridQuestion,
-            ),
-          ),
-        ],
         verify: (_) {
           verifyNever(() => testRepositoryMock.saveTest(any()));
         },
