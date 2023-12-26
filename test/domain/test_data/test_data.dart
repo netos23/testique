@@ -3,6 +3,7 @@ import 'package:testique/entity/test.dart';
 import 'question_data.dart';
 
 const testForEditingId = 0;
+const wrongTestForEditingId = -120;
 
 const testForEditing = Test(
   id: testForEditingId,

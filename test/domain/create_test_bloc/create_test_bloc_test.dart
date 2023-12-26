@@ -21,6 +21,10 @@ void main() {
         (_) async => testForEditing,
       );
 
+      when(() => testRepositoryMock.getTestById(testForEditingId)).thenThrow(
+        ArgumentError(),
+      );
+
       createTestBloc = CreateTestBloc(
         testRepository: testRepositoryMock,
       );
@@ -43,6 +47,22 @@ void main() {
           const CreateTestState.loading(id: testForEditingId),
           CreateTestState.templateFromTest(testForEditing),
         ],
+        verify: (_) {
+          verify(() => testRepositoryMock.getTestById(testForEditingId));
+        },
+      );
+
+      blocTest(
+        'Edit initial state test with wrong id',
+        build: () => CreateTestBloc.fromTest(
+          testId: -120,
+          testRepository: testRepositoryMock,
+        ),
+        expect: () => <CreateTestState>[
+          const CreateTestState.loading(id: -120),
+          const CreateTestState.template(),
+        ],
+        errors: () => [isA<ArgumentError>()],
         verify: (_) {
           verify(() => testRepositoryMock.getTestById(testForEditingId));
         },
