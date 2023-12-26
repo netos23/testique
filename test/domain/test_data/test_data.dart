@@ -13,3 +13,12 @@ const testForEditing = Test(
     gridQuestion,
   ],
 );
+
+const testTemplate = TestTemplate(
+  name: 'Test sample',
+  description: 'This is a simle test',
+  questions: [
+    columnQuestionTemplate,
+    gridQuestionTemplate,
+  ],
+);

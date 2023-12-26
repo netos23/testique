@@ -436,7 +436,7 @@ class __$$QuestionTemplateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$QuestionTemplateImpl implements _QuestionTemplate {
-  _$QuestionTemplateImpl(
+  const _$QuestionTemplateImpl(
       {this.id,
       required this.name,
       required this.description,
@@ -513,7 +513,7 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
 }
 
 abstract class _QuestionTemplate implements QuestionTemplate {
-  factory _QuestionTemplate(
+  const factory _QuestionTemplate(
           {final int? id,
           required final String name,
           required final String description,

@@ -19,3 +19,23 @@ const gridQuestion = Question(
   variants: [],
   answer: {},
 );
+
+const columnQuestionTemplate = QuestionTemplate(
+  id: 0,
+  name: 'name',
+  description: 'description',
+  layout: QuestionLayout.column,
+  shuffle: true,
+  variants: [],
+  answer: {},
+);
+
+const gridQuestionTemplate = QuestionTemplate(
+  id: 1,
+  name: 'name',
+  description: 'description',
+  layout: QuestionLayout.grid,
+  shuffle: false,
+  variants: [],
+  answer: {},
+);

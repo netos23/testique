@@ -39,7 +39,7 @@ class Question with _$Question implements IQuestionTemplate {
 
 @freezed
 class QuestionTemplate with _$QuestionTemplate implements IQuestionTemplate {
-  factory QuestionTemplate({
+  const factory QuestionTemplate({
     int? id,
     required String name,
     required String description,
