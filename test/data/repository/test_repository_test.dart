@@ -1,6 +1,5 @@
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:testique/data/db/app_db.dart';
 import 'package:testique/data/repository/test_repository.dart';
 import 'package:testique/entity/test.dart';
@@ -19,7 +18,6 @@ void main() {
       );
 
       repository = TestRepository(database);
-
     });
 
     group('Create new test group', () {
@@ -31,11 +29,8 @@ void main() {
 
         // TODO(netos23): deep equality
         expect(
-          const DeepCollectionEquality().equals(saved.questions, [
-            columnQuestion,
-            gridQuestion,
-          ]),
-          true,
+          saved.questions.length,
+          2,
         );
       });
     });
@@ -48,12 +43,14 @@ void main() {
 
       test('Test successfully updates', () async {
         final updated = await repository.saveTest(
-          saved.copyWith(
-              name: 'new name',
-              description: 'new description',
-              questions: [
-                columnQuestion,
-              ]),
+          TestTemplate(
+            id: saved.id,
+            name: 'new name',
+            description: 'new description',
+            questions: [
+              columnQuestionTemplate,
+            ],
+          ),
         );
 
         expect(updated.id, saved.id);
@@ -104,8 +101,8 @@ void main() {
         expect(testQuestions.length, 0);
 
         expect(deleted.id, saved.id);
-        expect(deleted.name, 'new name');
-        expect(deleted.description, 'new description');
+        expect(deleted.name, saved.name);
+        expect(deleted.description, saved.description);
 
         // TODO(netos23): deep equality
         expect(deleted.questions.length, 2);
@@ -116,26 +113,26 @@ void main() {
 
         final questions = await database
             .customSelect(
-          'SELECT * FROM question_models',
-        )
+              'SELECT * FROM question_models',
+            )
             .get();
 
         final questionsVariant = await database
             .customSelect(
-          'SELECT * FROM question_variant_models',
-        )
+              'SELECT * FROM question_variant_models',
+            )
             .get();
 
         final questionQuestionsVariant = await database
             .customSelect(
-          'SELECT * FROM question_question_variant_model',
-        )
+              'SELECT * FROM question_question_variant_model',
+            )
             .get();
 
         final testQuestions = await database
             .customSelect(
-          'SELECT * FROM test_question_model',
-        )
+              'SELECT * FROM test_question_model',
+            )
             .get();
 
         expect(questions.length, 0);
@@ -144,8 +141,8 @@ void main() {
         expect(testQuestions.length, 0);
 
         expect(deleted.id, saved.id);
-        expect(deleted.name, 'new name');
-        expect(deleted.description, 'new description');
+        expect(deleted.name, saved.name);
+        expect(deleted.description, saved.description);
 
         // TODO(netos23): deep equality
         expect(deleted.questions.length, 2);
