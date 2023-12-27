@@ -40,5 +40,23 @@ void main() {
         ),
       );
     });
+
+
+    test('Test model mapper test', () {
+      expect(
+        mapTestModel(
+          const TestPreview(
+            id: 0,
+            name: 'name',
+            description: 'description',
+          ),
+        ),
+        const TestModel(
+          id: 0,
+          name: 'name',
+          description: 'description',
+        ),
+      );
+    });
   });
 }

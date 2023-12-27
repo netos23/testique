@@ -5,49 +5,75 @@ import 'package:testique/data/models/models.dart';
 import 'package:testique/entity/question_variant.dart';
 
 void main() {
-  test('Create test state factory', () {
-    expect(
-      mapQuestionVariant(
+  group('Question variant family test group', () {
+    test('Question variant mapper', () {
+      expect(
+        mapQuestionVariant(
+          const QuestionVariantModel(
+            id: 0,
+            textContent: 'textContent',
+            variantType: QuestionVariantType.text,
+          ),
+        ),
+        const QuestionVariant.text(id: 0, text: 'textContent'),
+      );
+
+      expect(
+        mapQuestionVariant(
+          const QuestionVariantModel(
+            id: 0,
+            image: 'textContent',
+            variantType: QuestionVariantType.image,
+          ),
+        ),
+        const QuestionVariant.image(id: 0, image: 'textContent'),
+      );
+
+      expect(
+        mapQuestionVariant(
+          const QuestionVariantModel(
+            id: 0,
+            textContent: 'textContent',
+            variantType: QuestionVariantType.image,
+          ),
+        ),
+        throwsArgumentError,
+      );
+
+      expect(
+        mapQuestionVariant(
+          const QuestionVariantModel(
+            id: 0,
+            image: 'textContent',
+            variantType: QuestionVariantType.text,
+          ),
+        ),
+        throwsArgumentError,
+      );
+    });
+
+    test('Question variant mapper', () {
+      expect(
+        mapQuestionVariantModel(
+          const QuestionVariant.text(id: 0, text: 'textContent'),
+        ),
         const QuestionVariantModel(
           id: 0,
           textContent: 'textContent',
           variantType: QuestionVariantType.text,
         ),
-      ),
-      const QuestionVariant.text(id: 0, text: 'textContent'),
-    );
+      );
 
-    expect(
-      mapQuestionVariant(
+      expect(
+        mapQuestionVariantModel(
+          const QuestionVariant.image(id: 0, image: 'textContent'),
+        ),
         const QuestionVariantModel(
           id: 0,
           image: 'textContent',
           variantType: QuestionVariantType.image,
         ),
-      ),
-      const QuestionVariant.image(id: 0, image: 'textContent'),
-    );
-
-    expect(
-      mapQuestionVariant(
-        const QuestionVariantModel(
-          id: 0,
-          textContent: 'textContent',
-          variantType: QuestionVariantType.image,
-        ),
-      ),
-      throwsArgumentError,
-    );
-
-    expect(
-      mapQuestionVariant(
-        const QuestionVariantModel(
-          id: 0,
-          image: 'textContent',
-          variantType: QuestionVariantType.text,
-        ),
-      ),
-      throwsArgumentError,
-    );
+      );
+    });
   });
 }

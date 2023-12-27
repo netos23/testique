@@ -6,6 +6,10 @@ ITestPreview mapTestPreview(TestModel model) {
   throw UnimplementedError();
 }
 
+TestModel mapTestModel(ITestPreview test) {
+  throw UnimplementedError();
+}
+
 Test mapTest(
   ITestPreview testPreview,
   List<Question> questions,

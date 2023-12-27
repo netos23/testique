@@ -9,3 +9,10 @@ Question mapQuestion(
 ) {
   throw UnimplementedError();
 }
+
+
+QuestionModel mapQuestionModel(
+  Question question,
+) {
+  throw UnimplementedError();
+}
