@@ -20,6 +20,7 @@ mixin _$Question {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   QuestionLayout get layout => throw _privateConstructorUsedError;
+  QuestionType get questionType => throw _privateConstructorUsedError;
   bool get shuffle => throw _privateConstructorUsedError;
   List<QuestionVariant> get variants => throw _privateConstructorUsedError;
   Set<QuestionVariant> get answer => throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ abstract class $QuestionCopyWith<$Res> {
       String name,
       String description,
       QuestionLayout layout,
+      QuestionType questionType,
       bool shuffle,
       List<QuestionVariant> variants,
       Set<QuestionVariant> answer});
@@ -61,6 +63,7 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
     Object? name = null,
     Object? description = null,
     Object? layout = null,
+    Object? questionType = null,
     Object? shuffle = null,
     Object? variants = null,
     Object? answer = null,
@@ -82,6 +85,10 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
           ? _value.layout
           : layout // ignore: cast_nullable_to_non_nullable
               as QuestionLayout,
+      questionType: null == questionType
+          ? _value.questionType
+          : questionType // ignore: cast_nullable_to_non_nullable
+              as QuestionType,
       shuffle: null == shuffle
           ? _value.shuffle
           : shuffle // ignore: cast_nullable_to_non_nullable
@@ -111,6 +118,7 @@ abstract class _$$QuestionImplCopyWith<$Res>
       String name,
       String description,
       QuestionLayout layout,
+      QuestionType questionType,
       bool shuffle,
       List<QuestionVariant> variants,
       Set<QuestionVariant> answer});
@@ -131,6 +139,7 @@ class __$$QuestionImplCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
     Object? layout = null,
+    Object? questionType = null,
     Object? shuffle = null,
     Object? variants = null,
     Object? answer = null,
@@ -152,6 +161,10 @@ class __$$QuestionImplCopyWithImpl<$Res>
           ? _value.layout
           : layout // ignore: cast_nullable_to_non_nullable
               as QuestionLayout,
+      questionType: null == questionType
+          ? _value.questionType
+          : questionType // ignore: cast_nullable_to_non_nullable
+              as QuestionType,
       shuffle: null == shuffle
           ? _value.shuffle
           : shuffle // ignore: cast_nullable_to_non_nullable
@@ -176,6 +189,7 @@ class _$QuestionImpl implements _Question {
       required this.name,
       required this.description,
       required this.layout,
+      this.questionType = QuestionType.single,
       required this.shuffle,
       required final List<QuestionVariant> variants,
       required final Set<QuestionVariant> answer})
@@ -190,6 +204,9 @@ class _$QuestionImpl implements _Question {
   final String description;
   @override
   final QuestionLayout layout;
+  @override
+  @JsonKey()
+  final QuestionType questionType;
   @override
   final bool shuffle;
   final List<QuestionVariant> _variants;
@@ -210,7 +227,7 @@ class _$QuestionImpl implements _Question {
 
   @override
   String toString() {
-    return 'Question(id: $id, name: $name, description: $description, layout: $layout, shuffle: $shuffle, variants: $variants, answer: $answer)';
+    return 'Question(id: $id, name: $name, description: $description, layout: $layout, questionType: $questionType, shuffle: $shuffle, variants: $variants, answer: $answer)';
   }
 
   @override
@@ -223,6 +240,8 @@ class _$QuestionImpl implements _Question {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.layout, layout) || other.layout == layout) &&
+            (identical(other.questionType, questionType) ||
+                other.questionType == questionType) &&
             (identical(other.shuffle, shuffle) || other.shuffle == shuffle) &&
             const DeepCollectionEquality().equals(other._variants, _variants) &&
             const DeepCollectionEquality().equals(other._answer, _answer));
@@ -235,6 +254,7 @@ class _$QuestionImpl implements _Question {
       name,
       description,
       layout,
+      questionType,
       shuffle,
       const DeepCollectionEquality().hash(_variants),
       const DeepCollectionEquality().hash(_answer));
@@ -252,6 +272,7 @@ abstract class _Question implements Question {
       required final String name,
       required final String description,
       required final QuestionLayout layout,
+      final QuestionType questionType,
       required final bool shuffle,
       required final List<QuestionVariant> variants,
       required final Set<QuestionVariant> answer}) = _$QuestionImpl;
@@ -264,6 +285,8 @@ abstract class _Question implements Question {
   String get description;
   @override
   QuestionLayout get layout;
+  @override
+  QuestionType get questionType;
   @override
   bool get shuffle;
   @override
@@ -282,6 +305,7 @@ mixin _$QuestionTemplate {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   QuestionLayout get layout => throw _privateConstructorUsedError;
+  QuestionType get questionType => throw _privateConstructorUsedError;
   bool get shuffle => throw _privateConstructorUsedError;
   List<IQuestionVariantTemplate> get variants =>
       throw _privateConstructorUsedError;
@@ -304,6 +328,7 @@ abstract class $QuestionTemplateCopyWith<$Res> {
       String name,
       String description,
       QuestionLayout layout,
+      QuestionType questionType,
       bool shuffle,
       List<IQuestionVariantTemplate> variants,
       Set<IQuestionVariantTemplate> answer});
@@ -326,6 +351,7 @@ class _$QuestionTemplateCopyWithImpl<$Res, $Val extends QuestionTemplate>
     Object? name = null,
     Object? description = null,
     Object? layout = null,
+    Object? questionType = null,
     Object? shuffle = null,
     Object? variants = null,
     Object? answer = null,
@@ -347,6 +373,10 @@ class _$QuestionTemplateCopyWithImpl<$Res, $Val extends QuestionTemplate>
           ? _value.layout
           : layout // ignore: cast_nullable_to_non_nullable
               as QuestionLayout,
+      questionType: null == questionType
+          ? _value.questionType
+          : questionType // ignore: cast_nullable_to_non_nullable
+              as QuestionType,
       shuffle: null == shuffle
           ? _value.shuffle
           : shuffle // ignore: cast_nullable_to_non_nullable
@@ -376,6 +406,7 @@ abstract class _$$QuestionTemplateImplCopyWith<$Res>
       String name,
       String description,
       QuestionLayout layout,
+      QuestionType questionType,
       bool shuffle,
       List<IQuestionVariantTemplate> variants,
       Set<IQuestionVariantTemplate> answer});
@@ -396,6 +427,7 @@ class __$$QuestionTemplateImplCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
     Object? layout = null,
+    Object? questionType = null,
     Object? shuffle = null,
     Object? variants = null,
     Object? answer = null,
@@ -417,6 +449,10 @@ class __$$QuestionTemplateImplCopyWithImpl<$Res>
           ? _value.layout
           : layout // ignore: cast_nullable_to_non_nullable
               as QuestionLayout,
+      questionType: null == questionType
+          ? _value.questionType
+          : questionType // ignore: cast_nullable_to_non_nullable
+              as QuestionType,
       shuffle: null == shuffle
           ? _value.shuffle
           : shuffle // ignore: cast_nullable_to_non_nullable
@@ -441,6 +477,7 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
       required this.name,
       required this.description,
       required this.layout,
+      this.questionType = QuestionType.single,
       required this.shuffle,
       required final List<IQuestionVariantTemplate> variants,
       required final Set<IQuestionVariantTemplate> answer})
@@ -455,6 +492,9 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
   final String description;
   @override
   final QuestionLayout layout;
+  @override
+  @JsonKey()
+  final QuestionType questionType;
   @override
   final bool shuffle;
   final List<IQuestionVariantTemplate> _variants;
@@ -475,7 +515,7 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
 
   @override
   String toString() {
-    return 'QuestionTemplate(id: $id, name: $name, description: $description, layout: $layout, shuffle: $shuffle, variants: $variants, answer: $answer)';
+    return 'QuestionTemplate(id: $id, name: $name, description: $description, layout: $layout, questionType: $questionType, shuffle: $shuffle, variants: $variants, answer: $answer)';
   }
 
   @override
@@ -488,6 +528,8 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.layout, layout) || other.layout == layout) &&
+            (identical(other.questionType, questionType) ||
+                other.questionType == questionType) &&
             (identical(other.shuffle, shuffle) || other.shuffle == shuffle) &&
             const DeepCollectionEquality().equals(other._variants, _variants) &&
             const DeepCollectionEquality().equals(other._answer, _answer));
@@ -500,6 +542,7 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
       name,
       description,
       layout,
+      questionType,
       shuffle,
       const DeepCollectionEquality().hash(_variants),
       const DeepCollectionEquality().hash(_answer));
@@ -518,6 +561,7 @@ abstract class _QuestionTemplate implements QuestionTemplate {
           required final String name,
           required final String description,
           required final QuestionLayout layout,
+          final QuestionType questionType,
           required final bool shuffle,
           required final List<IQuestionVariantTemplate> variants,
           required final Set<IQuestionVariantTemplate> answer}) =
@@ -531,6 +575,8 @@ abstract class _QuestionTemplate implements QuestionTemplate {
   String get description;
   @override
   QuestionLayout get layout;
+  @override
+  QuestionType get questionType;
   @override
   bool get shuffle;
   @override

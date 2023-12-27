@@ -8,12 +8,12 @@ class QuestionModels extends Table {
 
   TextColumn get description => text().withLength(min: 1, max: 1023)();
 
-  TextColumn get orientation {
-    return text().map(const EnumNameConverter(QuestionLayout.values))();
-  }
+  TextColumn get orientation =>
+      text().map(const EnumNameConverter(QuestionLayout.values))();
+
+  TextColumn get questionType =>
+      text().map(const EnumNameConverter(QuestionType.values))();
 
   BoolColumn get shuffle => boolean()();
 
-  @override
-  Set<Column> get primaryKey => {id};
 }

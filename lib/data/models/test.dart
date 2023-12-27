@@ -5,7 +5,4 @@ class TestModels extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get name => text().withLength(min: 1, max: 120)();
   TextColumn get description => text().withLength(min: 1, max: 1023)();
-
-  @override
-  Set<Column> get primaryKey => {id};
 }

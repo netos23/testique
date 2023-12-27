@@ -250,6 +250,23 @@ class $QuestionModelsTable extends QuestionModels
           minTextLength: 1, maxTextLength: 1023),
       type: DriftSqlType.string,
       requiredDuringInsert: true);
+  static const VerificationMeta _orientationMeta =
+      const VerificationMeta('orientation');
+  @override
+  late final GeneratedColumnWithTypeConverter<QuestionLayout, String>
+      orientation = GeneratedColumn<String>('orientation', aliasedName, false,
+              type: DriftSqlType.string, requiredDuringInsert: true)
+          .withConverter<QuestionLayout>(
+              $QuestionModelsTable.$converterorientation);
+  static const VerificationMeta _questionTypeMeta =
+      const VerificationMeta('questionType');
+  @override
+  late final GeneratedColumnWithTypeConverter<QuestionType, String>
+      questionType = GeneratedColumn<String>(
+              'question_type', aliasedName, false,
+              type: DriftSqlType.string, requiredDuringInsert: true)
+          .withConverter<QuestionType>(
+              $QuestionModelsTable.$converterquestionType);
   static const VerificationMeta _shuffleMeta =
       const VerificationMeta('shuffle');
   @override
@@ -260,7 +277,8 @@ class $QuestionModelsTable extends QuestionModels
       defaultConstraints:
           GeneratedColumn.constraintIsAlways('CHECK ("shuffle" IN (0, 1))'));
   @override
-  List<GeneratedColumn> get $columns => [id, name, description, shuffle];
+  List<GeneratedColumn> get $columns =>
+      [id, name, description, orientation, questionType, shuffle];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -288,6 +306,8 @@ class $QuestionModelsTable extends QuestionModels
     } else if (isInserting) {
       context.missing(_descriptionMeta);
     }
+    context.handle(_orientationMeta, const VerificationResult.success());
+    context.handle(_questionTypeMeta, const VerificationResult.success());
     if (data.containsKey('shuffle')) {
       context.handle(_shuffleMeta,
           shuffle.isAcceptableOrUnknown(data['shuffle']!, _shuffleMeta));
@@ -309,6 +329,12 @@ class $QuestionModelsTable extends QuestionModels
           .read(DriftSqlType.string, data['${effectivePrefix}name'])!,
       description: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}description'])!,
+      orientation: $QuestionModelsTable.$converterorientation.fromSql(
+          attachedDatabase.typeMapping.read(
+              DriftSqlType.string, data['${effectivePrefix}orientation'])!),
+      questionType: $QuestionModelsTable.$converterquestionType.fromSql(
+          attachedDatabase.typeMapping.read(
+              DriftSqlType.string, data['${effectivePrefix}question_type'])!),
       shuffle: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}shuffle'])!,
     );
@@ -318,17 +344,26 @@ class $QuestionModelsTable extends QuestionModels
   $QuestionModelsTable createAlias(String alias) {
     return $QuestionModelsTable(attachedDatabase, alias);
   }
+
+  static JsonTypeConverter2<QuestionLayout, String, String>
+      $converterorientation = const EnumNameConverter(QuestionLayout.values);
+  static JsonTypeConverter2<QuestionType, String, String>
+      $converterquestionType = const EnumNameConverter(QuestionType.values);
 }
 
 class QuestionModel extends DataClass implements Insertable<QuestionModel> {
   final int id;
   final String name;
   final String description;
+  final QuestionLayout orientation;
+  final QuestionType questionType;
   final bool shuffle;
   const QuestionModel(
       {required this.id,
       required this.name,
       required this.description,
+      required this.orientation,
+      required this.questionType,
       required this.shuffle});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -336,6 +371,14 @@ class QuestionModel extends DataClass implements Insertable<QuestionModel> {
     map['id'] = Variable<int>(id);
     map['name'] = Variable<String>(name);
     map['description'] = Variable<String>(description);
+    {
+      map['orientation'] = Variable<String>(
+          $QuestionModelsTable.$converterorientation.toSql(orientation));
+    }
+    {
+      map['question_type'] = Variable<String>(
+          $QuestionModelsTable.$converterquestionType.toSql(questionType));
+    }
     map['shuffle'] = Variable<bool>(shuffle);
     return map;
   }
@@ -345,6 +388,8 @@ class QuestionModel extends DataClass implements Insertable<QuestionModel> {
       id: Value(id),
       name: Value(name),
       description: Value(description),
+      orientation: Value(orientation),
+      questionType: Value(questionType),
       shuffle: Value(shuffle),
     );
   }
@@ -356,6 +401,10 @@ class QuestionModel extends DataClass implements Insertable<QuestionModel> {
       id: serializer.fromJson<int>(json['id']),
       name: serializer.fromJson<String>(json['name']),
       description: serializer.fromJson<String>(json['description']),
+      orientation: $QuestionModelsTable.$converterorientation
+          .fromJson(serializer.fromJson<String>(json['orientation'])),
+      questionType: $QuestionModelsTable.$converterquestionType
+          .fromJson(serializer.fromJson<String>(json['questionType'])),
       shuffle: serializer.fromJson<bool>(json['shuffle']),
     );
   }
@@ -366,16 +415,27 @@ class QuestionModel extends DataClass implements Insertable<QuestionModel> {
       'id': serializer.toJson<int>(id),
       'name': serializer.toJson<String>(name),
       'description': serializer.toJson<String>(description),
+      'orientation': serializer.toJson<String>(
+          $QuestionModelsTable.$converterorientation.toJson(orientation)),
+      'questionType': serializer.toJson<String>(
+          $QuestionModelsTable.$converterquestionType.toJson(questionType)),
       'shuffle': serializer.toJson<bool>(shuffle),
     };
   }
 
   QuestionModel copyWith(
-          {int? id, String? name, String? description, bool? shuffle}) =>
+          {int? id,
+          String? name,
+          String? description,
+          QuestionLayout? orientation,
+          QuestionType? questionType,
+          bool? shuffle}) =>
       QuestionModel(
         id: id ?? this.id,
         name: name ?? this.name,
         description: description ?? this.description,
+        orientation: orientation ?? this.orientation,
+        questionType: questionType ?? this.questionType,
         shuffle: shuffle ?? this.shuffle,
       );
   @override
@@ -384,13 +444,16 @@ class QuestionModel extends DataClass implements Insertable<QuestionModel> {
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('description: $description, ')
+          ..write('orientation: $orientation, ')
+          ..write('questionType: $questionType, ')
           ..write('shuffle: $shuffle')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, name, description, shuffle);
+  int get hashCode =>
+      Object.hash(id, name, description, orientation, questionType, shuffle);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -398,6 +461,8 @@ class QuestionModel extends DataClass implements Insertable<QuestionModel> {
           other.id == this.id &&
           other.name == this.name &&
           other.description == this.description &&
+          other.orientation == this.orientation &&
+          other.questionType == this.questionType &&
           other.shuffle == this.shuffle);
 }
 
@@ -405,31 +470,43 @@ class QuestionModelsCompanion extends UpdateCompanion<QuestionModel> {
   final Value<int> id;
   final Value<String> name;
   final Value<String> description;
+  final Value<QuestionLayout> orientation;
+  final Value<QuestionType> questionType;
   final Value<bool> shuffle;
   const QuestionModelsCompanion({
     this.id = const Value.absent(),
     this.name = const Value.absent(),
     this.description = const Value.absent(),
+    this.orientation = const Value.absent(),
+    this.questionType = const Value.absent(),
     this.shuffle = const Value.absent(),
   });
   QuestionModelsCompanion.insert({
     this.id = const Value.absent(),
     required String name,
     required String description,
+    required QuestionLayout orientation,
+    required QuestionType questionType,
     required bool shuffle,
   })  : name = Value(name),
         description = Value(description),
+        orientation = Value(orientation),
+        questionType = Value(questionType),
         shuffle = Value(shuffle);
   static Insertable<QuestionModel> custom({
     Expression<int>? id,
     Expression<String>? name,
     Expression<String>? description,
+    Expression<String>? orientation,
+    Expression<String>? questionType,
     Expression<bool>? shuffle,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (name != null) 'name': name,
       if (description != null) 'description': description,
+      if (orientation != null) 'orientation': orientation,
+      if (questionType != null) 'question_type': questionType,
       if (shuffle != null) 'shuffle': shuffle,
     });
   }
@@ -438,11 +515,15 @@ class QuestionModelsCompanion extends UpdateCompanion<QuestionModel> {
       {Value<int>? id,
       Value<String>? name,
       Value<String>? description,
+      Value<QuestionLayout>? orientation,
+      Value<QuestionType>? questionType,
       Value<bool>? shuffle}) {
     return QuestionModelsCompanion(
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
+      orientation: orientation ?? this.orientation,
+      questionType: questionType ?? this.questionType,
       shuffle: shuffle ?? this.shuffle,
     );
   }
@@ -459,6 +540,15 @@ class QuestionModelsCompanion extends UpdateCompanion<QuestionModel> {
     if (description.present) {
       map['description'] = Variable<String>(description.value);
     }
+    if (orientation.present) {
+      map['orientation'] = Variable<String>(
+          $QuestionModelsTable.$converterorientation.toSql(orientation.value));
+    }
+    if (questionType.present) {
+      map['question_type'] = Variable<String>($QuestionModelsTable
+          .$converterquestionType
+          .toSql(questionType.value));
+    }
     if (shuffle.present) {
       map['shuffle'] = Variable<bool>(shuffle.value);
     }
@@ -471,6 +561,8 @@ class QuestionModelsCompanion extends UpdateCompanion<QuestionModel> {
           ..write('id: $id, ')
           ..write('name: $name, ')
           ..write('description: $description, ')
+          ..write('orientation: $orientation, ')
+          ..write('questionType: $questionType, ')
           ..write('shuffle: $shuffle')
           ..write(')'))
         .toString();
@@ -496,21 +588,29 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
       const VerificationMeta('textContent');
   @override
   late final GeneratedColumn<String> textContent = GeneratedColumn<String>(
-      'text_content', aliasedName, false,
+      'text_content', aliasedName, true,
       additionalChecks:
           GeneratedColumn.checkTextLength(minTextLength: 1, maxTextLength: 60),
       type: DriftSqlType.string,
-      requiredDuringInsert: true);
+      requiredDuringInsert: false);
   static const VerificationMeta _imageMeta = const VerificationMeta('image');
   @override
   late final GeneratedColumn<String> image = GeneratedColumn<String>(
-      'image', aliasedName, false,
+      'image', aliasedName, true,
       additionalChecks: GeneratedColumn.checkTextLength(
           minTextLength: 1, maxTextLength: 1023),
       type: DriftSqlType.string,
-      requiredDuringInsert: true);
+      requiredDuringInsert: false);
+  static const VerificationMeta _variantTypeMeta =
+      const VerificationMeta('variantType');
   @override
-  List<GeneratedColumn> get $columns => [id, textContent, image];
+  late final GeneratedColumnWithTypeConverter<QuestionVariantType, String>
+      variantType = GeneratedColumn<String>('variant_type', aliasedName, false,
+              type: DriftSqlType.string, requiredDuringInsert: true)
+          .withConverter<QuestionVariantType>(
+              $QuestionVariantModelsTable.$convertervariantType);
+  @override
+  List<GeneratedColumn> get $columns => [id, textContent, image, variantType];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -530,15 +630,12 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
           _textContentMeta,
           textContent.isAcceptableOrUnknown(
               data['text_content']!, _textContentMeta));
-    } else if (isInserting) {
-      context.missing(_textContentMeta);
     }
     if (data.containsKey('image')) {
       context.handle(
           _imageMeta, image.isAcceptableOrUnknown(data['image']!, _imageMeta));
-    } else if (isInserting) {
-      context.missing(_imageMeta);
     }
+    context.handle(_variantTypeMeta, const VerificationResult.success());
     return context;
   }
 
@@ -551,9 +648,12 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
       id: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
       textContent: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}text_content'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}text_content']),
       image: attachedDatabase.typeMapping
-          .read(DriftSqlType.string, data['${effectivePrefix}image'])!,
+          .read(DriftSqlType.string, data['${effectivePrefix}image']),
+      variantType: $QuestionVariantModelsTable.$convertervariantType.fromSql(
+          attachedDatabase.typeMapping.read(
+              DriftSqlType.string, data['${effectivePrefix}variant_type'])!),
     );
   }
 
@@ -561,29 +661,49 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
   $QuestionVariantModelsTable createAlias(String alias) {
     return $QuestionVariantModelsTable(attachedDatabase, alias);
   }
+
+  static JsonTypeConverter2<QuestionVariantType, String, String>
+      $convertervariantType =
+      const EnumNameConverter(QuestionVariantType.values);
 }
 
 class QuestionVariantModel extends DataClass
     implements Insertable<QuestionVariantModel> {
   final int id;
-  final String textContent;
-  final String image;
+  final String? textContent;
+  final String? image;
+  final QuestionVariantType variantType;
   const QuestionVariantModel(
-      {required this.id, required this.textContent, required this.image});
+      {required this.id,
+      this.textContent,
+      this.image,
+      required this.variantType});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
-    map['text_content'] = Variable<String>(textContent);
-    map['image'] = Variable<String>(image);
+    if (!nullToAbsent || textContent != null) {
+      map['text_content'] = Variable<String>(textContent);
+    }
+    if (!nullToAbsent || image != null) {
+      map['image'] = Variable<String>(image);
+    }
+    {
+      map['variant_type'] = Variable<String>(
+          $QuestionVariantModelsTable.$convertervariantType.toSql(variantType));
+    }
     return map;
   }
 
   QuestionVariantModelsCompanion toCompanion(bool nullToAbsent) {
     return QuestionVariantModelsCompanion(
       id: Value(id),
-      textContent: Value(textContent),
-      image: Value(image),
+      textContent: textContent == null && nullToAbsent
+          ? const Value.absent()
+          : Value(textContent),
+      image:
+          image == null && nullToAbsent ? const Value.absent() : Value(image),
+      variantType: Value(variantType),
     );
   }
 
@@ -592,8 +712,10 @@ class QuestionVariantModel extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return QuestionVariantModel(
       id: serializer.fromJson<int>(json['id']),
-      textContent: serializer.fromJson<String>(json['textContent']),
-      image: serializer.fromJson<String>(json['image']),
+      textContent: serializer.fromJson<String?>(json['textContent']),
+      image: serializer.fromJson<String?>(json['image']),
+      variantType: $QuestionVariantModelsTable.$convertervariantType
+          .fromJson(serializer.fromJson<String>(json['variantType'])),
     );
   }
   @override
@@ -601,73 +723,90 @@ class QuestionVariantModel extends DataClass
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
-      'textContent': serializer.toJson<String>(textContent),
-      'image': serializer.toJson<String>(image),
+      'textContent': serializer.toJson<String?>(textContent),
+      'image': serializer.toJson<String?>(image),
+      'variantType': serializer.toJson<String>($QuestionVariantModelsTable
+          .$convertervariantType
+          .toJson(variantType)),
     };
   }
 
   QuestionVariantModel copyWith(
-          {int? id, String? textContent, String? image}) =>
+          {int? id,
+          Value<String?> textContent = const Value.absent(),
+          Value<String?> image = const Value.absent(),
+          QuestionVariantType? variantType}) =>
       QuestionVariantModel(
         id: id ?? this.id,
-        textContent: textContent ?? this.textContent,
-        image: image ?? this.image,
+        textContent: textContent.present ? textContent.value : this.textContent,
+        image: image.present ? image.value : this.image,
+        variantType: variantType ?? this.variantType,
       );
   @override
   String toString() {
     return (StringBuffer('QuestionVariantModel(')
           ..write('id: $id, ')
           ..write('textContent: $textContent, ')
-          ..write('image: $image')
+          ..write('image: $image, ')
+          ..write('variantType: $variantType')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, textContent, image);
+  int get hashCode => Object.hash(id, textContent, image, variantType);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is QuestionVariantModel &&
           other.id == this.id &&
           other.textContent == this.textContent &&
-          other.image == this.image);
+          other.image == this.image &&
+          other.variantType == this.variantType);
 }
 
 class QuestionVariantModelsCompanion
     extends UpdateCompanion<QuestionVariantModel> {
   final Value<int> id;
-  final Value<String> textContent;
-  final Value<String> image;
+  final Value<String?> textContent;
+  final Value<String?> image;
+  final Value<QuestionVariantType> variantType;
   const QuestionVariantModelsCompanion({
     this.id = const Value.absent(),
     this.textContent = const Value.absent(),
     this.image = const Value.absent(),
+    this.variantType = const Value.absent(),
   });
   QuestionVariantModelsCompanion.insert({
     this.id = const Value.absent(),
-    required String textContent,
-    required String image,
-  })  : textContent = Value(textContent),
-        image = Value(image);
+    this.textContent = const Value.absent(),
+    this.image = const Value.absent(),
+    required QuestionVariantType variantType,
+  }) : variantType = Value(variantType);
   static Insertable<QuestionVariantModel> custom({
     Expression<int>? id,
     Expression<String>? textContent,
     Expression<String>? image,
+    Expression<String>? variantType,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (textContent != null) 'text_content': textContent,
       if (image != null) 'image': image,
+      if (variantType != null) 'variant_type': variantType,
     });
   }
 
   QuestionVariantModelsCompanion copyWith(
-      {Value<int>? id, Value<String>? textContent, Value<String>? image}) {
+      {Value<int>? id,
+      Value<String?>? textContent,
+      Value<String?>? image,
+      Value<QuestionVariantType>? variantType}) {
     return QuestionVariantModelsCompanion(
       id: id ?? this.id,
       textContent: textContent ?? this.textContent,
       image: image ?? this.image,
+      variantType: variantType ?? this.variantType,
     );
   }
 
@@ -683,6 +822,11 @@ class QuestionVariantModelsCompanion
     if (image.present) {
       map['image'] = Variable<String>(image.value);
     }
+    if (variantType.present) {
+      map['variant_type'] = Variable<String>($QuestionVariantModelsTable
+          .$convertervariantType
+          .toSql(variantType.value));
+    }
     return map;
   }
 
@@ -691,7 +835,8 @@ class QuestionVariantModelsCompanion
     return (StringBuffer('QuestionVariantModelsCompanion(')
           ..write('id: $id, ')
           ..write('textContent: $textContent, ')
-          ..write('image: $image')
+          ..write('image: $image, ')
+          ..write('variantType: $variantType')
           ..write(')'))
         .toString();
   }

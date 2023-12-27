@@ -1,5 +1,4 @@
 import 'package:drift/drift.dart';
-import 'package:testique/entity/question.dart';
 
 enum QuestionVariantType {
   text,
@@ -9,14 +8,11 @@ enum QuestionVariantType {
 class QuestionVariantModels extends Table {
   IntColumn get id => integer().autoIncrement()();
 
-  TextColumn get textContent => text().withLength(min: 1, max: 60)();
+  TextColumn get textContent => text().withLength(min: 1, max: 60).nullable()();
 
-  TextColumn get image => text().withLength(min: 1, max: 1023)();
+  TextColumn get image => text().withLength(min: 1, max: 1023).nullable()();
 
-  TextColumn get variantType {
-    return text().map(const EnumNameConverter(QuestionVariantType.values))();
-  }
+  TextColumn get variantType =>
+      text().map(const EnumNameConverter(QuestionVariantType.values))();
 
-  @override
-  Set<Column> get primaryKey => {id};
 }

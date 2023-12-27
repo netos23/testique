@@ -8,6 +8,10 @@ enum QuestionLayout {
   grid;
 }
 
+enum QuestionType {
+  single;
+}
+
 abstract interface class IQuestionTemplate {
   int? get id;
 
@@ -16,6 +20,8 @@ abstract interface class IQuestionTemplate {
   String get description;
 
   QuestionLayout get layout;
+
+  QuestionType get questionType;
 
   bool get shuffle;
 
@@ -31,6 +37,7 @@ class Question with _$Question implements IQuestionTemplate {
     required String name,
     required String description,
     required QuestionLayout layout,
+    @Default(QuestionType.single) QuestionType questionType,
     required bool shuffle,
     required List<QuestionVariant> variants,
     required Set<QuestionVariant> answer,
@@ -44,6 +51,7 @@ class QuestionTemplate with _$QuestionTemplate implements IQuestionTemplate {
     required String name,
     required String description,
     required QuestionLayout layout,
+    @Default(QuestionType.single) QuestionType questionType,
     required bool shuffle,
     required List<IQuestionVariantTemplate> variants,
     required Set<IQuestionVariantTemplate> answer,
