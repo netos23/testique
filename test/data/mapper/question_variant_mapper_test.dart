@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:testique/data/db/app_db.dart';
 import 'package:testique/data/mapper/mapper.dart';
@@ -40,7 +41,7 @@ void main() {
       );
 
       expect(
-        mapQuestionVariant(
+        () => mapQuestionVariant(
           const QuestionVariantModel(
             id: 0,
             textContent: 'textContent',
@@ -52,7 +53,7 @@ void main() {
       );
 
       expect(
-        mapQuestionVariant(
+        () => mapQuestionVariant(
           const QuestionVariantModel(
             id: 0,
             image: 'textContent',
@@ -66,34 +67,34 @@ void main() {
 
     test('Question variant mapper', () {
       expect(
-        mapQuestionVariantModel(
+        mapQuestionVariantModelsCompanion(
           const QuestionVariant.text(
             id: 0,
             text: 'textContent',
             uuid: '0000-000-000-00',
           ),
         ),
-        const QuestionVariantModel(
-          id: 0,
-          textContent: 'textContent',
-          variantType: QuestionVariantType.text,
-          uuid: '0000-000-000-00',
+        const QuestionVariantModelsCompanion(
+          id: Value(0),
+          textContent: Value('textContent'),
+          variantType: Value(QuestionVariantType.text),
+          uuid: Value('0000-000-000-00'),
         ),
       );
 
       expect(
-        mapQuestionVariantModel(
+        mapQuestionVariantModelsCompanion(
           const QuestionVariant.image(
             id: 0,
             image: 'textContent',
             uuid: '0000-000-000-00',
           ),
         ),
-        const QuestionVariantModel(
-          id: 0,
-          image: 'textContent',
-          variantType: QuestionVariantType.image,
-          uuid: '0000-000-000-00',
+        const QuestionVariantModelsCompanion(
+          id: Value(0),
+          image: Value('textContent'),
+          variantType: Value(QuestionVariantType.image),
+          uuid: Value('0000-000-000-00'),
         ),
       );
     });

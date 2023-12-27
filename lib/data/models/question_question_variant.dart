@@ -4,10 +4,19 @@ import 'package:testique/data/models/question_variant.dart';
 
 @DataClassName('QuestionQuestionVariantEntry')
 class QuestionQuestionVariantModel extends Table {
-  IntColumn get question => integer().references(QuestionModels, #id)();
+  IntColumn get question => integer().references(
+        QuestionModels,
+        #id,
+        onUpdate: KeyAction.cascade,
+        onDelete: KeyAction.cascade,
+      )();
 
-  IntColumn get questionVariant =>
-      integer().references(QuestionVariantModels, #id)();
+  IntColumn get questionVariant => integer().references(
+        QuestionVariantModels,
+        #id,
+        onUpdate: KeyAction.noAction,
+        onDelete: KeyAction.cascade,
+      )();
 
   BoolColumn get correct => boolean()();
 

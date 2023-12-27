@@ -1,18 +1,35 @@
+import 'package:drift/drift.dart';
 import 'package:testique/data/db/app_db.dart';
+import 'package:testique/data/models/models.dart';
 import 'package:testique/entity/question.dart';
 import 'package:testique/entity/question_variant.dart';
 
 Question mapQuestion(
   QuestionModel questionModel,
-  List<QuestionVariant> answers,
-  Set<QuestionVariant> correctAnswers,
+  List<QuestionVariant> variants,
+  Set<String> answers,
 ) {
-  throw UnimplementedError();
+  return Question(
+    id: questionModel.id,
+    name: questionModel.name,
+    description: questionModel.description,
+    layout: questionModel.orientation,
+    shuffle: questionModel.shuffle,
+    questionType: questionModel.questionType,
+    variants: variants,
+    answer: answers,
+  );
 }
 
-
-QuestionModel mapQuestionModel(
-  Question question,
+QuestionModelsCompanion mapQuestionModelsCompanion(
+  IQuestionTemplate question,
 ) {
-  throw UnimplementedError();
+  return QuestionModelsCompanion(
+    id: Value.ofNullable(question.id),
+    name: Value(question.name),
+    description: Value(question.description),
+    orientation: Value(question.layout),
+    questionType: Value(question.questionType),
+    shuffle: Value(question.shuffle),
+  );
 }

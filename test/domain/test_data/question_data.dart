@@ -1,4 +1,5 @@
 import 'package:testique/entity/question.dart';
+import 'package:testique/entity/question_variant.dart';
 
 const columnQuestion = Question(
   id: 0,
@@ -21,21 +22,35 @@ const gridQuestion = Question(
 );
 
 const columnQuestionTemplate = QuestionTemplate(
-  id: 0,
+
   name: 'name',
   description: 'description',
   layout: QuestionLayout.column,
   shuffle: true,
-  variants: [],
-  answer: {},
+  variants: [
+    QuestionVariantTemplate.text(
+      text: 'dfsfsdf',
+      uuid: 'uuid',
+    ),
+  ],
+  answer: {
+    'uuid',
+  },
 );
 
 const gridQuestionTemplate = QuestionTemplate(
-  id: 1,
+
   name: 'name',
   description: 'description',
   layout: QuestionLayout.grid,
   shuffle: false,
-  variants: [],
-  answer: {},
+  variants: [
+    QuestionVariantTemplate.image(
+      image: 'aaaa',
+      uuid: 'uuid',
+    ),
+  ],
+  answer: {
+    'uuid',
+  },
 );

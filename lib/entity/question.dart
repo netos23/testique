@@ -27,7 +27,7 @@ abstract interface class IQuestionTemplate {
 
   List<IQuestionVariantTemplate> get variants;
 
-  Set<IQuestionVariantTemplate> get answer;
+  Set<String> get answer;
 }
 
 @freezed
@@ -40,7 +40,7 @@ class Question with _$Question implements IQuestionTemplate {
     @Default(QuestionType.single) QuestionType questionType,
     required bool shuffle,
     required List<QuestionVariant> variants,
-    required Set<QuestionVariant> answer,
+    required Set<String> answer,
   }) = _Question;
 }
 
@@ -54,6 +54,6 @@ class QuestionTemplate with _$QuestionTemplate implements IQuestionTemplate {
     @Default(QuestionType.single) QuestionType questionType,
     required bool shuffle,
     required List<IQuestionVariantTemplate> variants,
-    required Set<IQuestionVariantTemplate> answer,
+    required Set<String> answer,
   }) = _QuestionTemplate;
 }

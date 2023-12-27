@@ -23,7 +23,7 @@ mixin _$Question {
   QuestionType get questionType => throw _privateConstructorUsedError;
   bool get shuffle => throw _privateConstructorUsedError;
   List<QuestionVariant> get variants => throw _privateConstructorUsedError;
-  Set<QuestionVariant> get answer => throw _privateConstructorUsedError;
+  Set<String> get answer => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionCopyWith<Question> get copyWith =>
@@ -43,7 +43,7 @@ abstract class $QuestionCopyWith<$Res> {
       QuestionType questionType,
       bool shuffle,
       List<QuestionVariant> variants,
-      Set<QuestionVariant> answer});
+      Set<String> answer});
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
       answer: null == answer
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
-              as Set<QuestionVariant>,
+              as Set<String>,
     ) as $Val);
   }
 }
@@ -121,7 +121,7 @@ abstract class _$$QuestionImplCopyWith<$Res>
       QuestionType questionType,
       bool shuffle,
       List<QuestionVariant> variants,
-      Set<QuestionVariant> answer});
+      Set<String> answer});
 }
 
 /// @nodoc
@@ -176,7 +176,7 @@ class __$$QuestionImplCopyWithImpl<$Res>
       answer: null == answer
           ? _value._answer
           : answer // ignore: cast_nullable_to_non_nullable
-              as Set<QuestionVariant>,
+              as Set<String>,
     ));
   }
 }
@@ -192,7 +192,7 @@ class _$QuestionImpl implements _Question {
       this.questionType = QuestionType.single,
       required this.shuffle,
       required final List<QuestionVariant> variants,
-      required final Set<QuestionVariant> answer})
+      required final Set<String> answer})
       : _variants = variants,
         _answer = answer;
 
@@ -217,9 +217,9 @@ class _$QuestionImpl implements _Question {
     return EqualUnmodifiableListView(_variants);
   }
 
-  final Set<QuestionVariant> _answer;
+  final Set<String> _answer;
   @override
-  Set<QuestionVariant> get answer {
+  Set<String> get answer {
     if (_answer is EqualUnmodifiableSetView) return _answer;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableSetView(_answer);
@@ -275,7 +275,7 @@ abstract class _Question implements Question {
       final QuestionType questionType,
       required final bool shuffle,
       required final List<QuestionVariant> variants,
-      required final Set<QuestionVariant> answer}) = _$QuestionImpl;
+      required final Set<String> answer}) = _$QuestionImpl;
 
   @override
   int get id;
@@ -292,7 +292,7 @@ abstract class _Question implements Question {
   @override
   List<QuestionVariant> get variants;
   @override
-  Set<QuestionVariant> get answer;
+  Set<String> get answer;
   @override
   @JsonKey(ignore: true)
   _$$QuestionImplCopyWith<_$QuestionImpl> get copyWith =>
@@ -309,8 +309,7 @@ mixin _$QuestionTemplate {
   bool get shuffle => throw _privateConstructorUsedError;
   List<IQuestionVariantTemplate> get variants =>
       throw _privateConstructorUsedError;
-  Set<IQuestionVariantTemplate> get answer =>
-      throw _privateConstructorUsedError;
+  Set<String> get answer => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionTemplateCopyWith<QuestionTemplate> get copyWith =>
@@ -331,7 +330,7 @@ abstract class $QuestionTemplateCopyWith<$Res> {
       QuestionType questionType,
       bool shuffle,
       List<IQuestionVariantTemplate> variants,
-      Set<IQuestionVariantTemplate> answer});
+      Set<String> answer});
 }
 
 /// @nodoc
@@ -388,7 +387,7 @@ class _$QuestionTemplateCopyWithImpl<$Res, $Val extends QuestionTemplate>
       answer: null == answer
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
-              as Set<IQuestionVariantTemplate>,
+              as Set<String>,
     ) as $Val);
   }
 }
@@ -409,7 +408,7 @@ abstract class _$$QuestionTemplateImplCopyWith<$Res>
       QuestionType questionType,
       bool shuffle,
       List<IQuestionVariantTemplate> variants,
-      Set<IQuestionVariantTemplate> answer});
+      Set<String> answer});
 }
 
 /// @nodoc
@@ -464,7 +463,7 @@ class __$$QuestionTemplateImplCopyWithImpl<$Res>
       answer: null == answer
           ? _value._answer
           : answer // ignore: cast_nullable_to_non_nullable
-              as Set<IQuestionVariantTemplate>,
+              as Set<String>,
     ));
   }
 }
@@ -480,7 +479,7 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
       this.questionType = QuestionType.single,
       required this.shuffle,
       required final List<IQuestionVariantTemplate> variants,
-      required final Set<IQuestionVariantTemplate> answer})
+      required final Set<String> answer})
       : _variants = variants,
         _answer = answer;
 
@@ -505,9 +504,9 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
     return EqualUnmodifiableListView(_variants);
   }
 
-  final Set<IQuestionVariantTemplate> _answer;
+  final Set<String> _answer;
   @override
-  Set<IQuestionVariantTemplate> get answer {
+  Set<String> get answer {
     if (_answer is EqualUnmodifiableSetView) return _answer;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableSetView(_answer);
@@ -557,15 +556,14 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
 
 abstract class _QuestionTemplate implements QuestionTemplate {
   const factory _QuestionTemplate(
-          {final int? id,
-          required final String name,
-          required final String description,
-          required final QuestionLayout layout,
-          final QuestionType questionType,
-          required final bool shuffle,
-          required final List<IQuestionVariantTemplate> variants,
-          required final Set<IQuestionVariantTemplate> answer}) =
-      _$QuestionTemplateImpl;
+      {final int? id,
+      required final String name,
+      required final String description,
+      required final QuestionLayout layout,
+      final QuestionType questionType,
+      required final bool shuffle,
+      required final List<IQuestionVariantTemplate> variants,
+      required final Set<String> answer}) = _$QuestionTemplateImpl;
 
   @override
   int? get id;
@@ -582,7 +580,7 @@ abstract class _QuestionTemplate implements QuestionTemplate {
   @override
   List<IQuestionVariantTemplate> get variants;
   @override
-  Set<IQuestionVariantTemplate> get answer;
+  Set<String> get answer;
   @override
   @JsonKey(ignore: true)
   _$$QuestionTemplateImplCopyWith<_$QuestionTemplateImpl> get copyWith =>

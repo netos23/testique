@@ -893,8 +893,8 @@ class $TestQuestionModelTable extends TestQuestionModel
       'test', aliasedName, false,
       type: DriftSqlType.int,
       requiredDuringInsert: true,
-      defaultConstraints:
-          GeneratedColumn.constraintIsAlways('REFERENCES test_models (id)'));
+      defaultConstraints: GeneratedColumn.constraintIsAlways(
+          'REFERENCES test_models (id) ON UPDATE CASCADE ON DELETE CASCADE'));
   static const VerificationMeta _questionMeta =
       const VerificationMeta('question');
   @override
@@ -903,7 +903,7 @@ class $TestQuestionModelTable extends TestQuestionModel
       type: DriftSqlType.int,
       requiredDuringInsert: true,
       defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES question_models (id)'));
+          'REFERENCES question_models (id) ON UPDATE CASCADE ON DELETE CASCADE'));
   @override
   List<GeneratedColumn> get $columns => [test, question];
   @override
@@ -1088,7 +1088,7 @@ class $QuestionQuestionVariantModelTable extends QuestionQuestionVariantModel
       type: DriftSqlType.int,
       requiredDuringInsert: true,
       defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES question_models (id)'));
+          'REFERENCES question_models (id) ON UPDATE CASCADE ON DELETE CASCADE'));
   static const VerificationMeta _questionVariantMeta =
       const VerificationMeta('questionVariant');
   @override
@@ -1097,7 +1097,7 @@ class $QuestionQuestionVariantModelTable extends QuestionQuestionVariantModel
       type: DriftSqlType.int,
       requiredDuringInsert: true,
       defaultConstraints: GeneratedColumn.constraintIsAlways(
-          'REFERENCES question_variant_models (id)'));
+          'REFERENCES question_variant_models (id) ON UPDATE NO ACTION ON DELETE CASCADE'));
   static const VerificationMeta _correctMeta =
       const VerificationMeta('correct');
   @override
@@ -1339,4 +1339,61 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         questionQuestionVariantModel,
         testName
       ];
+  @override
+  StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules(
+        [
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('test_models',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('test_question_model', kind: UpdateKind.delete),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('test_models',
+                limitUpdateKind: UpdateKind.update),
+            result: [
+              TableUpdate('test_question_model', kind: UpdateKind.update),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('question_models',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('test_question_model', kind: UpdateKind.delete),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('question_models',
+                limitUpdateKind: UpdateKind.update),
+            result: [
+              TableUpdate('test_question_model', kind: UpdateKind.update),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('question_models',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('question_question_variant_model',
+                  kind: UpdateKind.delete),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('question_models',
+                limitUpdateKind: UpdateKind.update),
+            result: [
+              TableUpdate('question_question_variant_model',
+                  kind: UpdateKind.update),
+            ],
+          ),
+          WritePropagation(
+            on: TableUpdateQuery.onTableName('question_variant_models',
+                limitUpdateKind: UpdateKind.delete),
+            result: [
+              TableUpdate('question_question_variant_model',
+                  kind: UpdateKind.delete),
+            ],
+          ),
+        ],
+      );
 }

@@ -1,3 +1,4 @@
+import 'package:drift/drift.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:testique/data/db/app_db.dart';
 import 'package:testique/data/mapper/mapper.dart';
@@ -43,7 +44,7 @@ void main() {
 
     test('Test model mapper test', () {
       expect(
-        mapTestModel(
+        mapTestModelCompanion(
           const TestTemplate(
             id: 0,
             name: 'name',
@@ -51,10 +52,10 @@ void main() {
             questions: [],
           ),
         ),
-        const TestModel(
-          id: 0,
-          name: 'name',
-          description: 'description',
+        const TestModelsCompanion(
+          id: Value(0),
+          name: Value('name'),
+          description: Value('description'),
         ),
       );
     });
