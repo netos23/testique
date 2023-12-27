@@ -7,21 +7,21 @@ sealed class CreateTestState with _$CreateTestState {
     @Default("") String name,
     @Default("") String description,
     @Default(<IQuestionTemplate>[]) List<IQuestionTemplate> questions,
-  }) = _CreateTestTemplateState;
+  }) = CreateTestTemplateState;
 
   const factory CreateTestState.loading({
     int? id,
     @Default("") String name,
     @Default("") String description,
     @Default(<IQuestionTemplate>[]) List<IQuestionTemplate> questions,
-  }) = _CreateTestLoadingState;
+  }) = CreateTestLoadingState;
 
   const factory CreateTestState.completed({
     required int id,
     required String name,
     required String description,
     required List<IQuestionTemplate> questions,
-  }) = _CreateTestCompletedState;
+  }) = CreateTestCompletedState;
 
   factory CreateTestState.templateFromTest(ITestTemplate test) {
     return CreateTestState.template(

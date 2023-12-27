@@ -1287,23 +1287,23 @@ mixin _$CreateTestState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CreateTestTemplateState value) template,
-    required TResult Function(_CreateTestLoadingState value) loading,
-    required TResult Function(_CreateTestCompletedState value) completed,
+    required TResult Function(CreateTestTemplateState value) template,
+    required TResult Function(CreateTestLoadingState value) loading,
+    required TResult Function(CreateTestCompletedState value) completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CreateTestTemplateState value)? template,
-    TResult? Function(_CreateTestLoadingState value)? loading,
-    TResult? Function(_CreateTestCompletedState value)? completed,
+    TResult? Function(CreateTestTemplateState value)? template,
+    TResult? Function(CreateTestLoadingState value)? loading,
+    TResult? Function(CreateTestCompletedState value)? completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CreateTestTemplateState value)? template,
-    TResult Function(_CreateTestLoadingState value)? loading,
-    TResult Function(_CreateTestCompletedState value)? completed,
+    TResult Function(CreateTestTemplateState value)? template,
+    TResult Function(CreateTestLoadingState value)? loading,
+    TResult Function(CreateTestCompletedState value)? completed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1421,7 +1421,7 @@ class __$$CreateTestTemplateStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
+class _$CreateTestTemplateStateImpl implements CreateTestTemplateState {
   const _$CreateTestTemplateStateImpl(
       {this.id,
       this.name = "",
@@ -1530,9 +1530,9 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CreateTestTemplateState value) template,
-    required TResult Function(_CreateTestLoadingState value) loading,
-    required TResult Function(_CreateTestCompletedState value) completed,
+    required TResult Function(CreateTestTemplateState value) template,
+    required TResult Function(CreateTestLoadingState value) loading,
+    required TResult Function(CreateTestCompletedState value) completed,
   }) {
     return template(this);
   }
@@ -1540,9 +1540,9 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CreateTestTemplateState value)? template,
-    TResult? Function(_CreateTestLoadingState value)? loading,
-    TResult? Function(_CreateTestCompletedState value)? completed,
+    TResult? Function(CreateTestTemplateState value)? template,
+    TResult? Function(CreateTestLoadingState value)? loading,
+    TResult? Function(CreateTestCompletedState value)? completed,
   }) {
     return template?.call(this);
   }
@@ -1550,9 +1550,9 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CreateTestTemplateState value)? template,
-    TResult Function(_CreateTestLoadingState value)? loading,
-    TResult Function(_CreateTestCompletedState value)? completed,
+    TResult Function(CreateTestTemplateState value)? template,
+    TResult Function(CreateTestLoadingState value)? loading,
+    TResult Function(CreateTestCompletedState value)? completed,
     required TResult orElse(),
   }) {
     if (template != null) {
@@ -1562,8 +1562,8 @@ class _$CreateTestTemplateStateImpl implements _CreateTestTemplateState {
   }
 }
 
-abstract class _CreateTestTemplateState implements CreateTestState {
-  const factory _CreateTestTemplateState(
+abstract class CreateTestTemplateState implements CreateTestState {
+  const factory CreateTestTemplateState(
       {final int? id,
       final String name,
       final String description,
@@ -1639,7 +1639,7 @@ class __$$CreateTestLoadingStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
+class _$CreateTestLoadingStateImpl implements CreateTestLoadingState {
   const _$CreateTestLoadingStateImpl(
       {this.id,
       this.name = "",
@@ -1748,9 +1748,9 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CreateTestTemplateState value) template,
-    required TResult Function(_CreateTestLoadingState value) loading,
-    required TResult Function(_CreateTestCompletedState value) completed,
+    required TResult Function(CreateTestTemplateState value) template,
+    required TResult Function(CreateTestLoadingState value) loading,
+    required TResult Function(CreateTestCompletedState value) completed,
   }) {
     return loading(this);
   }
@@ -1758,9 +1758,9 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CreateTestTemplateState value)? template,
-    TResult? Function(_CreateTestLoadingState value)? loading,
-    TResult? Function(_CreateTestCompletedState value)? completed,
+    TResult? Function(CreateTestTemplateState value)? template,
+    TResult? Function(CreateTestLoadingState value)? loading,
+    TResult? Function(CreateTestCompletedState value)? completed,
   }) {
     return loading?.call(this);
   }
@@ -1768,9 +1768,9 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CreateTestTemplateState value)? template,
-    TResult Function(_CreateTestLoadingState value)? loading,
-    TResult Function(_CreateTestCompletedState value)? completed,
+    TResult Function(CreateTestTemplateState value)? template,
+    TResult Function(CreateTestLoadingState value)? loading,
+    TResult Function(CreateTestCompletedState value)? completed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1780,8 +1780,8 @@ class _$CreateTestLoadingStateImpl implements _CreateTestLoadingState {
   }
 }
 
-abstract class _CreateTestLoadingState implements CreateTestState {
-  const factory _CreateTestLoadingState(
+abstract class CreateTestLoadingState implements CreateTestState {
+  const factory CreateTestLoadingState(
       {final int? id,
       final String name,
       final String description,
@@ -1857,7 +1857,7 @@ class __$$CreateTestCompletedStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateTestCompletedStateImpl implements _CreateTestCompletedState {
+class _$CreateTestCompletedStateImpl implements CreateTestCompletedState {
   const _$CreateTestCompletedStateImpl(
       {required this.id,
       required this.name,
@@ -1963,9 +1963,9 @@ class _$CreateTestCompletedStateImpl implements _CreateTestCompletedState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CreateTestTemplateState value) template,
-    required TResult Function(_CreateTestLoadingState value) loading,
-    required TResult Function(_CreateTestCompletedState value) completed,
+    required TResult Function(CreateTestTemplateState value) template,
+    required TResult Function(CreateTestLoadingState value) loading,
+    required TResult Function(CreateTestCompletedState value) completed,
   }) {
     return completed(this);
   }
@@ -1973,9 +1973,9 @@ class _$CreateTestCompletedStateImpl implements _CreateTestCompletedState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CreateTestTemplateState value)? template,
-    TResult? Function(_CreateTestLoadingState value)? loading,
-    TResult? Function(_CreateTestCompletedState value)? completed,
+    TResult? Function(CreateTestTemplateState value)? template,
+    TResult? Function(CreateTestLoadingState value)? loading,
+    TResult? Function(CreateTestCompletedState value)? completed,
   }) {
     return completed?.call(this);
   }
@@ -1983,9 +1983,9 @@ class _$CreateTestCompletedStateImpl implements _CreateTestCompletedState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CreateTestTemplateState value)? template,
-    TResult Function(_CreateTestLoadingState value)? loading,
-    TResult Function(_CreateTestCompletedState value)? completed,
+    TResult Function(CreateTestTemplateState value)? template,
+    TResult Function(CreateTestLoadingState value)? loading,
+    TResult Function(CreateTestCompletedState value)? completed,
     required TResult orElse(),
   }) {
     if (completed != null) {
@@ -1995,8 +1995,8 @@ class _$CreateTestCompletedStateImpl implements _CreateTestCompletedState {
   }
 }
 
-abstract class _CreateTestCompletedState implements CreateTestState {
-  const factory _CreateTestCompletedState(
+abstract class CreateTestCompletedState implements CreateTestState {
+  const factory CreateTestCompletedState(
           {required final int id,
           required final String name,
           required final String description,
