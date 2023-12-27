@@ -3,7 +3,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'question_variant.freezed.dart';
 
 abstract interface class IQuestionVariantTemplate {
+  @Deprecated('Replace with uuid')
   int? get id;
+  String get uuid;
 }
 
 abstract interface class ITextQuestionVariantTemplate
@@ -25,12 +27,14 @@ sealed class QuestionVariant
   const factory QuestionVariant.text({
     required int id,
     required String text,
+    required String uuid,
   }) = TextQuestionVariant;
 
   @Implements<IImageQuestionVariantTemplate>()
   const factory QuestionVariant.image({
     required int id,
     required String image,
+    required String uuid,
   }) = ImageQuestionVariant;
 }
 
@@ -43,11 +47,13 @@ class QuestionVariantTemplate
   const factory QuestionVariantTemplate.text({
      int? id,
     required String text,
+    required String uuid,
   }) = TextQuestionVariantTemplate;
 
   @Implements<IImageQuestionVariantTemplate>()
   const factory QuestionVariantTemplate.image({
      int? id,
     required String image,
+    required String uuid,
   }) = ImageQuestionVariantTemplate;
 }

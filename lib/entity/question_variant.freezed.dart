@@ -17,22 +17,23 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$QuestionVariant {
   int get id => throw _privateConstructorUsedError;
+  String get uuid => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id, String text) text,
-    required TResult Function(int id, String image) image,
+    required TResult Function(int id, String text, String uuid) text,
+    required TResult Function(int id, String image, String uuid) image,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id, String text)? text,
-    TResult? Function(int id, String image)? image,
+    TResult? Function(int id, String text, String uuid)? text,
+    TResult? Function(int id, String image, String uuid)? image,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String text)? text,
-    TResult Function(int id, String image)? image,
+    TResult Function(int id, String text, String uuid)? text,
+    TResult Function(int id, String image, String uuid)? image,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +68,7 @@ abstract class $QuestionVariantCopyWith<$Res> {
           QuestionVariant value, $Res Function(QuestionVariant) then) =
       _$QuestionVariantCopyWithImpl<$Res, QuestionVariant>;
   @useResult
-  $Res call({int id});
+  $Res call({int id, String uuid});
 }
 
 /// @nodoc
@@ -84,12 +85,17 @@ class _$QuestionVariantCopyWithImpl<$Res, $Val extends QuestionVariant>
   @override
   $Res call({
     Object? id = null,
+    Object? uuid = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -102,7 +108,7 @@ abstract class _$$TextQuestionVariantImplCopyWith<$Res>
       __$$TextQuestionVariantImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String text});
+  $Res call({int id, String text, String uuid});
 }
 
 /// @nodoc
@@ -118,6 +124,7 @@ class __$$TextQuestionVariantImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? text = null,
+    Object? uuid = null,
   }) {
     return _then(_$TextQuestionVariantImpl(
       id: null == id
@@ -128,6 +135,10 @@ class __$$TextQuestionVariantImplCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -135,16 +146,19 @@ class __$$TextQuestionVariantImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TextQuestionVariantImpl implements TextQuestionVariant {
-  const _$TextQuestionVariantImpl({required this.id, required this.text});
+  const _$TextQuestionVariantImpl(
+      {required this.id, required this.text, required this.uuid});
 
   @override
   final int id;
   @override
   final String text;
+  @override
+  final String uuid;
 
   @override
   String toString() {
-    return 'QuestionVariant.text(id: $id, text: $text)';
+    return 'QuestionVariant.text(id: $id, text: $text, uuid: $uuid)';
   }
 
   @override
@@ -153,11 +167,12 @@ class _$TextQuestionVariantImpl implements TextQuestionVariant {
         (other.runtimeType == runtimeType &&
             other is _$TextQuestionVariantImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.text, text) || other.text == text));
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, text);
+  int get hashCode => Object.hash(runtimeType, id, text, uuid);
 
   @JsonKey(ignore: true)
   @override
@@ -169,30 +184,30 @@ class _$TextQuestionVariantImpl implements TextQuestionVariant {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id, String text) text,
-    required TResult Function(int id, String image) image,
+    required TResult Function(int id, String text, String uuid) text,
+    required TResult Function(int id, String image, String uuid) image,
   }) {
-    return text(id, this.text);
+    return text(id, this.text, uuid);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id, String text)? text,
-    TResult? Function(int id, String image)? image,
+    TResult? Function(int id, String text, String uuid)? text,
+    TResult? Function(int id, String image, String uuid)? image,
   }) {
-    return text?.call(id, this.text);
+    return text?.call(id, this.text, uuid);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String text)? text,
-    TResult Function(int id, String image)? image,
+    TResult Function(int id, String text, String uuid)? text,
+    TResult Function(int id, String image, String uuid)? image,
     required TResult orElse(),
   }) {
     if (text != null) {
-      return text(id, this.text);
+      return text(id, this.text, uuid);
     }
     return orElse();
   }
@@ -233,11 +248,14 @@ abstract class TextQuestionVariant
     implements QuestionVariant, ITextQuestionVariantTemplate {
   const factory TextQuestionVariant(
       {required final int id,
-      required final String text}) = _$TextQuestionVariantImpl;
+      required final String text,
+      required final String uuid}) = _$TextQuestionVariantImpl;
 
   @override
   int get id;
   String get text;
+  @override
+  String get uuid;
   @override
   @JsonKey(ignore: true)
   _$$TextQuestionVariantImplCopyWith<_$TextQuestionVariantImpl> get copyWith =>
@@ -252,7 +270,7 @@ abstract class _$$ImageQuestionVariantImplCopyWith<$Res>
       __$$ImageQuestionVariantImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String image});
+  $Res call({int id, String image, String uuid});
 }
 
 /// @nodoc
@@ -268,6 +286,7 @@ class __$$ImageQuestionVariantImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? image = null,
+    Object? uuid = null,
   }) {
     return _then(_$ImageQuestionVariantImpl(
       id: null == id
@@ -278,6 +297,10 @@ class __$$ImageQuestionVariantImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -285,16 +308,19 @@ class __$$ImageQuestionVariantImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ImageQuestionVariantImpl implements ImageQuestionVariant {
-  const _$ImageQuestionVariantImpl({required this.id, required this.image});
+  const _$ImageQuestionVariantImpl(
+      {required this.id, required this.image, required this.uuid});
 
   @override
   final int id;
   @override
   final String image;
+  @override
+  final String uuid;
 
   @override
   String toString() {
-    return 'QuestionVariant.image(id: $id, image: $image)';
+    return 'QuestionVariant.image(id: $id, image: $image, uuid: $uuid)';
   }
 
   @override
@@ -303,11 +329,12 @@ class _$ImageQuestionVariantImpl implements ImageQuestionVariant {
         (other.runtimeType == runtimeType &&
             other is _$ImageQuestionVariantImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, image);
+  int get hashCode => Object.hash(runtimeType, id, image, uuid);
 
   @JsonKey(ignore: true)
   @override
@@ -320,30 +347,30 @@ class _$ImageQuestionVariantImpl implements ImageQuestionVariant {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id, String text) text,
-    required TResult Function(int id, String image) image,
+    required TResult Function(int id, String text, String uuid) text,
+    required TResult Function(int id, String image, String uuid) image,
   }) {
-    return image(id, this.image);
+    return image(id, this.image, uuid);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id, String text)? text,
-    TResult? Function(int id, String image)? image,
+    TResult? Function(int id, String text, String uuid)? text,
+    TResult? Function(int id, String image, String uuid)? image,
   }) {
-    return image?.call(id, this.image);
+    return image?.call(id, this.image, uuid);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String text)? text,
-    TResult Function(int id, String image)? image,
+    TResult Function(int id, String text, String uuid)? text,
+    TResult Function(int id, String image, String uuid)? image,
     required TResult orElse(),
   }) {
     if (image != null) {
-      return image(id, this.image);
+      return image(id, this.image, uuid);
     }
     return orElse();
   }
@@ -384,11 +411,14 @@ abstract class ImageQuestionVariant
     implements QuestionVariant, IImageQuestionVariantTemplate {
   const factory ImageQuestionVariant(
       {required final int id,
-      required final String image}) = _$ImageQuestionVariantImpl;
+      required final String image,
+      required final String uuid}) = _$ImageQuestionVariantImpl;
 
   @override
   int get id;
   String get image;
+  @override
+  String get uuid;
   @override
   @JsonKey(ignore: true)
   _$$ImageQuestionVariantImplCopyWith<_$ImageQuestionVariantImpl>
@@ -398,22 +428,23 @@ abstract class ImageQuestionVariant
 /// @nodoc
 mixin _$QuestionVariantTemplate {
   int? get id => throw _privateConstructorUsedError;
+  String get uuid => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id, String text) text,
-    required TResult Function(int? id, String image) image,
+    required TResult Function(int? id, String text, String uuid) text,
+    required TResult Function(int? id, String image, String uuid) image,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id, String text)? text,
-    TResult? Function(int? id, String image)? image,
+    TResult? Function(int? id, String text, String uuid)? text,
+    TResult? Function(int? id, String image, String uuid)? image,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id, String text)? text,
-    TResult Function(int? id, String image)? image,
+    TResult Function(int? id, String text, String uuid)? text,
+    TResult Function(int? id, String image, String uuid)? image,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -448,7 +479,7 @@ abstract class $QuestionVariantTemplateCopyWith<$Res> {
           $Res Function(QuestionVariantTemplate) then) =
       _$QuestionVariantTemplateCopyWithImpl<$Res, QuestionVariantTemplate>;
   @useResult
-  $Res call({int? id});
+  $Res call({int? id, String uuid});
 }
 
 /// @nodoc
@@ -466,12 +497,17 @@ class _$QuestionVariantTemplateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = freezed,
+    Object? uuid = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -485,7 +521,7 @@ abstract class _$$TextQuestionVariantTemplateImplCopyWith<$Res>
       __$$TextQuestionVariantTemplateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String text});
+  $Res call({int? id, String text, String uuid});
 }
 
 /// @nodoc
@@ -503,6 +539,7 @@ class __$$TextQuestionVariantTemplateImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? text = null,
+    Object? uuid = null,
   }) {
     return _then(_$TextQuestionVariantTemplateImpl(
       id: freezed == id
@@ -513,6 +550,10 @@ class __$$TextQuestionVariantTemplateImplCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -520,16 +561,19 @@ class __$$TextQuestionVariantTemplateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TextQuestionVariantTemplateImpl implements TextQuestionVariantTemplate {
-  const _$TextQuestionVariantTemplateImpl({this.id, required this.text});
+  const _$TextQuestionVariantTemplateImpl(
+      {this.id, required this.text, required this.uuid});
 
   @override
   final int? id;
   @override
   final String text;
+  @override
+  final String uuid;
 
   @override
   String toString() {
-    return 'QuestionVariantTemplate.text(id: $id, text: $text)';
+    return 'QuestionVariantTemplate.text(id: $id, text: $text, uuid: $uuid)';
   }
 
   @override
@@ -538,11 +582,12 @@ class _$TextQuestionVariantTemplateImpl implements TextQuestionVariantTemplate {
         (other.runtimeType == runtimeType &&
             other is _$TextQuestionVariantTemplateImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.text, text) || other.text == text));
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, text);
+  int get hashCode => Object.hash(runtimeType, id, text, uuid);
 
   @JsonKey(ignore: true)
   @override
@@ -554,30 +599,30 @@ class _$TextQuestionVariantTemplateImpl implements TextQuestionVariantTemplate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id, String text) text,
-    required TResult Function(int? id, String image) image,
+    required TResult Function(int? id, String text, String uuid) text,
+    required TResult Function(int? id, String image, String uuid) image,
   }) {
-    return text(id, this.text);
+    return text(id, this.text, uuid);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id, String text)? text,
-    TResult? Function(int? id, String image)? image,
+    TResult? Function(int? id, String text, String uuid)? text,
+    TResult? Function(int? id, String image, String uuid)? image,
   }) {
-    return text?.call(id, this.text);
+    return text?.call(id, this.text, uuid);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id, String text)? text,
-    TResult Function(int? id, String image)? image,
+    TResult Function(int? id, String text, String uuid)? text,
+    TResult Function(int? id, String image, String uuid)? image,
     required TResult orElse(),
   }) {
     if (text != null) {
-      return text(id, this.text);
+      return text(id, this.text, uuid);
     }
     return orElse();
   }
@@ -618,11 +663,14 @@ abstract class TextQuestionVariantTemplate
     implements QuestionVariantTemplate, ITextQuestionVariantTemplate {
   const factory TextQuestionVariantTemplate(
       {final int? id,
-      required final String text}) = _$TextQuestionVariantTemplateImpl;
+      required final String text,
+      required final String uuid}) = _$TextQuestionVariantTemplateImpl;
 
   @override
   int? get id;
   String get text;
+  @override
+  String get uuid;
   @override
   @JsonKey(ignore: true)
   _$$TextQuestionVariantTemplateImplCopyWith<_$TextQuestionVariantTemplateImpl>
@@ -638,7 +686,7 @@ abstract class _$$ImageQuestionVariantTemplateImplCopyWith<$Res>
       __$$ImageQuestionVariantTemplateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String image});
+  $Res call({int? id, String image, String uuid});
 }
 
 /// @nodoc
@@ -656,6 +704,7 @@ class __$$ImageQuestionVariantTemplateImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? image = null,
+    Object? uuid = null,
   }) {
     return _then(_$ImageQuestionVariantTemplateImpl(
       id: freezed == id
@@ -666,6 +715,10 @@ class __$$ImageQuestionVariantTemplateImplCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
+      uuid: null == uuid
+          ? _value.uuid
+          : uuid // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -674,16 +727,19 @@ class __$$ImageQuestionVariantTemplateImplCopyWithImpl<$Res>
 
 class _$ImageQuestionVariantTemplateImpl
     implements ImageQuestionVariantTemplate {
-  const _$ImageQuestionVariantTemplateImpl({this.id, required this.image});
+  const _$ImageQuestionVariantTemplateImpl(
+      {this.id, required this.image, required this.uuid});
 
   @override
   final int? id;
   @override
   final String image;
+  @override
+  final String uuid;
 
   @override
   String toString() {
-    return 'QuestionVariantTemplate.image(id: $id, image: $image)';
+    return 'QuestionVariantTemplate.image(id: $id, image: $image, uuid: $uuid)';
   }
 
   @override
@@ -692,11 +748,12 @@ class _$ImageQuestionVariantTemplateImpl
         (other.runtimeType == runtimeType &&
             other is _$ImageQuestionVariantTemplateImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.uuid, uuid) || other.uuid == uuid));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, image);
+  int get hashCode => Object.hash(runtimeType, id, image, uuid);
 
   @JsonKey(ignore: true)
   @override
@@ -709,30 +766,30 @@ class _$ImageQuestionVariantTemplateImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id, String text) text,
-    required TResult Function(int? id, String image) image,
+    required TResult Function(int? id, String text, String uuid) text,
+    required TResult Function(int? id, String image, String uuid) image,
   }) {
-    return image(id, this.image);
+    return image(id, this.image, uuid);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id, String text)? text,
-    TResult? Function(int? id, String image)? image,
+    TResult? Function(int? id, String text, String uuid)? text,
+    TResult? Function(int? id, String image, String uuid)? image,
   }) {
-    return image?.call(id, this.image);
+    return image?.call(id, this.image, uuid);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id, String text)? text,
-    TResult Function(int? id, String image)? image,
+    TResult Function(int? id, String text, String uuid)? text,
+    TResult Function(int? id, String image, String uuid)? image,
     required TResult orElse(),
   }) {
     if (image != null) {
-      return image(id, this.image);
+      return image(id, this.image, uuid);
     }
     return orElse();
   }
@@ -773,11 +830,14 @@ abstract class ImageQuestionVariantTemplate
     implements QuestionVariantTemplate, IImageQuestionVariantTemplate {
   const factory ImageQuestionVariantTemplate(
       {final int? id,
-      required final String image}) = _$ImageQuestionVariantTemplateImpl;
+      required final String image,
+      required final String uuid}) = _$ImageQuestionVariantTemplateImpl;
 
   @override
   int? get id;
   String get image;
+  @override
+  String get uuid;
   @override
   @JsonKey(ignore: true)
   _$$ImageQuestionVariantTemplateImplCopyWith<

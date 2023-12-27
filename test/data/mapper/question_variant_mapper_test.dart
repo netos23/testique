@@ -13,9 +13,14 @@ void main() {
             id: 0,
             textContent: 'textContent',
             variantType: QuestionVariantType.text,
+            uuid: '0000-000-000-00',
           ),
         ),
-        const QuestionVariant.text(id: 0, text: 'textContent'),
+        const QuestionVariant.text(
+          id: 0,
+          text: 'textContent',
+          uuid: '0000-000-000-00',
+        ),
       );
 
       expect(
@@ -24,9 +29,14 @@ void main() {
             id: 0,
             image: 'textContent',
             variantType: QuestionVariantType.image,
+            uuid: '0000-000-000-00',
           ),
         ),
-        const QuestionVariant.image(id: 0, image: 'textContent'),
+        const QuestionVariant.image(
+          id: 0,
+          image: 'textContent',
+          uuid: '0000-000-000-00',
+        ),
       );
 
       expect(
@@ -35,6 +45,7 @@ void main() {
             id: 0,
             textContent: 'textContent',
             variantType: QuestionVariantType.image,
+            uuid: '0000-000-000-00',
           ),
         ),
         throwsArgumentError,
@@ -46,6 +57,7 @@ void main() {
             id: 0,
             image: 'textContent',
             variantType: QuestionVariantType.text,
+            uuid: '0000-000-000-00',
           ),
         ),
         throwsArgumentError,
@@ -55,23 +67,33 @@ void main() {
     test('Question variant mapper', () {
       expect(
         mapQuestionVariantModel(
-          const QuestionVariant.text(id: 0, text: 'textContent'),
+          const QuestionVariant.text(
+            id: 0,
+            text: 'textContent',
+            uuid: '0000-000-000-00',
+          ),
         ),
         const QuestionVariantModel(
           id: 0,
           textContent: 'textContent',
           variantType: QuestionVariantType.text,
+          uuid: '0000-000-000-00',
         ),
       );
 
       expect(
         mapQuestionVariantModel(
-          const QuestionVariant.image(id: 0, image: 'textContent'),
+          const QuestionVariant.image(
+            id: 0,
+            image: 'textContent',
+            uuid: '0000-000-000-00',
+          ),
         ),
         const QuestionVariantModel(
           id: 0,
           image: 'textContent',
           variantType: QuestionVariantType.image,
+          uuid: '0000-000-000-00',
         ),
       );
     });

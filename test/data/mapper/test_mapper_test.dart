@@ -41,14 +41,14 @@ void main() {
       );
     });
 
-
     test('Test model mapper test', () {
       expect(
         mapTestModel(
-          const TestPreview(
+          const TestTemplate(
             id: 0,
             name: 'name',
             description: 'description',
+            questions: [],
           ),
         ),
         const TestModel(

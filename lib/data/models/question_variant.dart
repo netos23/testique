@@ -12,6 +12,8 @@ class QuestionVariantModels extends Table {
 
   TextColumn get image => text().withLength(min: 1, max: 1023).nullable()();
 
+  TextColumn get uuid => text().withLength(min: 1, max: 50)();
+
   TextColumn get variantType =>
       text().map(const EnumNameConverter(QuestionVariantType.values))();
 

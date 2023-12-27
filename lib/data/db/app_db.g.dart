@@ -601,6 +601,14 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
           minTextLength: 1, maxTextLength: 1023),
       type: DriftSqlType.string,
       requiredDuringInsert: false);
+  static const VerificationMeta _uuidMeta = const VerificationMeta('uuid');
+  @override
+  late final GeneratedColumn<String> uuid = GeneratedColumn<String>(
+      'uuid', aliasedName, false,
+      additionalChecks:
+          GeneratedColumn.checkTextLength(minTextLength: 1, maxTextLength: 50),
+      type: DriftSqlType.string,
+      requiredDuringInsert: true);
   static const VerificationMeta _variantTypeMeta =
       const VerificationMeta('variantType');
   @override
@@ -610,7 +618,8 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
           .withConverter<QuestionVariantType>(
               $QuestionVariantModelsTable.$convertervariantType);
   @override
-  List<GeneratedColumn> get $columns => [id, textContent, image, variantType];
+  List<GeneratedColumn> get $columns =>
+      [id, textContent, image, uuid, variantType];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -635,6 +644,12 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
       context.handle(
           _imageMeta, image.isAcceptableOrUnknown(data['image']!, _imageMeta));
     }
+    if (data.containsKey('uuid')) {
+      context.handle(
+          _uuidMeta, uuid.isAcceptableOrUnknown(data['uuid']!, _uuidMeta));
+    } else if (isInserting) {
+      context.missing(_uuidMeta);
+    }
     context.handle(_variantTypeMeta, const VerificationResult.success());
     return context;
   }
@@ -651,6 +666,8 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
           .read(DriftSqlType.string, data['${effectivePrefix}text_content']),
       image: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}image']),
+      uuid: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}uuid'])!,
       variantType: $QuestionVariantModelsTable.$convertervariantType.fromSql(
           attachedDatabase.typeMapping.read(
               DriftSqlType.string, data['${effectivePrefix}variant_type'])!),
@@ -672,11 +689,13 @@ class QuestionVariantModel extends DataClass
   final int id;
   final String? textContent;
   final String? image;
+  final String uuid;
   final QuestionVariantType variantType;
   const QuestionVariantModel(
       {required this.id,
       this.textContent,
       this.image,
+      required this.uuid,
       required this.variantType});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -688,6 +707,7 @@ class QuestionVariantModel extends DataClass
     if (!nullToAbsent || image != null) {
       map['image'] = Variable<String>(image);
     }
+    map['uuid'] = Variable<String>(uuid);
     {
       map['variant_type'] = Variable<String>(
           $QuestionVariantModelsTable.$convertervariantType.toSql(variantType));
@@ -703,6 +723,7 @@ class QuestionVariantModel extends DataClass
           : Value(textContent),
       image:
           image == null && nullToAbsent ? const Value.absent() : Value(image),
+      uuid: Value(uuid),
       variantType: Value(variantType),
     );
   }
@@ -714,6 +735,7 @@ class QuestionVariantModel extends DataClass
       id: serializer.fromJson<int>(json['id']),
       textContent: serializer.fromJson<String?>(json['textContent']),
       image: serializer.fromJson<String?>(json['image']),
+      uuid: serializer.fromJson<String>(json['uuid']),
       variantType: $QuestionVariantModelsTable.$convertervariantType
           .fromJson(serializer.fromJson<String>(json['variantType'])),
     );
@@ -725,6 +747,7 @@ class QuestionVariantModel extends DataClass
       'id': serializer.toJson<int>(id),
       'textContent': serializer.toJson<String?>(textContent),
       'image': serializer.toJson<String?>(image),
+      'uuid': serializer.toJson<String>(uuid),
       'variantType': serializer.toJson<String>($QuestionVariantModelsTable
           .$convertervariantType
           .toJson(variantType)),
@@ -735,11 +758,13 @@ class QuestionVariantModel extends DataClass
           {int? id,
           Value<String?> textContent = const Value.absent(),
           Value<String?> image = const Value.absent(),
+          String? uuid,
           QuestionVariantType? variantType}) =>
       QuestionVariantModel(
         id: id ?? this.id,
         textContent: textContent.present ? textContent.value : this.textContent,
         image: image.present ? image.value : this.image,
+        uuid: uuid ?? this.uuid,
         variantType: variantType ?? this.variantType,
       );
   @override
@@ -748,13 +773,14 @@ class QuestionVariantModel extends DataClass
           ..write('id: $id, ')
           ..write('textContent: $textContent, ')
           ..write('image: $image, ')
+          ..write('uuid: $uuid, ')
           ..write('variantType: $variantType')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, textContent, image, variantType);
+  int get hashCode => Object.hash(id, textContent, image, uuid, variantType);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -762,6 +788,7 @@ class QuestionVariantModel extends DataClass
           other.id == this.id &&
           other.textContent == this.textContent &&
           other.image == this.image &&
+          other.uuid == this.uuid &&
           other.variantType == this.variantType);
 }
 
@@ -770,29 +797,35 @@ class QuestionVariantModelsCompanion
   final Value<int> id;
   final Value<String?> textContent;
   final Value<String?> image;
+  final Value<String> uuid;
   final Value<QuestionVariantType> variantType;
   const QuestionVariantModelsCompanion({
     this.id = const Value.absent(),
     this.textContent = const Value.absent(),
     this.image = const Value.absent(),
+    this.uuid = const Value.absent(),
     this.variantType = const Value.absent(),
   });
   QuestionVariantModelsCompanion.insert({
     this.id = const Value.absent(),
     this.textContent = const Value.absent(),
     this.image = const Value.absent(),
+    required String uuid,
     required QuestionVariantType variantType,
-  }) : variantType = Value(variantType);
+  })  : uuid = Value(uuid),
+        variantType = Value(variantType);
   static Insertable<QuestionVariantModel> custom({
     Expression<int>? id,
     Expression<String>? textContent,
     Expression<String>? image,
+    Expression<String>? uuid,
     Expression<String>? variantType,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (textContent != null) 'text_content': textContent,
       if (image != null) 'image': image,
+      if (uuid != null) 'uuid': uuid,
       if (variantType != null) 'variant_type': variantType,
     });
   }
@@ -801,11 +834,13 @@ class QuestionVariantModelsCompanion
       {Value<int>? id,
       Value<String?>? textContent,
       Value<String?>? image,
+      Value<String>? uuid,
       Value<QuestionVariantType>? variantType}) {
     return QuestionVariantModelsCompanion(
       id: id ?? this.id,
       textContent: textContent ?? this.textContent,
       image: image ?? this.image,
+      uuid: uuid ?? this.uuid,
       variantType: variantType ?? this.variantType,
     );
   }
@@ -822,6 +857,9 @@ class QuestionVariantModelsCompanion
     if (image.present) {
       map['image'] = Variable<String>(image.value);
     }
+    if (uuid.present) {
+      map['uuid'] = Variable<String>(uuid.value);
+    }
     if (variantType.present) {
       map['variant_type'] = Variable<String>($QuestionVariantModelsTable
           .$convertervariantType
@@ -836,6 +874,7 @@ class QuestionVariantModelsCompanion
           ..write('id: $id, ')
           ..write('textContent: $textContent, ')
           ..write('image: $image, ')
+          ..write('uuid: $uuid, ')
           ..write('variantType: $variantType')
           ..write(')'))
         .toString();
