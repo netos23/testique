@@ -728,6 +728,27 @@ void main() {
       );
 
       blocTest(
+        'Save question, without empty answers',
+        build: () => createQuestionBloc,
+        seed: () => const CreateQuestionState.template(
+          name: 'Test',
+          description: 'sup',
+          layout: QuestionLayout.column,
+          questionType: QuestionType.single,
+          shuffle: true,
+          variants: [
+            QuestionVariantTemplate.text(
+              text: 'test',
+              uuid: 'uuid',
+            ),
+          ],
+          answer: {},
+        ),
+        act: (bloc) => bloc.add(const CreateQuestionEvent.saveQuestion()),
+        errors: () => [isA<StateError>()],
+      );
+
+      blocTest(
         'Save question, with empty text variant',
         build: () => createQuestionBloc,
         seed: () => const CreateQuestionState.template(
