@@ -75,7 +75,7 @@ void main() {
           ),
         ),
         const QuestionVariantModelsCompanion(
-          id: Value(0),
+          id: Value.absent(),
           textContent: Value('textContent'),
           variantType: Value(QuestionVariantType.text),
           uuid: Value('0000-000-000-00'),
@@ -91,7 +91,7 @@ void main() {
           ),
         ),
         const QuestionVariantModelsCompanion(
-          id: Value(0),
+          id: Value.absent(),
           image: Value('textContent'),
           variantType: Value(QuestionVariantType.image),
           uuid: Value('0000-000-000-00'),

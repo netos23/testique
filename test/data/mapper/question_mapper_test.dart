@@ -48,7 +48,7 @@ void main() {
           ),
         ),
         const QuestionModelsCompanion(
-          id: Value(0),
+          id: Value.absent(),
           name: Value('name'),
           description: Value('description'),
           orientation: Value(QuestionLayout.grid),
