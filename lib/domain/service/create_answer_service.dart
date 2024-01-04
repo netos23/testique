@@ -1,9 +1,8 @@
 import 'package:testique/entity/question.dart';
 
-
 typedef CreateAnswerServiceFactory = CreateAnswerService Function(QuestionType);
 
-sealed class CreateAnswerService {
+abstract class CreateAnswerService {
   const CreateAnswerService();
 
   factory CreateAnswerService.fromQuestionType(QuestionType type) {
