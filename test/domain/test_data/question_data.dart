@@ -22,7 +22,6 @@ const gridQuestion = Question(
 );
 
 const columnQuestionTemplate = QuestionTemplate(
-
   name: 'name',
   description: 'description',
   layout: QuestionLayout.column,
@@ -39,7 +38,6 @@ const columnQuestionTemplate = QuestionTemplate(
 );
 
 const gridQuestionTemplate = QuestionTemplate(
-
   name: 'name',
   description: 'description',
   layout: QuestionLayout.grid,

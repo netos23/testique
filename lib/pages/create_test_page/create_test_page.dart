@@ -23,7 +23,7 @@ class CreateTestPage extends StatelessWidget {
 }
 
 class _CreateTestPageBody extends StatelessWidget {
-  const _CreateTestPageBody({super.key});
+  const _CreateTestPageBody();
 
   @override
   Widget build(BuildContext context) {

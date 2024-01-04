@@ -16,5 +16,4 @@ class QuestionVariantModels extends Table {
 
   TextColumn get variantType =>
       text().map(const EnumNameConverter(QuestionVariantType.values))();
-
 }

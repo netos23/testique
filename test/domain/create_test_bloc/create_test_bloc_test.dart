@@ -57,7 +57,6 @@ void main() {
         verify: (_) {
           verify(() => testRepositoryMock.getTestById(testForEditingId))
               .called(1);
-          ;
         },
       );
 

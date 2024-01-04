@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:testique/entity/question.dart';
 import 'package:testique/entity/question_variant.dart';
@@ -287,6 +287,7 @@ class CreateQuestionBloc
 
     emit(
       CreateQuestionState.completed(
+        id: id,
         name: name,
         description: description,
         layout: layout,

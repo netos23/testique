@@ -22,7 +22,6 @@ abstract interface class IImageQuestionVariantTemplate
 sealed class QuestionVariant
     with _$QuestionVariant
     implements IQuestionVariantTemplate {
-
   @Implements<ITextQuestionVariantTemplate>()
   const factory QuestionVariant.text({
     required int id,
@@ -42,17 +41,16 @@ sealed class QuestionVariant
 class QuestionVariantTemplate
     with _$QuestionVariantTemplate
     implements IQuestionVariantTemplate {
-
   @Implements<ITextQuestionVariantTemplate>()
   const factory QuestionVariantTemplate.text({
-     int? id,
+    int? id,
     required String text,
     required String uuid,
   }) = TextQuestionVariantTemplate;
 
   @Implements<IImageQuestionVariantTemplate>()
   const factory QuestionVariantTemplate.image({
-     int? id,
+    int? id,
     required String image,
     required String uuid,
   }) = ImageQuestionVariantTemplate;

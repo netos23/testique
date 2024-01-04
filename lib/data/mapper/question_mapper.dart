@@ -1,6 +1,5 @@
 import 'package:drift/drift.dart';
 import 'package:testique/data/db/app_db.dart';
-import 'package:testique/data/models/models.dart';
 import 'package:testique/entity/question.dart';
 import 'package:testique/entity/question_variant.dart';
 

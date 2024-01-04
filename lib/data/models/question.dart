@@ -15,5 +15,4 @@ class QuestionModels extends Table {
       text().map(const EnumNameConverter(QuestionType.values))();
 
   BoolColumn get shuffle => boolean()();
-
 }
