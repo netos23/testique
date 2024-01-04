@@ -9,24 +9,24 @@ void main() {
   });
 
   test('Test service with empty state', () {
-    final service = CreateAnswerService.fromQuestionType(QuestionType.single);
+    const service = SingleAnswerService();
     final result = service.build('aaaa', {});
     expect(result, {'aaaa'});
   });
 
   test('Test service with same state', () {
-    final service = CreateAnswerService.fromQuestionType(QuestionType.single);
+    const service = SingleAnswerService();
     final result = service.build('aaaa', {'aaaa'});
     expect(result, {'aaaa'});
   });
   test('Test service with different state', () {
-    final service = CreateAnswerService.fromQuestionType(QuestionType.single);
+    const service = SingleAnswerService();
     final result = service.build('aaaa', {'bbbb'});
     expect(result, {'aaaa'});
   });
 
   test('Test service with other type state', () {
-    final service = CreateAnswerService.fromQuestionType(QuestionType.single);
+    const service = SingleAnswerService();
     final result = service.build('aaaa', {'bbbb', 'aaaa'});
     expect(result, {'aaaa'});
   });
