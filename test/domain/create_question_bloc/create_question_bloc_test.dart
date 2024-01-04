@@ -16,14 +16,16 @@ void main() {
   group('Question add/edit bloc test', () {
     late CreateQuestionBloc createQuestionBloc;
     late CreateAnswerServiceFactory factory;
+    late SingleAnswerServiceMock service;
     late UuidV4 generator;
 
     setUp(() async {
-      final service = SingleAnswerServiceMock();
+      service = SingleAnswerServiceMock();
       generator = UuidMock();
       factory = (_) => service;
 
       when(() => generator.generate()).thenReturn('uuid');
+      when(() => service.build('uuid', {'uuid1'})).thenReturn({'uuid'});
 
       createQuestionBloc = CreateQuestionBloc(
         serviceFactory: factory,
@@ -626,6 +628,49 @@ void main() {
           ),
         ),
         errors: () => [isA<ArgumentError>()],
+      );
+    });
+
+    group('Set correct variant', () {
+      blocTest(
+        'Change correct variant',
+        build: () => createQuestionBloc,
+        seed: () => const CreateQuestionState.template(
+          variants: [
+            QuestionVariantTemplate.image(
+              image: 'test',
+              uuid: 'uuid1',
+            ),
+            QuestionVariantTemplate.text(
+              text: 'test',
+              uuid: 'uuid',
+            ),
+          ],
+          questionType: QuestionType.single,
+          answer: {'uuid1'},
+        ),
+        act: (bloc) => bloc.add(
+          const CreateQuestionEvent.addCorrect('uuid'),
+        ),
+        expect: () => <CreateQuestionState>[
+          const CreateQuestionState.template(
+            variants: [
+              QuestionVariantTemplate.image(
+                image: 'test',
+                uuid: 'uuid1',
+              ),
+              QuestionVariantTemplate.text(
+                text: 'test',
+                uuid: 'uuid',
+              ),
+            ],
+            questionType: QuestionType.single,
+            answer: {'uuid'},
+          ),
+        ],
+        verify: (_) {
+          verify(() => service.build('uuid', {'uuid1'})).called(1);
+        },
       );
     });
 
