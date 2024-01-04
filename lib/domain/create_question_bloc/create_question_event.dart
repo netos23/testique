@@ -16,27 +16,27 @@ sealed class CreateQuestionEvent with _$CreateQuestionEvent {
     bool shuffle,
   ) = _EditShuffle;
 
-  const factory CreateQuestionEvent.addTextQuestion(
+  const factory CreateQuestionEvent.addTextVariant(
     String text,
-  ) = _AddTextQuestion;
+  ) = _AddTextVariant;
 
-  const factory CreateQuestionEvent.editTextQuestion(
-    String uuid,
-    String text,
-  ) = _EditTextQuestion;
+  const factory CreateQuestionEvent.editTextVariant({
+    required String uuid,
+    required String text,
+  }) = _EditTextVariant;
 
-  const factory CreateQuestionEvent.addImageQuestion(
+  const factory CreateQuestionEvent.addImageVariant(
     String image,
-  ) = _AddImageQuestion;
+  ) = _AddImageVariant;
 
-  const factory CreateQuestionEvent.editImageQuestion(
-    String uuid,
-    String image,
-  ) = _EditImageuestion;
+  const factory CreateQuestionEvent.editImageVariant({
+    required String uuid,
+    required String image,
+  }) = _EditImageVariant;
 
-  const factory CreateQuestionEvent.removeQuestion(
+  const factory CreateQuestionEvent.removeVariant(
     String uuid,
-  ) = _RemoveQuestion;
+  ) = _RemoveVariant;
 
   const factory CreateQuestionEvent.addCorrect(
     String uuid,

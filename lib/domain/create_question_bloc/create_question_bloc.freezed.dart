@@ -22,11 +22,11 @@ mixin _$CreateQuestionEvent {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) =>
@@ -37,11 +37,11 @@ mixin _$CreateQuestionEvent {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) =>
@@ -52,11 +52,11 @@ mixin _$CreateQuestionEvent {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
@@ -68,11 +68,11 @@ mixin _$CreateQuestionEvent {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) =>
@@ -83,11 +83,11 @@ mixin _$CreateQuestionEvent {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) =>
@@ -98,11 +98,11 @@ mixin _$CreateQuestionEvent {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
@@ -196,11 +196,11 @@ class _$EditNameImpl implements _EditName {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
@@ -214,11 +214,11 @@ class _$EditNameImpl implements _EditName {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
@@ -232,11 +232,11 @@ class _$EditNameImpl implements _EditName {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
@@ -254,11 +254,11 @@ class _$EditNameImpl implements _EditName {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
@@ -272,11 +272,11 @@ class _$EditNameImpl implements _EditName {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
@@ -290,11 +290,11 @@ class _$EditNameImpl implements _EditName {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
@@ -385,11 +385,11 @@ class _$EditDescriptionImpl implements _EditDescription {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
@@ -403,11 +403,11 @@ class _$EditDescriptionImpl implements _EditDescription {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
@@ -421,11 +421,11 @@ class _$EditDescriptionImpl implements _EditDescription {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
@@ -443,11 +443,11 @@ class _$EditDescriptionImpl implements _EditDescription {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
@@ -461,11 +461,11 @@ class _$EditDescriptionImpl implements _EditDescription {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
@@ -479,11 +479,11 @@ class _$EditDescriptionImpl implements _EditDescription {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
@@ -573,11 +573,11 @@ class _$EditLayoutImpl implements _EditLayout {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
@@ -591,11 +591,11 @@ class _$EditLayoutImpl implements _EditLayout {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
@@ -609,11 +609,11 @@ class _$EditLayoutImpl implements _EditLayout {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
@@ -631,11 +631,11 @@ class _$EditLayoutImpl implements _EditLayout {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
@@ -649,11 +649,11 @@ class _$EditLayoutImpl implements _EditLayout {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
@@ -667,11 +667,11 @@ class _$EditLayoutImpl implements _EditLayout {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
@@ -760,11 +760,11 @@ class _$EditShuffleImpl implements _EditShuffle {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
@@ -778,11 +778,11 @@ class _$EditShuffleImpl implements _EditShuffle {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
@@ -796,11 +796,11 @@ class _$EditShuffleImpl implements _EditShuffle {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
@@ -818,11 +818,11 @@ class _$EditShuffleImpl implements _EditShuffle {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
@@ -836,11 +836,11 @@ class _$EditShuffleImpl implements _EditShuffle {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
@@ -854,11 +854,11 @@ class _$EditShuffleImpl implements _EditShuffle {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
@@ -880,20 +880,20 @@ abstract class _EditShuffle implements CreateQuestionEvent {
 }
 
 /// @nodoc
-abstract class _$$AddTextQuestionImplCopyWith<$Res> {
-  factory _$$AddTextQuestionImplCopyWith(_$AddTextQuestionImpl value,
-          $Res Function(_$AddTextQuestionImpl) then) =
-      __$$AddTextQuestionImplCopyWithImpl<$Res>;
+abstract class _$$AddTextVariantImplCopyWith<$Res> {
+  factory _$$AddTextVariantImplCopyWith(_$AddTextVariantImpl value,
+          $Res Function(_$AddTextVariantImpl) then) =
+      __$$AddTextVariantImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String text});
 }
 
 /// @nodoc
-class __$$AddTextQuestionImplCopyWithImpl<$Res>
-    extends _$CreateQuestionEventCopyWithImpl<$Res, _$AddTextQuestionImpl>
-    implements _$$AddTextQuestionImplCopyWith<$Res> {
-  __$$AddTextQuestionImplCopyWithImpl(
-      _$AddTextQuestionImpl _value, $Res Function(_$AddTextQuestionImpl) _then)
+class __$$AddTextVariantImplCopyWithImpl<$Res>
+    extends _$CreateQuestionEventCopyWithImpl<$Res, _$AddTextVariantImpl>
+    implements _$$AddTextVariantImplCopyWith<$Res> {
+  __$$AddTextVariantImplCopyWithImpl(
+      _$AddTextVariantImpl _value, $Res Function(_$AddTextVariantImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -901,7 +901,7 @@ class __$$AddTextQuestionImplCopyWithImpl<$Res>
   $Res call({
     Object? text = null,
   }) {
-    return _then(_$AddTextQuestionImpl(
+    return _then(_$AddTextVariantImpl(
       null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -912,22 +912,22 @@ class __$$AddTextQuestionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddTextQuestionImpl implements _AddTextQuestion {
-  const _$AddTextQuestionImpl(this.text);
+class _$AddTextVariantImpl implements _AddTextVariant {
+  const _$AddTextVariantImpl(this.text);
 
   @override
   final String text;
 
   @override
   String toString() {
-    return 'CreateQuestionEvent.addTextQuestion(text: $text)';
+    return 'CreateQuestionEvent.addTextVariant(text: $text)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddTextQuestionImpl &&
+            other is _$AddTextVariantImpl &&
             (identical(other.text, text) || other.text == text));
   }
 
@@ -937,8 +937,8 @@ class _$AddTextQuestionImpl implements _AddTextQuestion {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddTextQuestionImplCopyWith<_$AddTextQuestionImpl> get copyWith =>
-      __$$AddTextQuestionImplCopyWithImpl<_$AddTextQuestionImpl>(
+  _$$AddTextVariantImplCopyWith<_$AddTextVariantImpl> get copyWith =>
+      __$$AddTextVariantImplCopyWithImpl<_$AddTextVariantImpl>(
           this, _$identity);
 
   @override
@@ -948,15 +948,15 @@ class _$AddTextQuestionImpl implements _AddTextQuestion {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
-    return addTextQuestion(text);
+    return addTextVariant(text);
   }
 
   @override
@@ -966,15 +966,15 @@ class _$AddTextQuestionImpl implements _AddTextQuestion {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
-    return addTextQuestion?.call(text);
+    return addTextVariant?.call(text);
   }
 
   @override
@@ -984,17 +984,17 @@ class _$AddTextQuestionImpl implements _AddTextQuestion {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
   }) {
-    if (addTextQuestion != null) {
-      return addTextQuestion(text);
+    if (addTextVariant != null) {
+      return addTextVariant(text);
     }
     return orElse();
   }
@@ -1006,15 +1006,15 @@ class _$AddTextQuestionImpl implements _AddTextQuestion {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
-    return addTextQuestion(this);
+    return addTextVariant(this);
   }
 
   @override
@@ -1024,15 +1024,15 @@ class _$AddTextQuestionImpl implements _AddTextQuestion {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
-    return addTextQuestion?.call(this);
+    return addTextVariant?.call(this);
   }
 
   @override
@@ -1042,46 +1042,46 @@ class _$AddTextQuestionImpl implements _AddTextQuestion {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
   }) {
-    if (addTextQuestion != null) {
-      return addTextQuestion(this);
+    if (addTextVariant != null) {
+      return addTextVariant(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddTextQuestion implements CreateQuestionEvent {
-  const factory _AddTextQuestion(final String text) = _$AddTextQuestionImpl;
+abstract class _AddTextVariant implements CreateQuestionEvent {
+  const factory _AddTextVariant(final String text) = _$AddTextVariantImpl;
 
   String get text;
   @JsonKey(ignore: true)
-  _$$AddTextQuestionImplCopyWith<_$AddTextQuestionImpl> get copyWith =>
+  _$$AddTextVariantImplCopyWith<_$AddTextVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EditTextQuestionImplCopyWith<$Res> {
-  factory _$$EditTextQuestionImplCopyWith(_$EditTextQuestionImpl value,
-          $Res Function(_$EditTextQuestionImpl) then) =
-      __$$EditTextQuestionImplCopyWithImpl<$Res>;
+abstract class _$$EditTextVariantImplCopyWith<$Res> {
+  factory _$$EditTextVariantImplCopyWith(_$EditTextVariantImpl value,
+          $Res Function(_$EditTextVariantImpl) then) =
+      __$$EditTextVariantImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String uuid, String text});
 }
 
 /// @nodoc
-class __$$EditTextQuestionImplCopyWithImpl<$Res>
-    extends _$CreateQuestionEventCopyWithImpl<$Res, _$EditTextQuestionImpl>
-    implements _$$EditTextQuestionImplCopyWith<$Res> {
-  __$$EditTextQuestionImplCopyWithImpl(_$EditTextQuestionImpl _value,
-      $Res Function(_$EditTextQuestionImpl) _then)
+class __$$EditTextVariantImplCopyWithImpl<$Res>
+    extends _$CreateQuestionEventCopyWithImpl<$Res, _$EditTextVariantImpl>
+    implements _$$EditTextVariantImplCopyWith<$Res> {
+  __$$EditTextVariantImplCopyWithImpl(
+      _$EditTextVariantImpl _value, $Res Function(_$EditTextVariantImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1090,12 +1090,12 @@ class __$$EditTextQuestionImplCopyWithImpl<$Res>
     Object? uuid = null,
     Object? text = null,
   }) {
-    return _then(_$EditTextQuestionImpl(
-      null == uuid
+    return _then(_$EditTextVariantImpl(
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      null == text
+      text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1105,8 +1105,8 @@ class __$$EditTextQuestionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditTextQuestionImpl implements _EditTextQuestion {
-  const _$EditTextQuestionImpl(this.uuid, this.text);
+class _$EditTextVariantImpl implements _EditTextVariant {
+  const _$EditTextVariantImpl({required this.uuid, required this.text});
 
   @override
   final String uuid;
@@ -1115,14 +1115,14 @@ class _$EditTextQuestionImpl implements _EditTextQuestion {
 
   @override
   String toString() {
-    return 'CreateQuestionEvent.editTextQuestion(uuid: $uuid, text: $text)';
+    return 'CreateQuestionEvent.editTextVariant(uuid: $uuid, text: $text)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditTextQuestionImpl &&
+            other is _$EditTextVariantImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.text, text) || other.text == text));
   }
@@ -1133,8 +1133,8 @@ class _$EditTextQuestionImpl implements _EditTextQuestion {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EditTextQuestionImplCopyWith<_$EditTextQuestionImpl> get copyWith =>
-      __$$EditTextQuestionImplCopyWithImpl<_$EditTextQuestionImpl>(
+  _$$EditTextVariantImplCopyWith<_$EditTextVariantImpl> get copyWith =>
+      __$$EditTextVariantImplCopyWithImpl<_$EditTextVariantImpl>(
           this, _$identity);
 
   @override
@@ -1144,15 +1144,15 @@ class _$EditTextQuestionImpl implements _EditTextQuestion {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
-    return editTextQuestion(uuid, text);
+    return editTextVariant(uuid, text);
   }
 
   @override
@@ -1162,15 +1162,15 @@ class _$EditTextQuestionImpl implements _EditTextQuestion {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
-    return editTextQuestion?.call(uuid, text);
+    return editTextVariant?.call(uuid, text);
   }
 
   @override
@@ -1180,17 +1180,17 @@ class _$EditTextQuestionImpl implements _EditTextQuestion {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
   }) {
-    if (editTextQuestion != null) {
-      return editTextQuestion(uuid, text);
+    if (editTextVariant != null) {
+      return editTextVariant(uuid, text);
     }
     return orElse();
   }
@@ -1202,15 +1202,15 @@ class _$EditTextQuestionImpl implements _EditTextQuestion {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
-    return editTextQuestion(this);
+    return editTextVariant(this);
   }
 
   @override
@@ -1220,15 +1220,15 @@ class _$EditTextQuestionImpl implements _EditTextQuestion {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
-    return editTextQuestion?.call(this);
+    return editTextVariant?.call(this);
   }
 
   @override
@@ -1238,48 +1238,49 @@ class _$EditTextQuestionImpl implements _EditTextQuestion {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
   }) {
-    if (editTextQuestion != null) {
-      return editTextQuestion(this);
+    if (editTextVariant != null) {
+      return editTextVariant(this);
     }
     return orElse();
   }
 }
 
-abstract class _EditTextQuestion implements CreateQuestionEvent {
-  const factory _EditTextQuestion(final String uuid, final String text) =
-      _$EditTextQuestionImpl;
+abstract class _EditTextVariant implements CreateQuestionEvent {
+  const factory _EditTextVariant(
+      {required final String uuid,
+      required final String text}) = _$EditTextVariantImpl;
 
   String get uuid;
   String get text;
   @JsonKey(ignore: true)
-  _$$EditTextQuestionImplCopyWith<_$EditTextQuestionImpl> get copyWith =>
+  _$$EditTextVariantImplCopyWith<_$EditTextVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AddImageQuestionImplCopyWith<$Res> {
-  factory _$$AddImageQuestionImplCopyWith(_$AddImageQuestionImpl value,
-          $Res Function(_$AddImageQuestionImpl) then) =
-      __$$AddImageQuestionImplCopyWithImpl<$Res>;
+abstract class _$$AddImageVariantImplCopyWith<$Res> {
+  factory _$$AddImageVariantImplCopyWith(_$AddImageVariantImpl value,
+          $Res Function(_$AddImageVariantImpl) then) =
+      __$$AddImageVariantImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String image});
 }
 
 /// @nodoc
-class __$$AddImageQuestionImplCopyWithImpl<$Res>
-    extends _$CreateQuestionEventCopyWithImpl<$Res, _$AddImageQuestionImpl>
-    implements _$$AddImageQuestionImplCopyWith<$Res> {
-  __$$AddImageQuestionImplCopyWithImpl(_$AddImageQuestionImpl _value,
-      $Res Function(_$AddImageQuestionImpl) _then)
+class __$$AddImageVariantImplCopyWithImpl<$Res>
+    extends _$CreateQuestionEventCopyWithImpl<$Res, _$AddImageVariantImpl>
+    implements _$$AddImageVariantImplCopyWith<$Res> {
+  __$$AddImageVariantImplCopyWithImpl(
+      _$AddImageVariantImpl _value, $Res Function(_$AddImageVariantImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1287,7 +1288,7 @@ class __$$AddImageQuestionImplCopyWithImpl<$Res>
   $Res call({
     Object? image = null,
   }) {
-    return _then(_$AddImageQuestionImpl(
+    return _then(_$AddImageVariantImpl(
       null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -1298,22 +1299,22 @@ class __$$AddImageQuestionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddImageQuestionImpl implements _AddImageQuestion {
-  const _$AddImageQuestionImpl(this.image);
+class _$AddImageVariantImpl implements _AddImageVariant {
+  const _$AddImageVariantImpl(this.image);
 
   @override
   final String image;
 
   @override
   String toString() {
-    return 'CreateQuestionEvent.addImageQuestion(image: $image)';
+    return 'CreateQuestionEvent.addImageVariant(image: $image)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddImageQuestionImpl &&
+            other is _$AddImageVariantImpl &&
             (identical(other.image, image) || other.image == image));
   }
 
@@ -1323,8 +1324,8 @@ class _$AddImageQuestionImpl implements _AddImageQuestion {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddImageQuestionImplCopyWith<_$AddImageQuestionImpl> get copyWith =>
-      __$$AddImageQuestionImplCopyWithImpl<_$AddImageQuestionImpl>(
+  _$$AddImageVariantImplCopyWith<_$AddImageVariantImpl> get copyWith =>
+      __$$AddImageVariantImplCopyWithImpl<_$AddImageVariantImpl>(
           this, _$identity);
 
   @override
@@ -1334,15 +1335,15 @@ class _$AddImageQuestionImpl implements _AddImageQuestion {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
-    return addImageQuestion(image);
+    return addImageVariant(image);
   }
 
   @override
@@ -1352,15 +1353,15 @@ class _$AddImageQuestionImpl implements _AddImageQuestion {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
-    return addImageQuestion?.call(image);
+    return addImageVariant?.call(image);
   }
 
   @override
@@ -1370,17 +1371,17 @@ class _$AddImageQuestionImpl implements _AddImageQuestion {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
   }) {
-    if (addImageQuestion != null) {
-      return addImageQuestion(image);
+    if (addImageVariant != null) {
+      return addImageVariant(image);
     }
     return orElse();
   }
@@ -1392,15 +1393,15 @@ class _$AddImageQuestionImpl implements _AddImageQuestion {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
-    return addImageQuestion(this);
+    return addImageVariant(this);
   }
 
   @override
@@ -1410,15 +1411,15 @@ class _$AddImageQuestionImpl implements _AddImageQuestion {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
-    return addImageQuestion?.call(this);
+    return addImageVariant?.call(this);
   }
 
   @override
@@ -1428,46 +1429,46 @@ class _$AddImageQuestionImpl implements _AddImageQuestion {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
   }) {
-    if (addImageQuestion != null) {
-      return addImageQuestion(this);
+    if (addImageVariant != null) {
+      return addImageVariant(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddImageQuestion implements CreateQuestionEvent {
-  const factory _AddImageQuestion(final String image) = _$AddImageQuestionImpl;
+abstract class _AddImageVariant implements CreateQuestionEvent {
+  const factory _AddImageVariant(final String image) = _$AddImageVariantImpl;
 
   String get image;
   @JsonKey(ignore: true)
-  _$$AddImageQuestionImplCopyWith<_$AddImageQuestionImpl> get copyWith =>
+  _$$AddImageVariantImplCopyWith<_$AddImageVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EditImageuestionImplCopyWith<$Res> {
-  factory _$$EditImageuestionImplCopyWith(_$EditImageuestionImpl value,
-          $Res Function(_$EditImageuestionImpl) then) =
-      __$$EditImageuestionImplCopyWithImpl<$Res>;
+abstract class _$$EditImageVariantImplCopyWith<$Res> {
+  factory _$$EditImageVariantImplCopyWith(_$EditImageVariantImpl value,
+          $Res Function(_$EditImageVariantImpl) then) =
+      __$$EditImageVariantImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String uuid, String image});
 }
 
 /// @nodoc
-class __$$EditImageuestionImplCopyWithImpl<$Res>
-    extends _$CreateQuestionEventCopyWithImpl<$Res, _$EditImageuestionImpl>
-    implements _$$EditImageuestionImplCopyWith<$Res> {
-  __$$EditImageuestionImplCopyWithImpl(_$EditImageuestionImpl _value,
-      $Res Function(_$EditImageuestionImpl) _then)
+class __$$EditImageVariantImplCopyWithImpl<$Res>
+    extends _$CreateQuestionEventCopyWithImpl<$Res, _$EditImageVariantImpl>
+    implements _$$EditImageVariantImplCopyWith<$Res> {
+  __$$EditImageVariantImplCopyWithImpl(_$EditImageVariantImpl _value,
+      $Res Function(_$EditImageVariantImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1476,12 +1477,12 @@ class __$$EditImageuestionImplCopyWithImpl<$Res>
     Object? uuid = null,
     Object? image = null,
   }) {
-    return _then(_$EditImageuestionImpl(
-      null == uuid
+    return _then(_$EditImageVariantImpl(
+      uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
               as String,
-      null == image
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String,
@@ -1491,8 +1492,8 @@ class __$$EditImageuestionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$EditImageuestionImpl implements _EditImageuestion {
-  const _$EditImageuestionImpl(this.uuid, this.image);
+class _$EditImageVariantImpl implements _EditImageVariant {
+  const _$EditImageVariantImpl({required this.uuid, required this.image});
 
   @override
   final String uuid;
@@ -1501,14 +1502,14 @@ class _$EditImageuestionImpl implements _EditImageuestion {
 
   @override
   String toString() {
-    return 'CreateQuestionEvent.editImageQuestion(uuid: $uuid, image: $image)';
+    return 'CreateQuestionEvent.editImageVariant(uuid: $uuid, image: $image)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EditImageuestionImpl &&
+            other is _$EditImageVariantImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.image, image) || other.image == image));
   }
@@ -1519,8 +1520,8 @@ class _$EditImageuestionImpl implements _EditImageuestion {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EditImageuestionImplCopyWith<_$EditImageuestionImpl> get copyWith =>
-      __$$EditImageuestionImplCopyWithImpl<_$EditImageuestionImpl>(
+  _$$EditImageVariantImplCopyWith<_$EditImageVariantImpl> get copyWith =>
+      __$$EditImageVariantImplCopyWithImpl<_$EditImageVariantImpl>(
           this, _$identity);
 
   @override
@@ -1530,15 +1531,15 @@ class _$EditImageuestionImpl implements _EditImageuestion {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
-    return editImageQuestion(uuid, image);
+    return editImageVariant(uuid, image);
   }
 
   @override
@@ -1548,15 +1549,15 @@ class _$EditImageuestionImpl implements _EditImageuestion {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
-    return editImageQuestion?.call(uuid, image);
+    return editImageVariant?.call(uuid, image);
   }
 
   @override
@@ -1566,17 +1567,17 @@ class _$EditImageuestionImpl implements _EditImageuestion {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
   }) {
-    if (editImageQuestion != null) {
-      return editImageQuestion(uuid, image);
+    if (editImageVariant != null) {
+      return editImageVariant(uuid, image);
     }
     return orElse();
   }
@@ -1588,15 +1589,15 @@ class _$EditImageuestionImpl implements _EditImageuestion {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
-    return editImageQuestion(this);
+    return editImageVariant(this);
   }
 
   @override
@@ -1606,15 +1607,15 @@ class _$EditImageuestionImpl implements _EditImageuestion {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
-    return editImageQuestion?.call(this);
+    return editImageVariant?.call(this);
   }
 
   @override
@@ -1624,48 +1625,49 @@ class _$EditImageuestionImpl implements _EditImageuestion {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
   }) {
-    if (editImageQuestion != null) {
-      return editImageQuestion(this);
+    if (editImageVariant != null) {
+      return editImageVariant(this);
     }
     return orElse();
   }
 }
 
-abstract class _EditImageuestion implements CreateQuestionEvent {
-  const factory _EditImageuestion(final String uuid, final String image) =
-      _$EditImageuestionImpl;
+abstract class _EditImageVariant implements CreateQuestionEvent {
+  const factory _EditImageVariant(
+      {required final String uuid,
+      required final String image}) = _$EditImageVariantImpl;
 
   String get uuid;
   String get image;
   @JsonKey(ignore: true)
-  _$$EditImageuestionImplCopyWith<_$EditImageuestionImpl> get copyWith =>
+  _$$EditImageVariantImplCopyWith<_$EditImageVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RemoveQuestionImplCopyWith<$Res> {
-  factory _$$RemoveQuestionImplCopyWith(_$RemoveQuestionImpl value,
-          $Res Function(_$RemoveQuestionImpl) then) =
-      __$$RemoveQuestionImplCopyWithImpl<$Res>;
+abstract class _$$RemoveVariantImplCopyWith<$Res> {
+  factory _$$RemoveVariantImplCopyWith(
+          _$RemoveVariantImpl value, $Res Function(_$RemoveVariantImpl) then) =
+      __$$RemoveVariantImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String uuid});
 }
 
 /// @nodoc
-class __$$RemoveQuestionImplCopyWithImpl<$Res>
-    extends _$CreateQuestionEventCopyWithImpl<$Res, _$RemoveQuestionImpl>
-    implements _$$RemoveQuestionImplCopyWith<$Res> {
-  __$$RemoveQuestionImplCopyWithImpl(
-      _$RemoveQuestionImpl _value, $Res Function(_$RemoveQuestionImpl) _then)
+class __$$RemoveVariantImplCopyWithImpl<$Res>
+    extends _$CreateQuestionEventCopyWithImpl<$Res, _$RemoveVariantImpl>
+    implements _$$RemoveVariantImplCopyWith<$Res> {
+  __$$RemoveVariantImplCopyWithImpl(
+      _$RemoveVariantImpl _value, $Res Function(_$RemoveVariantImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1673,7 +1675,7 @@ class __$$RemoveQuestionImplCopyWithImpl<$Res>
   $Res call({
     Object? uuid = null,
   }) {
-    return _then(_$RemoveQuestionImpl(
+    return _then(_$RemoveVariantImpl(
       null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -1684,22 +1686,22 @@ class __$$RemoveQuestionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveQuestionImpl implements _RemoveQuestion {
-  const _$RemoveQuestionImpl(this.uuid);
+class _$RemoveVariantImpl implements _RemoveVariant {
+  const _$RemoveVariantImpl(this.uuid);
 
   @override
   final String uuid;
 
   @override
   String toString() {
-    return 'CreateQuestionEvent.removeQuestion(uuid: $uuid)';
+    return 'CreateQuestionEvent.removeVariant(uuid: $uuid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RemoveQuestionImpl &&
+            other is _$RemoveVariantImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid));
   }
 
@@ -1709,9 +1711,8 @@ class _$RemoveQuestionImpl implements _RemoveQuestion {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RemoveQuestionImplCopyWith<_$RemoveQuestionImpl> get copyWith =>
-      __$$RemoveQuestionImplCopyWithImpl<_$RemoveQuestionImpl>(
-          this, _$identity);
+  _$$RemoveVariantImplCopyWith<_$RemoveVariantImpl> get copyWith =>
+      __$$RemoveVariantImplCopyWithImpl<_$RemoveVariantImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1720,15 +1721,15 @@ class _$RemoveQuestionImpl implements _RemoveQuestion {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
-    return removeQuestion(uuid);
+    return removeVariant(uuid);
   }
 
   @override
@@ -1738,15 +1739,15 @@ class _$RemoveQuestionImpl implements _RemoveQuestion {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
-    return removeQuestion?.call(uuid);
+    return removeVariant?.call(uuid);
   }
 
   @override
@@ -1756,17 +1757,17 @@ class _$RemoveQuestionImpl implements _RemoveQuestion {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
   }) {
-    if (removeQuestion != null) {
-      return removeQuestion(uuid);
+    if (removeVariant != null) {
+      return removeVariant(uuid);
     }
     return orElse();
   }
@@ -1778,15 +1779,15 @@ class _$RemoveQuestionImpl implements _RemoveQuestion {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
-    return removeQuestion(this);
+    return removeVariant(this);
   }
 
   @override
@@ -1796,15 +1797,15 @@ class _$RemoveQuestionImpl implements _RemoveQuestion {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
-    return removeQuestion?.call(this);
+    return removeVariant?.call(this);
   }
 
   @override
@@ -1814,28 +1815,28 @@ class _$RemoveQuestionImpl implements _RemoveQuestion {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
   }) {
-    if (removeQuestion != null) {
-      return removeQuestion(this);
+    if (removeVariant != null) {
+      return removeVariant(this);
     }
     return orElse();
   }
 }
 
-abstract class _RemoveQuestion implements CreateQuestionEvent {
-  const factory _RemoveQuestion(final String uuid) = _$RemoveQuestionImpl;
+abstract class _RemoveVariant implements CreateQuestionEvent {
+  const factory _RemoveVariant(final String uuid) = _$RemoveVariantImpl;
 
   String get uuid;
   @JsonKey(ignore: true)
-  _$$RemoveQuestionImplCopyWith<_$RemoveQuestionImpl> get copyWith =>
+  _$$RemoveVariantImplCopyWith<_$RemoveVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1907,11 +1908,11 @@ class _$AddCorrectImpl implements _AddCorrect {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
@@ -1925,11 +1926,11 @@ class _$AddCorrectImpl implements _AddCorrect {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
@@ -1943,11 +1944,11 @@ class _$AddCorrectImpl implements _AddCorrect {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
@@ -1965,11 +1966,11 @@ class _$AddCorrectImpl implements _AddCorrect {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
@@ -1983,11 +1984,11 @@ class _$AddCorrectImpl implements _AddCorrect {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
@@ -2001,11 +2002,11 @@ class _$AddCorrectImpl implements _AddCorrect {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
@@ -2068,11 +2069,11 @@ class _$SaveQuestionImpl implements _SaveQuestion {
     required TResult Function(String description) editDescription,
     required TResult Function(QuestionLayout layout) editLayout,
     required TResult Function(bool shuffle) editShuffle,
-    required TResult Function(String text) addTextQuestion,
-    required TResult Function(String uuid, String text) editTextQuestion,
-    required TResult Function(String image) addImageQuestion,
-    required TResult Function(String uuid, String image) editImageQuestion,
-    required TResult Function(String uuid) removeQuestion,
+    required TResult Function(String text) addTextVariant,
+    required TResult Function(String uuid, String text) editTextVariant,
+    required TResult Function(String image) addImageVariant,
+    required TResult Function(String uuid, String image) editImageVariant,
+    required TResult Function(String uuid) removeVariant,
     required TResult Function(String uuid) addCorrect,
     required TResult Function() saveQuestion,
   }) {
@@ -2086,11 +2087,11 @@ class _$SaveQuestionImpl implements _SaveQuestion {
     TResult? Function(String description)? editDescription,
     TResult? Function(QuestionLayout layout)? editLayout,
     TResult? Function(bool shuffle)? editShuffle,
-    TResult? Function(String text)? addTextQuestion,
-    TResult? Function(String uuid, String text)? editTextQuestion,
-    TResult? Function(String image)? addImageQuestion,
-    TResult? Function(String uuid, String image)? editImageQuestion,
-    TResult? Function(String uuid)? removeQuestion,
+    TResult? Function(String text)? addTextVariant,
+    TResult? Function(String uuid, String text)? editTextVariant,
+    TResult? Function(String image)? addImageVariant,
+    TResult? Function(String uuid, String image)? editImageVariant,
+    TResult? Function(String uuid)? removeVariant,
     TResult? Function(String uuid)? addCorrect,
     TResult? Function()? saveQuestion,
   }) {
@@ -2104,11 +2105,11 @@ class _$SaveQuestionImpl implements _SaveQuestion {
     TResult Function(String description)? editDescription,
     TResult Function(QuestionLayout layout)? editLayout,
     TResult Function(bool shuffle)? editShuffle,
-    TResult Function(String text)? addTextQuestion,
-    TResult Function(String uuid, String text)? editTextQuestion,
-    TResult Function(String image)? addImageQuestion,
-    TResult Function(String uuid, String image)? editImageQuestion,
-    TResult Function(String uuid)? removeQuestion,
+    TResult Function(String text)? addTextVariant,
+    TResult Function(String uuid, String text)? editTextVariant,
+    TResult Function(String image)? addImageVariant,
+    TResult Function(String uuid, String image)? editImageVariant,
+    TResult Function(String uuid)? removeVariant,
     TResult Function(String uuid)? addCorrect,
     TResult Function()? saveQuestion,
     required TResult orElse(),
@@ -2126,11 +2127,11 @@ class _$SaveQuestionImpl implements _SaveQuestion {
     required TResult Function(_EditDescription value) editDescription,
     required TResult Function(_EditLayout value) editLayout,
     required TResult Function(_EditShuffle value) editShuffle,
-    required TResult Function(_AddTextQuestion value) addTextQuestion,
-    required TResult Function(_EditTextQuestion value) editTextQuestion,
-    required TResult Function(_AddImageQuestion value) addImageQuestion,
-    required TResult Function(_EditImageuestion value) editImageQuestion,
-    required TResult Function(_RemoveQuestion value) removeQuestion,
+    required TResult Function(_AddTextVariant value) addTextVariant,
+    required TResult Function(_EditTextVariant value) editTextVariant,
+    required TResult Function(_AddImageVariant value) addImageVariant,
+    required TResult Function(_EditImageVariant value) editImageVariant,
+    required TResult Function(_RemoveVariant value) removeVariant,
     required TResult Function(_AddCorrect value) addCorrect,
     required TResult Function(_SaveQuestion value) saveQuestion,
   }) {
@@ -2144,11 +2145,11 @@ class _$SaveQuestionImpl implements _SaveQuestion {
     TResult? Function(_EditDescription value)? editDescription,
     TResult? Function(_EditLayout value)? editLayout,
     TResult? Function(_EditShuffle value)? editShuffle,
-    TResult? Function(_AddTextQuestion value)? addTextQuestion,
-    TResult? Function(_EditTextQuestion value)? editTextQuestion,
-    TResult? Function(_AddImageQuestion value)? addImageQuestion,
-    TResult? Function(_EditImageuestion value)? editImageQuestion,
-    TResult? Function(_RemoveQuestion value)? removeQuestion,
+    TResult? Function(_AddTextVariant value)? addTextVariant,
+    TResult? Function(_EditTextVariant value)? editTextVariant,
+    TResult? Function(_AddImageVariant value)? addImageVariant,
+    TResult? Function(_EditImageVariant value)? editImageVariant,
+    TResult? Function(_RemoveVariant value)? removeVariant,
     TResult? Function(_AddCorrect value)? addCorrect,
     TResult? Function(_SaveQuestion value)? saveQuestion,
   }) {
@@ -2162,11 +2163,11 @@ class _$SaveQuestionImpl implements _SaveQuestion {
     TResult Function(_EditDescription value)? editDescription,
     TResult Function(_EditLayout value)? editLayout,
     TResult Function(_EditShuffle value)? editShuffle,
-    TResult Function(_AddTextQuestion value)? addTextQuestion,
-    TResult Function(_EditTextQuestion value)? editTextQuestion,
-    TResult Function(_AddImageQuestion value)? addImageQuestion,
-    TResult Function(_EditImageuestion value)? editImageQuestion,
-    TResult Function(_RemoveQuestion value)? removeQuestion,
+    TResult Function(_AddTextVariant value)? addTextVariant,
+    TResult Function(_EditTextVariant value)? editTextVariant,
+    TResult Function(_AddImageVariant value)? addImageVariant,
+    TResult Function(_EditImageVariant value)? editImageVariant,
+    TResult Function(_RemoveVariant value)? removeVariant,
     TResult Function(_AddCorrect value)? addCorrect,
     TResult Function(_SaveQuestion value)? saveQuestion,
     required TResult orElse(),
@@ -2190,8 +2191,101 @@ mixin _$CreateQuestionState {
   QuestionLayout get layout => throw _privateConstructorUsedError;
   QuestionType get questionType => throw _privateConstructorUsedError;
   bool get shuffle => throw _privateConstructorUsedError;
-  List<QuestionVariant> get variants => throw _privateConstructorUsedError;
+  List<IQuestionVariantTemplate> get variants =>
+      throw _privateConstructorUsedError;
   Set<String> get answer => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)
+        template,
+    required TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)
+        completed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        template,
+    TResult? Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        completed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        template,
+    TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        completed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CreateQuestionTemplateState value) template,
+    required TResult Function(CreateQuestionCompletedState value) completed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CreateQuestionTemplateState value)? template,
+    TResult? Function(CreateQuestionCompletedState value)? completed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CreateQuestionTemplateState value)? template,
+    TResult Function(CreateQuestionCompletedState value)? completed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateQuestionStateCopyWith<CreateQuestionState> get copyWith =>
@@ -2211,7 +2305,7 @@ abstract class $CreateQuestionStateCopyWith<$Res> {
       QuestionLayout layout,
       QuestionType questionType,
       bool shuffle,
-      List<QuestionVariant> variants,
+      List<IQuestionVariantTemplate> variants,
       Set<String> answer});
 }
 
@@ -2265,7 +2359,7 @@ class _$CreateQuestionStateCopyWithImpl<$Res, $Val extends CreateQuestionState>
       variants: null == variants
           ? _value.variants
           : variants // ignore: cast_nullable_to_non_nullable
-              as List<QuestionVariant>,
+              as List<IQuestionVariantTemplate>,
       answer: null == answer
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
@@ -2275,11 +2369,12 @@ class _$CreateQuestionStateCopyWithImpl<$Res, $Val extends CreateQuestionState>
 }
 
 /// @nodoc
-abstract class _$$CreateQuestionStateImplCopyWith<$Res>
+abstract class _$$CreateQuestionTemplateStateImplCopyWith<$Res>
     implements $CreateQuestionStateCopyWith<$Res> {
-  factory _$$CreateQuestionStateImplCopyWith(_$CreateQuestionStateImpl value,
-          $Res Function(_$CreateQuestionStateImpl) then) =
-      __$$CreateQuestionStateImplCopyWithImpl<$Res>;
+  factory _$$CreateQuestionTemplateStateImplCopyWith(
+          _$CreateQuestionTemplateStateImpl value,
+          $Res Function(_$CreateQuestionTemplateStateImpl) then) =
+      __$$CreateQuestionTemplateStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2289,16 +2384,18 @@ abstract class _$$CreateQuestionStateImplCopyWith<$Res>
       QuestionLayout layout,
       QuestionType questionType,
       bool shuffle,
-      List<QuestionVariant> variants,
+      List<IQuestionVariantTemplate> variants,
       Set<String> answer});
 }
 
 /// @nodoc
-class __$$CreateQuestionStateImplCopyWithImpl<$Res>
-    extends _$CreateQuestionStateCopyWithImpl<$Res, _$CreateQuestionStateImpl>
-    implements _$$CreateQuestionStateImplCopyWith<$Res> {
-  __$$CreateQuestionStateImplCopyWithImpl(_$CreateQuestionStateImpl _value,
-      $Res Function(_$CreateQuestionStateImpl) _then)
+class __$$CreateQuestionTemplateStateImplCopyWithImpl<$Res>
+    extends _$CreateQuestionStateCopyWithImpl<$Res,
+        _$CreateQuestionTemplateStateImpl>
+    implements _$$CreateQuestionTemplateStateImplCopyWith<$Res> {
+  __$$CreateQuestionTemplateStateImplCopyWithImpl(
+      _$CreateQuestionTemplateStateImpl _value,
+      $Res Function(_$CreateQuestionTemplateStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2313,7 +2410,7 @@ class __$$CreateQuestionStateImplCopyWithImpl<$Res>
     Object? variants = null,
     Object? answer = null,
   }) {
-    return _then(_$CreateQuestionStateImpl(
+    return _then(_$CreateQuestionTemplateStateImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2341,7 +2438,7 @@ class __$$CreateQuestionStateImplCopyWithImpl<$Res>
       variants: null == variants
           ? _value._variants
           : variants // ignore: cast_nullable_to_non_nullable
-              as List<QuestionVariant>,
+              as List<IQuestionVariantTemplate>,
       answer: null == answer
           ? _value._answer
           : answer // ignore: cast_nullable_to_non_nullable
@@ -2352,15 +2449,16 @@ class __$$CreateQuestionStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateQuestionStateImpl implements _CreateQuestionState {
-  const _$CreateQuestionStateImpl(
+class _$CreateQuestionTemplateStateImpl implements CreateQuestionTemplateState {
+  const _$CreateQuestionTemplateStateImpl(
       {this.id,
       this.name = '',
       this.description = '',
       this.layout = QuestionLayout.column,
       this.questionType = QuestionType.single,
       this.shuffle = false,
-      final List<QuestionVariant> variants = const <QuestionVariant>[],
+      final List<IQuestionVariantTemplate> variants =
+          const <IQuestionVariantTemplate>[],
       final Set<String> answer = const <String>{}})
       : _variants = variants,
         _answer = answer;
@@ -2382,10 +2480,10 @@ class _$CreateQuestionStateImpl implements _CreateQuestionState {
   @override
   @JsonKey()
   final bool shuffle;
-  final List<QuestionVariant> _variants;
+  final List<IQuestionVariantTemplate> _variants;
   @override
   @JsonKey()
-  List<QuestionVariant> get variants {
+  List<IQuestionVariantTemplate> get variants {
     if (_variants is EqualUnmodifiableListView) return _variants;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_variants);
@@ -2402,14 +2500,14 @@ class _$CreateQuestionStateImpl implements _CreateQuestionState {
 
   @override
   String toString() {
-    return 'CreateQuestionState(id: $id, name: $name, description: $description, layout: $layout, questionType: $questionType, shuffle: $shuffle, variants: $variants, answer: $answer)';
+    return 'CreateQuestionState.template(id: $id, name: $name, description: $description, layout: $layout, questionType: $questionType, shuffle: $shuffle, variants: $variants, answer: $answer)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateQuestionStateImpl &&
+            other is _$CreateQuestionTemplateStateImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -2437,21 +2535,140 @@ class _$CreateQuestionStateImpl implements _CreateQuestionState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateQuestionStateImplCopyWith<_$CreateQuestionStateImpl> get copyWith =>
-      __$$CreateQuestionStateImplCopyWithImpl<_$CreateQuestionStateImpl>(
-          this, _$identity);
+  _$$CreateQuestionTemplateStateImplCopyWith<_$CreateQuestionTemplateStateImpl>
+      get copyWith => __$$CreateQuestionTemplateStateImplCopyWithImpl<
+          _$CreateQuestionTemplateStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)
+        template,
+    required TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)
+        completed,
+  }) {
+    return template(
+        id, name, description, layout, questionType, shuffle, variants, answer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        template,
+    TResult? Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        completed,
+  }) {
+    return template?.call(
+        id, name, description, layout, questionType, shuffle, variants, answer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        template,
+    TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        completed,
+    required TResult orElse(),
+  }) {
+    if (template != null) {
+      return template(id, name, description, layout, questionType, shuffle,
+          variants, answer);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CreateQuestionTemplateState value) template,
+    required TResult Function(CreateQuestionCompletedState value) completed,
+  }) {
+    return template(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CreateQuestionTemplateState value)? template,
+    TResult? Function(CreateQuestionCompletedState value)? completed,
+  }) {
+    return template?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CreateQuestionTemplateState value)? template,
+    TResult Function(CreateQuestionCompletedState value)? completed,
+    required TResult orElse(),
+  }) {
+    if (template != null) {
+      return template(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class _CreateQuestionState implements CreateQuestionState {
-  const factory _CreateQuestionState(
+abstract class CreateQuestionTemplateState implements CreateQuestionState {
+  const factory CreateQuestionTemplateState(
       {final int? id,
       final String name,
       final String description,
       final QuestionLayout layout,
       final QuestionType questionType,
       final bool shuffle,
-      final List<QuestionVariant> variants,
-      final Set<String> answer}) = _$CreateQuestionStateImpl;
+      final List<IQuestionVariantTemplate> variants,
+      final Set<String> answer}) = _$CreateQuestionTemplateStateImpl;
 
   @override
   int? get id;
@@ -2466,11 +2683,330 @@ abstract class _CreateQuestionState implements CreateQuestionState {
   @override
   bool get shuffle;
   @override
-  List<QuestionVariant> get variants;
+  List<IQuestionVariantTemplate> get variants;
   @override
   Set<String> get answer;
   @override
   @JsonKey(ignore: true)
-  _$$CreateQuestionStateImplCopyWith<_$CreateQuestionStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreateQuestionTemplateStateImplCopyWith<_$CreateQuestionTemplateStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateQuestionCompletedStateImplCopyWith<$Res>
+    implements $CreateQuestionStateCopyWith<$Res> {
+  factory _$$CreateQuestionCompletedStateImplCopyWith(
+          _$CreateQuestionCompletedStateImpl value,
+          $Res Function(_$CreateQuestionCompletedStateImpl) then) =
+      __$$CreateQuestionCompletedStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {int? id,
+      String name,
+      String description,
+      QuestionLayout layout,
+      QuestionType questionType,
+      bool shuffle,
+      List<IQuestionVariantTemplate> variants,
+      Set<String> answer});
+}
+
+/// @nodoc
+class __$$CreateQuestionCompletedStateImplCopyWithImpl<$Res>
+    extends _$CreateQuestionStateCopyWithImpl<$Res,
+        _$CreateQuestionCompletedStateImpl>
+    implements _$$CreateQuestionCompletedStateImplCopyWith<$Res> {
+  __$$CreateQuestionCompletedStateImplCopyWithImpl(
+      _$CreateQuestionCompletedStateImpl _value,
+      $Res Function(_$CreateQuestionCompletedStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? name = null,
+    Object? description = null,
+    Object? layout = null,
+    Object? questionType = null,
+    Object? shuffle = null,
+    Object? variants = null,
+    Object? answer = null,
+  }) {
+    return _then(_$CreateQuestionCompletedStateImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      layout: null == layout
+          ? _value.layout
+          : layout // ignore: cast_nullable_to_non_nullable
+              as QuestionLayout,
+      questionType: null == questionType
+          ? _value.questionType
+          : questionType // ignore: cast_nullable_to_non_nullable
+              as QuestionType,
+      shuffle: null == shuffle
+          ? _value.shuffle
+          : shuffle // ignore: cast_nullable_to_non_nullable
+              as bool,
+      variants: null == variants
+          ? _value._variants
+          : variants // ignore: cast_nullable_to_non_nullable
+              as List<IQuestionVariantTemplate>,
+      answer: null == answer
+          ? _value._answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreateQuestionCompletedStateImpl
+    implements CreateQuestionCompletedState {
+  const _$CreateQuestionCompletedStateImpl(
+      {this.id,
+      required this.name,
+      required this.description,
+      required this.layout,
+      required this.questionType,
+      required this.shuffle,
+      required final List<IQuestionVariantTemplate> variants,
+      required final Set<String> answer})
+      : _variants = variants,
+        _answer = answer;
+
+  @override
+  final int? id;
+  @override
+  final String name;
+  @override
+  final String description;
+  @override
+  final QuestionLayout layout;
+  @override
+  final QuestionType questionType;
+  @override
+  final bool shuffle;
+  final List<IQuestionVariantTemplate> _variants;
+  @override
+  List<IQuestionVariantTemplate> get variants {
+    if (_variants is EqualUnmodifiableListView) return _variants;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_variants);
+  }
+
+  final Set<String> _answer;
+  @override
+  Set<String> get answer {
+    if (_answer is EqualUnmodifiableSetView) return _answer;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(_answer);
+  }
+
+  @override
+  String toString() {
+    return 'CreateQuestionState.completed(id: $id, name: $name, description: $description, layout: $layout, questionType: $questionType, shuffle: $shuffle, variants: $variants, answer: $answer)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateQuestionCompletedStateImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.layout, layout) || other.layout == layout) &&
+            (identical(other.questionType, questionType) ||
+                other.questionType == questionType) &&
+            (identical(other.shuffle, shuffle) || other.shuffle == shuffle) &&
+            const DeepCollectionEquality().equals(other._variants, _variants) &&
+            const DeepCollectionEquality().equals(other._answer, _answer));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      description,
+      layout,
+      questionType,
+      shuffle,
+      const DeepCollectionEquality().hash(_variants),
+      const DeepCollectionEquality().hash(_answer));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateQuestionCompletedStateImplCopyWith<
+          _$CreateQuestionCompletedStateImpl>
+      get copyWith => __$$CreateQuestionCompletedStateImplCopyWithImpl<
+          _$CreateQuestionCompletedStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)
+        template,
+    required TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)
+        completed,
+  }) {
+    return completed(
+        id, name, description, layout, questionType, shuffle, variants, answer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        template,
+    TResult? Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        completed,
+  }) {
+    return completed?.call(
+        id, name, description, layout, questionType, shuffle, variants, answer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        template,
+    TResult Function(
+            int? id,
+            String name,
+            String description,
+            QuestionLayout layout,
+            QuestionType questionType,
+            bool shuffle,
+            List<IQuestionVariantTemplate> variants,
+            Set<String> answer)?
+        completed,
+    required TResult orElse(),
+  }) {
+    if (completed != null) {
+      return completed(id, name, description, layout, questionType, shuffle,
+          variants, answer);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CreateQuestionTemplateState value) template,
+    required TResult Function(CreateQuestionCompletedState value) completed,
+  }) {
+    return completed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CreateQuestionTemplateState value)? template,
+    TResult? Function(CreateQuestionCompletedState value)? completed,
+  }) {
+    return completed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CreateQuestionTemplateState value)? template,
+    TResult Function(CreateQuestionCompletedState value)? completed,
+    required TResult orElse(),
+  }) {
+    if (completed != null) {
+      return completed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CreateQuestionCompletedState implements CreateQuestionState {
+  const factory CreateQuestionCompletedState(
+      {final int? id,
+      required final String name,
+      required final String description,
+      required final QuestionLayout layout,
+      required final QuestionType questionType,
+      required final bool shuffle,
+      required final List<IQuestionVariantTemplate> variants,
+      required final Set<String> answer}) = _$CreateQuestionCompletedStateImpl;
+
+  @override
+  int? get id;
+  @override
+  String get name;
+  @override
+  String get description;
+  @override
+  QuestionLayout get layout;
+  @override
+  QuestionType get questionType;
+  @override
+  bool get shuffle;
+  @override
+  List<IQuestionVariantTemplate> get variants;
+  @override
+  Set<String> get answer;
+  @override
+  @JsonKey(ignore: true)
+  _$$CreateQuestionCompletedStateImplCopyWith<
+          _$CreateQuestionCompletedStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
