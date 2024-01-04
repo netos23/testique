@@ -43,13 +43,13 @@ QuestionVariantModelsCompanion mapQuestionVariantModelsCompanion(
 ) {
   return switch (questionVariant) {
     IImageQuestionVariantTemplate() => QuestionVariantModelsCompanion(
-        id: Value.ofNullable(questionVariant.id),
+        id: const Value.absent(),
         image: Value.ofNullable(questionVariant.image),
         uuid: Value.ofNullable(questionVariant.uuid),
         variantType: const Value.ofNullable(QuestionVariantType.image),
       ),
     ITextQuestionVariantTemplate() => QuestionVariantModelsCompanion(
-        id: Value.ofNullable(questionVariant.id),
+        id: const Value.absent(),
         textContent: Value.ofNullable(questionVariant.text),
         uuid: Value.ofNullable(questionVariant.uuid),
         variantType: const Value.ofNullable(QuestionVariantType.text),

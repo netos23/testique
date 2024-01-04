@@ -25,7 +25,7 @@ QuestionModelsCompanion mapQuestionModelsCompanion(
   IQuestionTemplate question,
 ) {
   return QuestionModelsCompanion(
-    id: Value.ofNullable(question.id),
+    id: const Value.absent(),
     name: Value(question.name),
     description: Value(question.description),
     orientation: Value(question.layout),
