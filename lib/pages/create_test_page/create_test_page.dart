@@ -43,6 +43,7 @@ class _CreateTestPageBody extends StatelessWidget {
         final questions = state.questions;
 
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             leading: const BackButton(
               color: AppColors.primary,

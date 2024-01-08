@@ -61,6 +61,7 @@ class _CreateQuestionPageBody extends StatelessWidget {
         final description = state.description;
 
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             leading: const BackButton(
               color: AppColors.primary,
