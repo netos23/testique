@@ -15,6 +15,17 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CreateQuestionRoute.name: (routeData) {
+      final args = routeData.argsAs<CreateQuestionRouteArgs>(
+          orElse: () => const CreateQuestionRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CreateQuestionPage(
+          key: args.key,
+          question: args.question,
+        ),
+      );
+    },
     CreateTestRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -40,6 +51,44 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [CreateQuestionPage]
+class CreateQuestionRoute extends PageRouteInfo<CreateQuestionRouteArgs> {
+  CreateQuestionRoute({
+    Key? key,
+    IQuestionTemplate? question,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CreateQuestionRoute.name,
+          args: CreateQuestionRouteArgs(
+            key: key,
+            question: question,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CreateQuestionRoute';
+
+  static const PageInfo<CreateQuestionRouteArgs> page =
+      PageInfo<CreateQuestionRouteArgs>(name);
+}
+
+class CreateQuestionRouteArgs {
+  const CreateQuestionRouteArgs({
+    this.key,
+    this.question,
+  });
+
+  final Key? key;
+
+  final IQuestionTemplate? question;
+
+  @override
+  String toString() {
+    return 'CreateQuestionRouteArgs{key: $key, question: $question}';
+  }
 }
 
 /// generated route for

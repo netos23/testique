@@ -192,22 +192,37 @@ class CreateTestBloc extends Bloc<CreateTestEvent, CreateTestState> {
       ),
     );
 
-    final test = await _testRepository.saveTest(
-      TestTemplate(
-        id: id,
-        name: name,
-        description: description,
-        questions: questions,
-      ),
-    );
+    try {
+      final test = await _testRepository.saveTest(
+        TestTemplate(
+          id: id,
+          name: name,
+          description: description,
+          questions: questions,
+        ),
+      );
 
-    emit(
-      CreateTestState.completed(
-        id: test.id,
-        name: test.name,
-        description: test.description,
-        questions: test.questions,
-      ),
-    );
+      emit(
+        CreateTestState.completed(
+          id: test.id,
+          name: test.name,
+          description: test.description,
+          questions: test.questions,
+        ),
+      );
+    } catch (error, stackTrace) {
+      
+      emit(
+        CreateTestState.template(
+          id: id,
+          name: name,
+          description: description,
+          questions: questions,
+        ),
+      );
+
+      addError(error, stackTrace);
+      return;
+    }
   }
 }

@@ -2,10 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testique/domain/create_test_bloc/create_test_bloc.dart';
+import 'package:testique/entity/question.dart';
+import 'package:testique/navigation/app_router.dart';
+import 'package:testique/pages/widgets/filled_text_field.dart';
+import 'package:testique/pages/widgets/outline_text_field.dart';
 import 'package:testique/resources/res.dart';
 
-import '../widgets/description_text_field.dart';
-import '../widgets/name_text_field.dart';
+import 'widgets/sliver_questions_list.dart';
 
 @RoutePage()
 class CreateTestPage extends StatelessWidget {
@@ -29,12 +32,15 @@ class _CreateTestPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<CreateTestBloc, CreateTestState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state is CreateTestCompletedState) {
+          context.router.pop();
+        }
       },
       builder: (context, state) {
         final bloc = context.read<CreateTestBloc>();
         final name = state.name;
         final description = state.description;
+        final questions = state.questions;
 
         return Scaffold(
           appBar: AppBar(
@@ -49,7 +55,7 @@ class _CreateTestPageBody extends StatelessWidget {
             child: CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
-                  child: NameTextField(
+                  child: FilledTextField(
                     initialValue: name,
                     hint: 'Название теста',
                     onChanged: (text) => bloc.add(
@@ -63,7 +69,7 @@ class _CreateTestPageBody extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: DescriptionTextField(
+                  child: OutlineTextField(
                     initialValue: description,
                     hint: 'Дополнительное описание',
                     onChanged: (text) => bloc.add(
@@ -82,7 +88,46 @@ class _CreateTestPageBody extends StatelessWidget {
                     style: headline,
                   ),
                 ),
-                SliverQuestionList(bloc: bloc),
+                SliverQuestionList(
+                  questions: questions,
+                  onAdd: switch (questions.length) {
+                    >= kQuestionLimit => null,
+                    _ => () async {
+                        final question = await context.router.push(
+                          CreateQuestionRoute(),
+                        );
+
+                        if (question is! IQuestionTemplate) {
+                          return;
+                        }
+
+                        bloc.add(CreateTestEvent.addQuestion(question));
+                      },
+                  },
+                  onEdit: (index, question) async {
+                    final edited = await context.router.push(
+                      CreateQuestionRoute(
+                        question: question,
+                      ),
+                    );
+
+                    if (edited is! IQuestionTemplate) {
+                      return;
+                    }
+
+                    bloc.add(
+                      CreateTestEvent.editQuestion(
+                        index,
+                        edited,
+                      ),
+                    );
+                  },
+                  onDelete: (index) => bloc.add(
+                    CreateTestEvent.deleteQuestion(
+                      index,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -108,85 +153,6 @@ class _CreateTestPageBody extends StatelessWidget {
               ),
             ),
           ),
-        );
-      },
-    );
-  }
-}
-
-class SliverQuestionList extends StatelessWidget {
-  const SliverQuestionList({
-    super.key,
-    required this.bloc,
-  });
-
-  final CreateTestBloc bloc;
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<CreateTestBloc, CreateTestState>(
-      builder: (context, state) {
-        return SliverList.separated(
-          itemBuilder: (context, index) {
-            final questions = state.questions;
-            if (index == questions.length) {
-              return SizedBox(
-                height: 52,
-                child: FilledButton(
-                  onPressed: switch (questions.length) {
-                    >= 40 => null,
-                    _ => () {
-                        // TODO(netos23): addQuestion
-                        // bloc.add(const CreateTestEvent.addQuestion(question));
-                      },
-                  },
-                  child: Center(
-                    child: Text(
-                      'Создать еще один вопрос',
-                      style: headline.copyWith(
-                        color: AppColors.background,
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }
-
-            final question = questions[index];
-
-            return Dismissible(
-              key: ValueKey(question),
-              onDismissed: (_) => bloc.add(
-                CreateTestEvent.deleteQuestion(
-                  index,
-                ),
-              ),
-              child: SizedBox(
-                height: 52,
-                child: FilledButton(
-                  onPressed: () {
-                    // TODO(netos23): editQuestion
-                    bloc.add(
-                      CreateTestEvent.editQuestion(
-                        index,
-                        question,
-                      ),
-                    );
-                  },
-                  child: Center(
-                    child: Text(
-                      question.name,
-                      style: headline.copyWith(
-                        color: AppColors.background,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            );
-          },
-          separatorBuilder: (_, __) => const SizedBox(height: 16),
-          itemCount: state.questions.length + 1,
         );
       },
     );

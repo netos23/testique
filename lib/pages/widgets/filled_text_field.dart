@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:testique/resources/colors.dart';
 import 'package:testique/resources/extra_text_styles.dart';
 
-class NameTextField extends StatelessWidget {
-  const NameTextField({
+class FilledTextField extends StatelessWidget {
+  const FilledTextField({
     super.key,
     required this.initialValue,
     required this.hint,
