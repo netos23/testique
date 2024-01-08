@@ -39,12 +39,16 @@ class TestRepository extends DatabaseAccessor<AppDatabase>
 
   @override
   Future<List<ITestPreview>> getAllTests() async {
-    return await select(testModels).map(mapTestPreview).get();
+    return await _selectAllTests().get();
+  }
+
+  Selectable<ITestPreview> _selectAllTests() {
+    return select(testModels).map(mapTestPreview);
   }
 
   @override
   Stream<List<ITestPreview>> watchAllTests() {
-    throw UnimplementedError();
+    return _selectAllTests().watch();
   }
 
   @override
