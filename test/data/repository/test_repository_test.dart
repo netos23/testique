@@ -174,6 +174,30 @@ void main() {
         final tests = await repository.getAllTests();
         expect(tests.length, 4);
       });
+
+      test('Tests successfully watches', () async {
+        final tests = repository.watchAllTests();
+        expect(
+          tests.map((t) => t.length),
+          emitsInOrder([4]),
+        );
+      });
+
+      test('Tests successfully notify updates', () async {
+        final tests = repository.watchAllTests();
+
+        expect(
+          tests.map((t) => t.length),
+          emits(4),
+        );
+
+        await repository.saveTest(testTemplate);
+
+        expect(
+          tests.map((t) => t.length),
+          emits(5),
+        );
+      });
     });
 
     tearDown(() async {
