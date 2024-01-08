@@ -1,6 +1,5 @@
 import 'package:drift/drift.dart';
 import 'package:testique/data/db/app_db.dart';
-import 'package:testique/data/models/models.dart';
 import 'package:testique/entity/question.dart';
 import 'package:testique/entity/question_variant.dart';
 
@@ -25,7 +24,7 @@ QuestionModelsCompanion mapQuestionModelsCompanion(
   IQuestionTemplate question,
 ) {
   return QuestionModelsCompanion(
-    id: Value.ofNullable(question.id),
+    id: const Value.absent(),
     name: Value(question.name),
     description: Value(question.description),
     orientation: Value(question.layout),

@@ -3,17 +3,25 @@ import 'package:flutter/services.dart';
 import 'package:testique/resources/colors.dart';
 import 'package:testique/resources/extra_text_styles.dart';
 
-class DescriptionTextField extends StatelessWidget {
-  const DescriptionTextField({
+class OutlineTextField extends StatelessWidget {
+  const OutlineTextField({
     super.key,
-    required this.initialValue,
+    this.initialValue,
     required this.hint,
-    required this.onChanged,
+    this.onChanged,
+    this.length = 1023,
+    this.maxLines = 5,
+    this.controller,
+    this.onSubmit,
   });
 
+  final TextEditingController? controller;
+  final int length;
+  final int maxLines;
   final String hint;
-  final String initialValue;
-  final ValueChanged<String> onChanged;
+  final String? initialValue;
+  final ValueChanged<String>? onChanged;
+  final ValueChanged<String?>? onSubmit;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +36,18 @@ class DescriptionTextField extends StatelessWidget {
       ),
     );
 
-    return TextFormField(
+    return TextField(
       key: ValueKey(hint),
-      initialValue: initialValue,
+      controller: controller ??
+          TextEditingController(
+            text: initialValue,
+          ),
       onChanged: onChanged,
+      onSubmitted: onSubmit,
       inputFormatters: [
-        LengthLimitingTextInputFormatter(1023),
+        LengthLimitingTextInputFormatter(length),
       ],
-      maxLines: 5,
+      maxLines: maxLines,
       style: textField,
       decoration: InputDecoration(
         hintText: hint,

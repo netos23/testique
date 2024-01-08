@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:testique/navigation/app_router.dart';
 import 'package:testique/navigation/error_observer.dart';
 import 'package:testique/resources/colors.dart';
+import 'package:testique/util/combine_bloc_observer.dart';
+import 'package:testique/util/logger_observer.dart';
 
 class TestiqueApp extends StatelessWidget {
   TestiqueApp({super.key});
@@ -13,7 +15,12 @@ class TestiqueApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Bloc.observer = ErrorObserver(_scaffoldKey);
+    Bloc.observer = CombineBlocObserver(
+      observers: [
+        ErrorObserver(_scaffoldKey),
+        const LoggerBlocObserver(),
+      ],
+    );
 
     return MaterialApp.router(
       routerConfig: _router.config(),

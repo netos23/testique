@@ -31,8 +31,7 @@ class $TestModelsTable extends TestModels
   @override
   late final GeneratedColumn<String> description = GeneratedColumn<String>(
       'description', aliasedName, false,
-      additionalChecks: GeneratedColumn.checkTextLength(
-          minTextLength: 1, maxTextLength: 1023),
+      additionalChecks: GeneratedColumn.checkTextLength(maxTextLength: 1023),
       type: DriftSqlType.string,
       requiredDuringInsert: true);
   @override
@@ -246,8 +245,7 @@ class $QuestionModelsTable extends QuestionModels
   @override
   late final GeneratedColumn<String> description = GeneratedColumn<String>(
       'description', aliasedName, false,
-      additionalChecks: GeneratedColumn.checkTextLength(
-          minTextLength: 1, maxTextLength: 1023),
+      additionalChecks: GeneratedColumn.checkTextLength(maxTextLength: 1023),
       type: DriftSqlType.string,
       requiredDuringInsert: true);
   static const VerificationMeta _orientationMeta =
@@ -589,16 +587,14 @@ class $QuestionVariantModelsTable extends QuestionVariantModels
   @override
   late final GeneratedColumn<String> textContent = GeneratedColumn<String>(
       'text_content', aliasedName, true,
-      additionalChecks:
-          GeneratedColumn.checkTextLength(minTextLength: 1, maxTextLength: 60),
+      additionalChecks: GeneratedColumn.checkTextLength(maxTextLength: 60),
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   static const VerificationMeta _imageMeta = const VerificationMeta('image');
   @override
   late final GeneratedColumn<String> image = GeneratedColumn<String>(
       'image', aliasedName, true,
-      additionalChecks: GeneratedColumn.checkTextLength(
-          minTextLength: 1, maxTextLength: 1023),
+      additionalChecks: GeneratedColumn.checkTextLength(maxTextLength: 1023),
       type: DriftSqlType.string,
       requiredDuringInsert: false);
   static const VerificationMeta _uuidMeta = const VerificationMeta('uuid');

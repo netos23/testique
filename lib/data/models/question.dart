@@ -6,7 +6,7 @@ class QuestionModels extends Table {
 
   TextColumn get name => text().withLength(min: 1, max: 120)();
 
-  TextColumn get description => text().withLength(min: 1, max: 1023)();
+  TextColumn get description => text().withLength(max: 1023)();
 
   TextColumn get orientation =>
       text().map(const EnumNameConverter(QuestionLayout.values))();
@@ -15,5 +15,4 @@ class QuestionModels extends Table {
       text().map(const EnumNameConverter(QuestionType.values))();
 
   BoolColumn get shuffle => boolean()();
-
 }

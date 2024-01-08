@@ -38,8 +38,8 @@ class MenuTile extends StatelessWidget {
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.background,
-                ),
+                      color: Theme.of(context).colorScheme.background,
+                    ),
               ),
             ),
           ],

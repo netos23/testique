@@ -40,9 +40,7 @@ class MenuPage extends StatelessWidget {
               MenuTile(
                 leadingAssetImage: AppIcons.import,
                 title: 'Импорт теста',
-                onTap: () {
-
-                },
+                onTap: () {},
               ),
               const SizedBox(height: 32),
               MenuTile(
