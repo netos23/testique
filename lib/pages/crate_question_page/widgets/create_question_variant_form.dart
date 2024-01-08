@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:testique/pages/widgets/media_button.dart';
 import 'package:testique/pages/widgets/outline_text_field.dart';
 
@@ -76,8 +77,19 @@ class _CreateQuestionVariantFormState extends State<CreateQuestionVariantForm> {
                 key: const Key('AddImageButton'),
                 duration: const Duration(milliseconds: 800),
                 child: MediaButton(
-                  onPressed: () {
+                  onPressed: () async {
                     // TODO(netos23): image add
+                    final picker = ImagePicker();
+
+                    final image = await picker.pickImage(
+                      source: ImageSource.gallery,
+                    );
+
+                    if(image == null){
+                      return;
+                    }
+
+                    widget.onImageSubmit(image.path);
                   },
                   child: const SizedBox(
                     height: 52,

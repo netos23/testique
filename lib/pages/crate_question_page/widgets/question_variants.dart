@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:testique/entity/question_variant.dart';
+import 'package:testique/pages/widgets/media_button.dart';
 import 'package:testique/pages/widgets/outline_text_field.dart';
 import 'package:testique/resources/colors.dart';
 
@@ -118,11 +120,30 @@ class SingleImageQuestionVariant extends StatelessWidget {
           index: index,
           onDelete: onDelete,
         ),
-        OutlineTextField(
-          initialValue: imageVariant.image,
-          hint: 'Ответ',
-          maxLines: 1,
-          onChanged: onChanged,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: MediaButton(
+            onPressed: () async {
+              // TODO(netos23): image add
+              final picker = ImagePicker();
+
+              final image = await picker.pickImage(
+                source: ImageSource.gallery,
+              );
+
+              if(image == null){
+                return;
+              }
+              onChanged(image.path);
+            },
+            child: Center(
+              child: Text(
+                imageVariant.image.substring(
+                  imageVariant.image.lastIndexOf('/') + 1,
+                ),
+              ),
+            ),
+          ),
         ),
         RadioListTile(
           contentPadding: const EdgeInsets.symmetric(
