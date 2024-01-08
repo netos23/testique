@@ -25,6 +25,7 @@ class SliverQuestionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList.separated(
       itemBuilder: (context, index) {
+        final normalizedIndex = index + 1;
         if (index == questions.length) {
           return SizedBox(
             height: 52,
@@ -52,10 +53,25 @@ class SliverQuestionList extends StatelessWidget {
             child: FilledButton(
               onPressed: () => onEdit?.call(index, question),
               child: Center(
-                child: Text(
-                  question.name,
-                  style: headline.copyWith(
-                    color: AppColors.background,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '№$normalizedIndex ${question.name}',
+                        style: headline.copyWith(
+                          color: AppColors.background,
+                        ),
+                      ),
+                      const Icon(
+                        Icons.navigate_next,
+                        size: 30,
+                        color: AppColors.background,
+                      )
+                    ],
                   ),
                 ),
               ),
