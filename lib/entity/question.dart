@@ -4,8 +4,8 @@ import 'package:testique/entity/question_variant.dart';
 part 'question.freezed.dart';
 
 enum QuestionLayout {
-  column,
-  grid;
+  grid,
+  column;
 }
 
 enum QuestionType {
