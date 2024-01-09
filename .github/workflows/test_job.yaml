@@ -18,7 +18,6 @@ jobs:
       - name: Remove generated files from code coverage report
         run: lcov --remove coverage/ lcov.info 'lib/*/*.freezes.dart' 'lib/*/*.g.dart' 'lib/*/*./*.part.dart' 'lib/generator/*.dart' 'lib/generator/*/*.dart' -o coverage/ lcov.info
       - name: Upload coverage to Codecov
-        uses: codecov/ codecov-action@v1.2.1
-        with:
-          file: coverage/ lcov.info
-          token: "${{ secrets.CODECOV_TOKEN }}"
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
