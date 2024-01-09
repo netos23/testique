@@ -1,0 +1,24 @@
+name: Backend deploy
+on:
+  push:
+    branches: [ "master", "dev", "main" ]
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.13.9'
+          channel: 'stable'
+      - name: Run tests
+      - run: flutter test --coverage
+      - name: Install lcov
+      - run: sudo apt-get install -y lcov
+      - name: Remove generated files from code coverage report
+      - run: lcov --remove coverage/ lcov.info 'lib/*/*.freezes.dart' 'lib/*/*.g.dart' 'lib/*/*./*.part.dart' 'lib/generator/*.dart' 'lib/generator/*/*.dart' -o coverage/ lcov.info
+      - name: Upload coverage to Codecov
+      - uses: codecov/ codecov-action@v1.2.1
+        with:
+          file: coverage/ lcov.info
+          token: "${{ secrets.CODECOV_TOKEN }}"
