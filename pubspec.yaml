@@ -39,6 +39,12 @@ dev_dependencies:
   freezed: ^2.4.6
   drift_dev: ^2.14.0
 
+dependency_overrides:
+  bloc:
+    git:
+      url: 'https://github.com/netos23/bloc.git'
+      ref: 'fix/fix-bloc-observer'
+      path: 'packages/bloc'
 
 flutter:
   uses-material-design: true

@@ -3,7 +3,7 @@ on:
   push:
     branches: [ "master", "dev", "main" ]
 jobs:
-  build_and_deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

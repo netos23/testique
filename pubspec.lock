@@ -74,12 +74,13 @@ packages:
     source: hosted
     version: "7.3.2"
   bloc:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: bloc
-      sha256: "3820f15f502372d979121de1f6b97bfcf1630ebff8fe1d52fb2b0bfa49be5b49"
-      url: "https://pub.dev"
-    source: hosted
+      path: "packages/bloc"
+      ref: "fix/fix-bloc-observer"
+      resolved-ref: "12e63cebd6f1011e7c8a94961f5e3ff3f9ca0096"
+      url: "https://github.com/netos23/bloc.git"
+    source: git
     version: "8.1.2"
   bloc_test:
     dependency: "direct dev"
