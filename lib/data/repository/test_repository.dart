@@ -12,6 +12,8 @@ part 'test_repository.g.dart';
 abstract interface class ITestRepository {
   Future<List<ITestPreview>> getAllTests();
 
+  Stream<List<ITestPreview>> watchAllTests();
+
   Future<Test> getTestById(int id);
 }
 
@@ -37,7 +39,16 @@ class TestRepository extends DatabaseAccessor<AppDatabase>
 
   @override
   Future<List<ITestPreview>> getAllTests() async {
-    return await select(testModels).map(mapTestPreview).get();
+    return await _selectAllTests().get();
+  }
+
+  Selectable<ITestPreview> _selectAllTests() {
+    return select(testModels).map(mapTestPreview);
+  }
+
+  @override
+  Stream<List<ITestPreview>> watchAllTests() {
+    return _selectAllTests().watch();
   }
 
   @override

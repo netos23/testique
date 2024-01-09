@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:testique/entity/question.dart';
+import 'package:testique/pages/widgets/navigation_button.dart';
 import 'package:testique/resources/colors.dart';
 import 'package:testique/resources/extra_text_styles.dart';
 
@@ -50,29 +51,12 @@ class SliverQuestionList extends StatelessWidget {
           onDismissed: (_) => onDelete?.call(index),
           child: SizedBox(
             height: 52,
-            child: FilledButton(
+            child: NavigationButton(
               onPressed: () => onEdit?.call(index, question),
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '№$normalizedIndex ${question.name}',
-                        style: headline.copyWith(
-                          color: AppColors.background,
-                        ),
-                      ),
-                      const Icon(
-                        Icons.navigate_next,
-                        size: 30,
-                        color: AppColors.background,
-                      )
-                    ],
-                  ),
+              child: Text(
+                '№$normalizedIndex ${question.name}',
+                style: headline.copyWith(
+                  color: AppColors.background,
                 ),
               ),
             ),
