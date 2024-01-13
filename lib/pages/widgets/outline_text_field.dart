@@ -41,7 +41,11 @@ class OutlineTextField extends StatelessWidget {
       controller: controller ??
           TextEditingController(
             text: initialValue,
-          ),
+          )
+        ..selection = TextSelection(
+          baseOffset: initialValue?.length ?? 0,
+          extentOffset: initialValue?.length ?? 0,
+        ),
       onChanged: onChanged,
       onSubmitted: onSubmit,
       inputFormatters: [
