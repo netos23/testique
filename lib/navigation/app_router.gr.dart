@@ -15,6 +15,20 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BeginTestRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<BeginTestRouteArgs>(
+          orElse: () =>
+              BeginTestRouteArgs(testId: pathParams.getInt('testId')));
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BeginTestPage(
+          key: args.key,
+          testPreview: args.testPreview,
+          testId: args.testId,
+        ),
+      );
+    },
     CreateQuestionRoute.name: (routeData) {
       final args = routeData.argsAs<CreateQuestionRouteArgs>(
           orElse: () => const CreateQuestionRouteArgs());
@@ -51,6 +65,50 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [BeginTestPage]
+class BeginTestRoute extends PageRouteInfo<BeginTestRouteArgs> {
+  BeginTestRoute({
+    Key? key,
+    ITestPreview? testPreview,
+    required int testId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BeginTestRoute.name,
+          args: BeginTestRouteArgs(
+            key: key,
+            testPreview: testPreview,
+            testId: testId,
+          ),
+          rawPathParams: {'testId': testId},
+          initialChildren: children,
+        );
+
+  static const String name = 'BeginTestRoute';
+
+  static const PageInfo<BeginTestRouteArgs> page =
+      PageInfo<BeginTestRouteArgs>(name);
+}
+
+class BeginTestRouteArgs {
+  const BeginTestRouteArgs({
+    this.key,
+    this.testPreview,
+    required this.testId,
+  });
+
+  final Key? key;
+
+  final ITestPreview? testPreview;
+
+  final int testId;
+
+  @override
+  String toString() {
+    return 'BeginTestRouteArgs{key: $key, testPreview: $testPreview, testId: $testId}';
+  }
 }
 
 /// generated route for
