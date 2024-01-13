@@ -11,6 +11,14 @@ final textField = GoogleFonts.montserrat(
   fontWeight: FontWeight.bold,
 );
 
+final bodyLarge = GoogleFonts.montserrat(
+  fontSize: 16,
+);
+
 final body = GoogleFonts.montserrat(
+  fontSize: 16,
+);
+
+final bodySmall = GoogleFonts.montserrat(
   fontSize: 16,
 );

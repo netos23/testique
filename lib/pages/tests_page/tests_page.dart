@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testique/data/repository/test_repository.dart';
+import 'package:testique/navigation/app_router.dart';
 import 'package:testique/pages/widgets/navigation_button.dart';
 import 'package:testique/resources/colors.dart';
 
@@ -46,13 +47,20 @@ class _TestsPageState extends State<TestsPage> {
             itemCount: tests.length,
             itemBuilder: (context, index) {
               return NavigationButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.router.push(
+                    BeginTestRoute(
+                      testId: tests[index].id,
+                      testPreview:  tests[index],
+                    ),
+                  );
+                },
                 child: Text(
                   tests[index].name,
                 ),
               );
             },
-            separatorBuilder: (_,__) => SizedBox(height: 16),
+            separatorBuilder: (_, __) => SizedBox(height: 16),
           );
         },
       ),
