@@ -35,7 +35,7 @@ abstract interface class IMutableTestRepository extends ITestRepository {
 class TestRepository extends DatabaseAccessor<AppDatabase>
     with _$TestRepositoryMixin
     implements ITestRepository, IMutableTestRepository {
-  TestRepository(AppDatabase db) : super(db);
+  TestRepository(super.attachedDatabase);
 
   @override
   Future<List<ITestPreview>> getAllTests() async {
