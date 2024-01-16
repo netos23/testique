@@ -21,6 +21,7 @@ mixin _$TestEvent {
     required TResult Function() nextQuestion,
     required TResult Function() previousQuestion,
     required TResult Function(int index) jumpQuestion,
+    required TResult Function() completeTest,
     required TResult Function(int index, String answerUuid) answerQuestion,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$TestEvent {
     TResult? Function()? nextQuestion,
     TResult? Function()? previousQuestion,
     TResult? Function(int index)? jumpQuestion,
+    TResult? Function()? completeTest,
     TResult? Function(int index, String answerUuid)? answerQuestion,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$TestEvent {
     TResult Function()? nextQuestion,
     TResult Function()? previousQuestion,
     TResult Function(int index)? jumpQuestion,
+    TResult Function()? completeTest,
     TResult Function(int index, String answerUuid)? answerQuestion,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,7 @@ mixin _$TestEvent {
     required TResult Function(_NextQuestion value) nextQuestion,
     required TResult Function(_PreviousQuestion value) previousQuestion,
     required TResult Function(_JumpQuestion value) jumpQuestion,
+    required TResult Function(_CompleteQuestion value) completeTest,
     required TResult Function(_AnswerQuestion value) answerQuestion,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ mixin _$TestEvent {
     TResult? Function(_NextQuestion value)? nextQuestion,
     TResult? Function(_PreviousQuestion value)? previousQuestion,
     TResult? Function(_JumpQuestion value)? jumpQuestion,
+    TResult? Function(_CompleteQuestion value)? completeTest,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$TestEvent {
     TResult Function(_NextQuestion value)? nextQuestion,
     TResult Function(_PreviousQuestion value)? previousQuestion,
     TResult Function(_JumpQuestion value)? jumpQuestion,
+    TResult Function(_CompleteQuestion value)? completeTest,
     TResult Function(_AnswerQuestion value)? answerQuestion,
     required TResult orElse(),
   }) =>
@@ -126,6 +132,7 @@ class _$NextQuestionImpl implements _NextQuestion {
     required TResult Function() nextQuestion,
     required TResult Function() previousQuestion,
     required TResult Function(int index) jumpQuestion,
+    required TResult Function() completeTest,
     required TResult Function(int index, String answerUuid) answerQuestion,
   }) {
     return nextQuestion();
@@ -137,6 +144,7 @@ class _$NextQuestionImpl implements _NextQuestion {
     TResult? Function()? nextQuestion,
     TResult? Function()? previousQuestion,
     TResult? Function(int index)? jumpQuestion,
+    TResult? Function()? completeTest,
     TResult? Function(int index, String answerUuid)? answerQuestion,
   }) {
     return nextQuestion?.call();
@@ -148,6 +156,7 @@ class _$NextQuestionImpl implements _NextQuestion {
     TResult Function()? nextQuestion,
     TResult Function()? previousQuestion,
     TResult Function(int index)? jumpQuestion,
+    TResult Function()? completeTest,
     TResult Function(int index, String answerUuid)? answerQuestion,
     required TResult orElse(),
   }) {
@@ -163,6 +172,7 @@ class _$NextQuestionImpl implements _NextQuestion {
     required TResult Function(_NextQuestion value) nextQuestion,
     required TResult Function(_PreviousQuestion value) previousQuestion,
     required TResult Function(_JumpQuestion value) jumpQuestion,
+    required TResult Function(_CompleteQuestion value) completeTest,
     required TResult Function(_AnswerQuestion value) answerQuestion,
   }) {
     return nextQuestion(this);
@@ -174,6 +184,7 @@ class _$NextQuestionImpl implements _NextQuestion {
     TResult? Function(_NextQuestion value)? nextQuestion,
     TResult? Function(_PreviousQuestion value)? previousQuestion,
     TResult? Function(_JumpQuestion value)? jumpQuestion,
+    TResult? Function(_CompleteQuestion value)? completeTest,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
   }) {
     return nextQuestion?.call(this);
@@ -185,6 +196,7 @@ class _$NextQuestionImpl implements _NextQuestion {
     TResult Function(_NextQuestion value)? nextQuestion,
     TResult Function(_PreviousQuestion value)? previousQuestion,
     TResult Function(_JumpQuestion value)? jumpQuestion,
+    TResult Function(_CompleteQuestion value)? completeTest,
     TResult Function(_AnswerQuestion value)? answerQuestion,
     required TResult orElse(),
   }) {
@@ -240,6 +252,7 @@ class _$PreviousQuestionImpl implements _PreviousQuestion {
     required TResult Function() nextQuestion,
     required TResult Function() previousQuestion,
     required TResult Function(int index) jumpQuestion,
+    required TResult Function() completeTest,
     required TResult Function(int index, String answerUuid) answerQuestion,
   }) {
     return previousQuestion();
@@ -251,6 +264,7 @@ class _$PreviousQuestionImpl implements _PreviousQuestion {
     TResult? Function()? nextQuestion,
     TResult? Function()? previousQuestion,
     TResult? Function(int index)? jumpQuestion,
+    TResult? Function()? completeTest,
     TResult? Function(int index, String answerUuid)? answerQuestion,
   }) {
     return previousQuestion?.call();
@@ -262,6 +276,7 @@ class _$PreviousQuestionImpl implements _PreviousQuestion {
     TResult Function()? nextQuestion,
     TResult Function()? previousQuestion,
     TResult Function(int index)? jumpQuestion,
+    TResult Function()? completeTest,
     TResult Function(int index, String answerUuid)? answerQuestion,
     required TResult orElse(),
   }) {
@@ -277,6 +292,7 @@ class _$PreviousQuestionImpl implements _PreviousQuestion {
     required TResult Function(_NextQuestion value) nextQuestion,
     required TResult Function(_PreviousQuestion value) previousQuestion,
     required TResult Function(_JumpQuestion value) jumpQuestion,
+    required TResult Function(_CompleteQuestion value) completeTest,
     required TResult Function(_AnswerQuestion value) answerQuestion,
   }) {
     return previousQuestion(this);
@@ -288,6 +304,7 @@ class _$PreviousQuestionImpl implements _PreviousQuestion {
     TResult? Function(_NextQuestion value)? nextQuestion,
     TResult? Function(_PreviousQuestion value)? previousQuestion,
     TResult? Function(_JumpQuestion value)? jumpQuestion,
+    TResult? Function(_CompleteQuestion value)? completeTest,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
   }) {
     return previousQuestion?.call(this);
@@ -299,6 +316,7 @@ class _$PreviousQuestionImpl implements _PreviousQuestion {
     TResult Function(_NextQuestion value)? nextQuestion,
     TResult Function(_PreviousQuestion value)? previousQuestion,
     TResult Function(_JumpQuestion value)? jumpQuestion,
+    TResult Function(_CompleteQuestion value)? completeTest,
     TResult Function(_AnswerQuestion value)? answerQuestion,
     required TResult orElse(),
   }) {
@@ -380,6 +398,7 @@ class _$JumpQuestionImpl implements _JumpQuestion {
     required TResult Function() nextQuestion,
     required TResult Function() previousQuestion,
     required TResult Function(int index) jumpQuestion,
+    required TResult Function() completeTest,
     required TResult Function(int index, String answerUuid) answerQuestion,
   }) {
     return jumpQuestion(index);
@@ -391,6 +410,7 @@ class _$JumpQuestionImpl implements _JumpQuestion {
     TResult? Function()? nextQuestion,
     TResult? Function()? previousQuestion,
     TResult? Function(int index)? jumpQuestion,
+    TResult? Function()? completeTest,
     TResult? Function(int index, String answerUuid)? answerQuestion,
   }) {
     return jumpQuestion?.call(index);
@@ -402,6 +422,7 @@ class _$JumpQuestionImpl implements _JumpQuestion {
     TResult Function()? nextQuestion,
     TResult Function()? previousQuestion,
     TResult Function(int index)? jumpQuestion,
+    TResult Function()? completeTest,
     TResult Function(int index, String answerUuid)? answerQuestion,
     required TResult orElse(),
   }) {
@@ -417,6 +438,7 @@ class _$JumpQuestionImpl implements _JumpQuestion {
     required TResult Function(_NextQuestion value) nextQuestion,
     required TResult Function(_PreviousQuestion value) previousQuestion,
     required TResult Function(_JumpQuestion value) jumpQuestion,
+    required TResult Function(_CompleteQuestion value) completeTest,
     required TResult Function(_AnswerQuestion value) answerQuestion,
   }) {
     return jumpQuestion(this);
@@ -428,6 +450,7 @@ class _$JumpQuestionImpl implements _JumpQuestion {
     TResult? Function(_NextQuestion value)? nextQuestion,
     TResult? Function(_PreviousQuestion value)? previousQuestion,
     TResult? Function(_JumpQuestion value)? jumpQuestion,
+    TResult? Function(_CompleteQuestion value)? completeTest,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
   }) {
     return jumpQuestion?.call(this);
@@ -439,6 +462,7 @@ class _$JumpQuestionImpl implements _JumpQuestion {
     TResult Function(_NextQuestion value)? nextQuestion,
     TResult Function(_PreviousQuestion value)? previousQuestion,
     TResult Function(_JumpQuestion value)? jumpQuestion,
+    TResult Function(_CompleteQuestion value)? completeTest,
     TResult Function(_AnswerQuestion value)? answerQuestion,
     required TResult orElse(),
   }) {
@@ -456,6 +480,126 @@ abstract class _JumpQuestion implements TestEvent {
   @JsonKey(ignore: true)
   _$$JumpQuestionImplCopyWith<_$JumpQuestionImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CompleteQuestionImplCopyWith<$Res> {
+  factory _$$CompleteQuestionImplCopyWith(_$CompleteQuestionImpl value,
+          $Res Function(_$CompleteQuestionImpl) then) =
+      __$$CompleteQuestionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CompleteQuestionImplCopyWithImpl<$Res>
+    extends _$TestEventCopyWithImpl<$Res, _$CompleteQuestionImpl>
+    implements _$$CompleteQuestionImplCopyWith<$Res> {
+  __$$CompleteQuestionImplCopyWithImpl(_$CompleteQuestionImpl _value,
+      $Res Function(_$CompleteQuestionImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CompleteQuestionImpl implements _CompleteQuestion {
+  const _$CompleteQuestionImpl();
+
+  @override
+  String toString() {
+    return 'TestEvent.completeTest()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CompleteQuestionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() nextQuestion,
+    required TResult Function() previousQuestion,
+    required TResult Function(int index) jumpQuestion,
+    required TResult Function() completeTest,
+    required TResult Function(int index, String answerUuid) answerQuestion,
+  }) {
+    return completeTest();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? nextQuestion,
+    TResult? Function()? previousQuestion,
+    TResult? Function(int index)? jumpQuestion,
+    TResult? Function()? completeTest,
+    TResult? Function(int index, String answerUuid)? answerQuestion,
+  }) {
+    return completeTest?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? nextQuestion,
+    TResult Function()? previousQuestion,
+    TResult Function(int index)? jumpQuestion,
+    TResult Function()? completeTest,
+    TResult Function(int index, String answerUuid)? answerQuestion,
+    required TResult orElse(),
+  }) {
+    if (completeTest != null) {
+      return completeTest();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NextQuestion value) nextQuestion,
+    required TResult Function(_PreviousQuestion value) previousQuestion,
+    required TResult Function(_JumpQuestion value) jumpQuestion,
+    required TResult Function(_CompleteQuestion value) completeTest,
+    required TResult Function(_AnswerQuestion value) answerQuestion,
+  }) {
+    return completeTest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_NextQuestion value)? nextQuestion,
+    TResult? Function(_PreviousQuestion value)? previousQuestion,
+    TResult? Function(_JumpQuestion value)? jumpQuestion,
+    TResult? Function(_CompleteQuestion value)? completeTest,
+    TResult? Function(_AnswerQuestion value)? answerQuestion,
+  }) {
+    return completeTest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NextQuestion value)? nextQuestion,
+    TResult Function(_PreviousQuestion value)? previousQuestion,
+    TResult Function(_JumpQuestion value)? jumpQuestion,
+    TResult Function(_CompleteQuestion value)? completeTest,
+    TResult Function(_AnswerQuestion value)? answerQuestion,
+    required TResult orElse(),
+  }) {
+    if (completeTest != null) {
+      return completeTest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CompleteQuestion implements TestEvent {
+  const factory _CompleteQuestion() = _$CompleteQuestionImpl;
 }
 
 /// @nodoc
@@ -535,6 +679,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     required TResult Function() nextQuestion,
     required TResult Function() previousQuestion,
     required TResult Function(int index) jumpQuestion,
+    required TResult Function() completeTest,
     required TResult Function(int index, String answerUuid) answerQuestion,
   }) {
     return answerQuestion(index, answerUuid);
@@ -546,6 +691,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult? Function()? nextQuestion,
     TResult? Function()? previousQuestion,
     TResult? Function(int index)? jumpQuestion,
+    TResult? Function()? completeTest,
     TResult? Function(int index, String answerUuid)? answerQuestion,
   }) {
     return answerQuestion?.call(index, answerUuid);
@@ -557,6 +703,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult Function()? nextQuestion,
     TResult Function()? previousQuestion,
     TResult Function(int index)? jumpQuestion,
+    TResult Function()? completeTest,
     TResult Function(int index, String answerUuid)? answerQuestion,
     required TResult orElse(),
   }) {
@@ -572,6 +719,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     required TResult Function(_NextQuestion value) nextQuestion,
     required TResult Function(_PreviousQuestion value) previousQuestion,
     required TResult Function(_JumpQuestion value) jumpQuestion,
+    required TResult Function(_CompleteQuestion value) completeTest,
     required TResult Function(_AnswerQuestion value) answerQuestion,
   }) {
     return answerQuestion(this);
@@ -583,6 +731,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult? Function(_NextQuestion value)? nextQuestion,
     TResult? Function(_PreviousQuestion value)? previousQuestion,
     TResult? Function(_JumpQuestion value)? jumpQuestion,
+    TResult? Function(_CompleteQuestion value)? completeTest,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
   }) {
     return answerQuestion?.call(this);
@@ -594,6 +743,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult Function(_NextQuestion value)? nextQuestion,
     TResult Function(_PreviousQuestion value)? previousQuestion,
     TResult Function(_JumpQuestion value)? jumpQuestion,
+    TResult Function(_CompleteQuestion value)? completeTest,
     TResult Function(_AnswerQuestion value)? answerQuestion,
     required TResult orElse(),
   }) {

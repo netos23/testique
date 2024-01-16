@@ -13,20 +13,11 @@ class TestState with _$TestState {
   }) = _CompletedTestState;
 
   factory TestState.fromTest(Test test) {
-    final answers = test.questions.map(_mapQuestionToAnswer).toList();
+    final answers = test.questions.map(QuestionAnswer.fromQuestion).toList();
 
     return TestState.completed(
       test: test,
       answers: answers,
-    );
-  }
-
-  static QuestionAnswer _mapQuestionToAnswer(Question q) {
-    return QuestionAnswer(
-      questionId: q.id,
-      answers: {},
-      correctAnswers: 0,
-      totalAnswers: q.answer.length,
     );
   }
 }
