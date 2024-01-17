@@ -1,27 +1,38 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:testique/domain/create_test_bloc/create_test_bloc.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:testique/domain/service/create_answer_service.dart';
 import 'package:testique/domain/test_bloc/test_bloc.dart';
 import 'package:testique/entity/question_answer.dart';
 
+import '../mocks/service_mocks.dart';
 import '../test_data/test_data.dart';
 
 void main() {
   group('Test for test bloc test:)', () {
     late TestBloc testBloc;
+    late CreateAnswerServiceFactory factory;
+    late SingleAnswerServiceMock service;
 
-    final answers =
-        savedTest.questions.map(QuestionAnswer.fromQuestion).toList();
+    final questions = savedTest.questions;
+    final answers = questions.map(QuestionAnswer.fromQuestion).toList();
 
     setUp(() async {
+      service = SingleAnswerServiceMock();
+      factory = (_) => service;
+
+      when(() => service.build('test1', {'test'})).thenReturn({'test1'});
+      when(() => service.build('test', {})).thenReturn({'test'});
+
       testBloc = TestBloc(
+        serviceFactory: factory,
         test: savedTest,
       );
     });
 
     group('Initial state group', () {
       test('Add initial state test', () {
-        expect(testBloc.state, CreateTestState.templateFromTest(savedTest));
+        expect(testBloc.state, TestState.fromTest(savedTest));
       });
     });
 
@@ -228,7 +239,7 @@ void main() {
         ),
         expect: () => <TestState>[
           TestState.progress(
-            index: 1,
+            index: 0,
             answers: [
               answers[0].copyWith(
                 answers: {'test'},
@@ -237,6 +248,9 @@ void main() {
             ],
           ),
         ],
+        verify: (_) {
+          verify(() => service.build('test', {})).called(1);
+        },
       );
 
       blocTest(
@@ -259,7 +273,7 @@ void main() {
         ),
         expect: () => <TestState>[
           TestState.progress(
-            index: 1,
+            index: 0,
             answers: [
               answers[0].copyWith(
                 answers: {
@@ -270,6 +284,25 @@ void main() {
             ],
           ),
         ],
+        verify: (_) {
+          verify(() => service.build('test1', {'test'})).called(1);
+        },
+      );
+
+      blocTest(
+        'Check correct state',
+        build: () => testBloc,
+        seed: () => TestState.completed(
+          test: savedTest,
+          answers: answers,
+        ),
+        act: (bloc) => bloc.add(
+          const TestEvent.answerQuestion(
+            index: 0,
+            answerUuid: 'test1',
+          ),
+        ),
+        errors: () => [isA<StateError>()],
       );
     });
 
@@ -304,6 +337,19 @@ void main() {
         ),
         expect: () => <TestState>[],
         errors: () => [isA<ArgumentError>()],
+      );
+
+      blocTest(
+        'Check correct state',
+        build: () => testBloc,
+        seed: () => TestState.completed(
+          test: savedTest,
+          answers: answers,
+        ),
+        act: (bloc) => bloc.add(
+          const TestEvent.completeTest(),
+        ),
+        errors: () => [isA<StateError>()],
       );
     });
 
