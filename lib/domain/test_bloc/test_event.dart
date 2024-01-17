@@ -8,7 +8,7 @@ class TestEvent with _$TestEvent {
 
   const factory TestEvent.jumpQuestion(int index) = _JumpQuestion;
 
-  const factory TestEvent.completeTest() = _CompleteQuestion;
+  const factory TestEvent.completeTest() = _CompleteTest;
 
   const factory TestEvent.answerQuestion({
     required int index,
