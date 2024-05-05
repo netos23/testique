@@ -1,5 +1,7 @@
 # testique
-
+[![tests](https://github.com/netos23/testique/actions/workflows/test_job.yaml/badge.svg)](https://github.com/netos23/testique/actions/workflows/test_job.yaml)
+[![codecov](https://codecov.io/gh/netos23/testique/graph/badge.svg?token=G6DLOS0WG9)](https://codecov.io/gh/netos23/testique)
+___
 A new Flutter project.
 
 ## Getting Started
