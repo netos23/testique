@@ -12,7 +12,7 @@ part of 'test.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Test {
@@ -21,7 +21,9 @@ mixin _$Test {
   String get description => throw _privateConstructorUsedError;
   List<Question> get questions => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Test
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TestCopyWith<Test> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -44,6 +46,8 @@ class _$TestCopyWithImpl<$Res, $Val extends Test>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Test
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +95,8 @@ class __$$TestImplCopyWithImpl<$Res>
   __$$TestImplCopyWithImpl(_$TestImpl _value, $Res Function(_$TestImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Test
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -166,7 +172,9 @@ class _$TestImpl implements _Test {
   int get hashCode => Object.hash(runtimeType, id, name, description,
       const DeepCollectionEquality().hash(_questions));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Test
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TestImplCopyWith<_$TestImpl> get copyWith =>
@@ -188,8 +196,11 @@ abstract class _Test implements Test {
   String get description;
   @override
   List<Question> get questions;
+
+  /// Create a copy of Test
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TestImplCopyWith<_$TestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -200,7 +211,9 @@ mixin _$TestPreview {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestPreview
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TestPreviewCopyWith<TestPreview> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -224,6 +237,8 @@ class _$TestPreviewCopyWithImpl<$Res, $Val extends TestPreview>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TestPreview
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -267,6 +282,8 @@ class __$$TestPreviewImplCopyWithImpl<$Res>
       _$TestPreviewImpl _value, $Res Function(_$TestPreviewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TestPreview
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -323,7 +340,9 @@ class _$TestPreviewImpl implements _TestPreview {
   @override
   int get hashCode => Object.hash(runtimeType, id, name, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestPreview
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TestPreviewImplCopyWith<_$TestPreviewImpl> get copyWith =>
@@ -342,8 +361,11 @@ abstract class _TestPreview implements TestPreview {
   String get name;
   @override
   String get description;
+
+  /// Create a copy of TestPreview
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TestPreviewImplCopyWith<_$TestPreviewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -355,7 +377,9 @@ mixin _$TestTemplate {
   String get description => throw _privateConstructorUsedError;
   List<IQuestionTemplate> get questions => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TestTemplateCopyWith<TestTemplate> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -383,6 +407,8 @@ class _$TestTemplateCopyWithImpl<$Res, $Val extends TestTemplate>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TestTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -435,6 +461,8 @@ class __$$TestTemplateImplCopyWithImpl<$Res>
       _$TestTemplateImpl _value, $Res Function(_$TestTemplateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TestTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -510,7 +538,9 @@ class _$TestTemplateImpl implements _TestTemplate {
   int get hashCode => Object.hash(runtimeType, id, name, description,
       const DeepCollectionEquality().hash(_questions));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TestTemplateImplCopyWith<_$TestTemplateImpl> get copyWith =>
@@ -532,8 +562,11 @@ abstract class _TestTemplate implements TestTemplate {
   String get description;
   @override
   List<IQuestionTemplate> get questions;
+
+  /// Create a copy of TestTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TestTemplateImplCopyWith<_$TestTemplateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

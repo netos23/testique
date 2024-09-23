@@ -17,9 +17,9 @@ class TestBloc extends Bloc<TestEvent, TestState> {
   final CreateAnswerServiceFactory _serviceFactory;
 
   TestBloc({
-    required CreateAnswerServiceFactory serviceFactory,
+    CreateAnswerServiceFactory factory = CreateAnswerService.fromQuestionType,
     required this.test,
-  })  : _serviceFactory = serviceFactory,
+  })  : _serviceFactory = factory,
         super(TestState.fromTest(test)) {
     on<_NextQuestion>(_nextQuestion);
     on<_PreviousQuestion>(_previousQuestion);
@@ -34,7 +34,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
   ) {
     final state = this.state;
 
-    if (state is! _ProgressTestState) {
+    if (state is! ProgressTestState) {
       addError(
         StateError(
           'Broken state, answer must be filled',
@@ -61,7 +61,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
   ) {
     final state = this.state;
 
-    if (state is! _ProgressTestState) {
+    if (state is! ProgressTestState) {
       addError(
         StateError(
           'Broken state, answer must be filled',
@@ -89,7 +89,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     final state = this.state;
     final index = event.index;
 
-    if (state is! _ProgressTestState) {
+    if (state is! ProgressTestState) {
       addError(
         StateError(
           'Broken state, answer must be filled',
@@ -115,7 +115,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) {
     final state = this.state;
-    if (state is! _ProgressTestState) {
+    if (state is! ProgressTestState) {
       addError(
         StateError(
           'Broken state, answer must be filled',
@@ -157,7 +157,7 @@ class TestBloc extends Bloc<TestEvent, TestState> {
     Emitter<TestState> emit,
   ) {
     final state = this.state;
-    if (state is! _ProgressTestState) {
+    if (state is! ProgressTestState) {
       addError(
         StateError(
           'Broken state, answer must be filled',

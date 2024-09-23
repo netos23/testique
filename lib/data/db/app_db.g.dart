@@ -134,6 +134,15 @@ class TestModel extends DataClass implements Insertable<TestModel> {
         name: name ?? this.name,
         description: description ?? this.description,
       );
+  TestModel copyWithCompanion(TestModelsCompanion data) {
+    return TestModel(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      description:
+          data.description.present ? data.description.value : this.description,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('TestModel(')
@@ -436,6 +445,21 @@ class QuestionModel extends DataClass implements Insertable<QuestionModel> {
         questionType: questionType ?? this.questionType,
         shuffle: shuffle ?? this.shuffle,
       );
+  QuestionModel copyWithCompanion(QuestionModelsCompanion data) {
+    return QuestionModel(
+      id: data.id.present ? data.id.value : this.id,
+      name: data.name.present ? data.name.value : this.name,
+      description:
+          data.description.present ? data.description.value : this.description,
+      orientation:
+          data.orientation.present ? data.orientation.value : this.orientation,
+      questionType: data.questionType.present
+          ? data.questionType.value
+          : this.questionType,
+      shuffle: data.shuffle.present ? data.shuffle.value : this.shuffle,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('QuestionModel(')
@@ -763,6 +787,18 @@ class QuestionVariantModel extends DataClass
         uuid: uuid ?? this.uuid,
         variantType: variantType ?? this.variantType,
       );
+  QuestionVariantModel copyWithCompanion(QuestionVariantModelsCompanion data) {
+    return QuestionVariantModel(
+      id: data.id.present ? data.id.value : this.id,
+      textContent:
+          data.textContent.present ? data.textContent.value : this.textContent,
+      image: data.image.present ? data.image.value : this.image,
+      uuid: data.uuid.present ? data.uuid.value : this.uuid,
+      variantType:
+          data.variantType.present ? data.variantType.value : this.variantType,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('QuestionVariantModel(')
@@ -987,6 +1023,13 @@ class TestQuestionEntry extends DataClass
         test: test ?? this.test,
         question: question ?? this.question,
       );
+  TestQuestionEntry copyWithCompanion(TestQuestionModelCompanion data) {
+    return TestQuestionEntry(
+      test: data.test.present ? data.test.value : this.test,
+      question: data.question.present ? data.question.value : this.question,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('TestQuestionEntry(')
@@ -1213,6 +1256,17 @@ class QuestionQuestionVariantEntry extends DataClass
         questionVariant: questionVariant ?? this.questionVariant,
         correct: correct ?? this.correct,
       );
+  QuestionQuestionVariantEntry copyWithCompanion(
+      QuestionQuestionVariantModelCompanion data) {
+    return QuestionQuestionVariantEntry(
+      question: data.question.present ? data.question.value : this.question,
+      questionVariant: data.questionVariant.present
+          ? data.questionVariant.value
+          : this.questionVariant,
+      correct: data.correct.present ? data.correct.value : this.correct,
+    );
+  }
+
   @override
   String toString() {
     return (StringBuffer('QuestionQuestionVariantEntry(')
@@ -1313,6 +1367,7 @@ class QuestionQuestionVariantModelCompanion
 
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
+  $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $TestModelsTable testModels = $TestModelsTable(this);
   late final $QuestionModelsTable questionModels = $QuestionModelsTable(this);
   late final $QuestionVariantModelsTable questionVariantModels =
@@ -1392,4 +1447,1154 @@ abstract class _$AppDatabase extends GeneratedDatabase {
           ),
         ],
       );
+}
+
+typedef $$TestModelsTableCreateCompanionBuilder = TestModelsCompanion Function({
+  Value<int> id,
+  required String name,
+  required String description,
+});
+typedef $$TestModelsTableUpdateCompanionBuilder = TestModelsCompanion Function({
+  Value<int> id,
+  Value<String> name,
+  Value<String> description,
+});
+
+final class $$TestModelsTableReferences
+    extends BaseReferences<_$AppDatabase, $TestModelsTable, TestModel> {
+  $$TestModelsTableReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$TestQuestionModelTable, List<TestQuestionEntry>>
+      _testQuestionModelRefsTable(_$AppDatabase db) =>
+          MultiTypedResultKey.fromTable(db.testQuestionModel,
+              aliasName: $_aliasNameGenerator(
+                  db.testModels.id, db.testQuestionModel.test));
+
+  $$TestQuestionModelTableProcessedTableManager get testQuestionModelRefs {
+    final manager =
+        $$TestQuestionModelTableTableManager($_db, $_db.testQuestionModel)
+            .filter((f) => f.test.id($_item.id));
+
+    final cache =
+        $_typedResult.readTableOrNull(_testQuestionModelRefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+}
+
+class $$TestModelsTableFilterComposer
+    extends FilterComposer<_$AppDatabase, $TestModelsTable> {
+  $$TestModelsTableFilterComposer(super.$state);
+  ColumnFilters<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get name => $state.composableBuilder(
+      column: $state.table.name,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get description => $state.composableBuilder(
+      column: $state.table.description,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ComposableFilter testQuestionModelRefs(
+      ComposableFilter Function($$TestQuestionModelTableFilterComposer f) f) {
+    final $$TestQuestionModelTableFilterComposer composer =
+        $state.composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.id,
+            referencedTable: $state.db.testQuestionModel,
+            getReferencedColumn: (t) => t.test,
+            builder: (joinBuilder, parentComposers) =>
+                $$TestQuestionModelTableFilterComposer(ComposerState(
+                    $state.db,
+                    $state.db.testQuestionModel,
+                    joinBuilder,
+                    parentComposers)));
+    return f(composer);
+  }
+}
+
+class $$TestModelsTableOrderingComposer
+    extends OrderingComposer<_$AppDatabase, $TestModelsTable> {
+  $$TestModelsTableOrderingComposer(super.$state);
+  ColumnOrderings<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get name => $state.composableBuilder(
+      column: $state.table.name,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get description => $state.composableBuilder(
+      column: $state.table.description,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+}
+
+class $$TestModelsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $TestModelsTable,
+    TestModel,
+    $$TestModelsTableFilterComposer,
+    $$TestModelsTableOrderingComposer,
+    $$TestModelsTableCreateCompanionBuilder,
+    $$TestModelsTableUpdateCompanionBuilder,
+    (TestModel, $$TestModelsTableReferences),
+    TestModel,
+    PrefetchHooks Function({bool testQuestionModelRefs})> {
+  $$TestModelsTableTableManager(_$AppDatabase db, $TestModelsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer:
+              $$TestModelsTableFilterComposer(ComposerState(db, table)),
+          orderingComposer:
+              $$TestModelsTableOrderingComposer(ComposerState(db, table)),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<String> description = const Value.absent(),
+          }) =>
+              TestModelsCompanion(
+            id: id,
+            name: name,
+            description: description,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String name,
+            required String description,
+          }) =>
+              TestModelsCompanion.insert(
+            id: id,
+            name: name,
+            description: description,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$TestModelsTableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({testQuestionModelRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (testQuestionModelRefs) db.testQuestionModel
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (testQuestionModelRefs)
+                    await $_getPrefetchedData(
+                        currentTable: table,
+                        referencedTable: $$TestModelsTableReferences
+                            ._testQuestionModelRefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$TestModelsTableReferences(db, table, p0)
+                                .testQuestionModelRefs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) =>
+                                referencedItems.where((e) => e.test == item.id),
+                        typedResults: items)
+                ];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$TestModelsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $TestModelsTable,
+    TestModel,
+    $$TestModelsTableFilterComposer,
+    $$TestModelsTableOrderingComposer,
+    $$TestModelsTableCreateCompanionBuilder,
+    $$TestModelsTableUpdateCompanionBuilder,
+    (TestModel, $$TestModelsTableReferences),
+    TestModel,
+    PrefetchHooks Function({bool testQuestionModelRefs})>;
+typedef $$QuestionModelsTableCreateCompanionBuilder = QuestionModelsCompanion
+    Function({
+  Value<int> id,
+  required String name,
+  required String description,
+  required QuestionLayout orientation,
+  required QuestionType questionType,
+  required bool shuffle,
+});
+typedef $$QuestionModelsTableUpdateCompanionBuilder = QuestionModelsCompanion
+    Function({
+  Value<int> id,
+  Value<String> name,
+  Value<String> description,
+  Value<QuestionLayout> orientation,
+  Value<QuestionType> questionType,
+  Value<bool> shuffle,
+});
+
+final class $$QuestionModelsTableReferences
+    extends BaseReferences<_$AppDatabase, $QuestionModelsTable, QuestionModel> {
+  $$QuestionModelsTableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$TestQuestionModelTable, List<TestQuestionEntry>>
+      _testQuestionModelRefsTable(_$AppDatabase db) =>
+          MultiTypedResultKey.fromTable(db.testQuestionModel,
+              aliasName: $_aliasNameGenerator(
+                  db.questionModels.id, db.testQuestionModel.question));
+
+  $$TestQuestionModelTableProcessedTableManager get testQuestionModelRefs {
+    final manager =
+        $$TestQuestionModelTableTableManager($_db, $_db.testQuestionModel)
+            .filter((f) => f.question.id($_item.id));
+
+    final cache =
+        $_typedResult.readTableOrNull(_testQuestionModelRefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+
+  static MultiTypedResultKey<$QuestionQuestionVariantModelTable,
+          List<QuestionQuestionVariantEntry>>
+      _questionQuestionVariantModelRefsTable(_$AppDatabase db) =>
+          MultiTypedResultKey.fromTable(db.questionQuestionVariantModel,
+              aliasName: $_aliasNameGenerator(db.questionModels.id,
+                  db.questionQuestionVariantModel.question));
+
+  $$QuestionQuestionVariantModelTableProcessedTableManager
+      get questionQuestionVariantModelRefs {
+    final manager = $$QuestionQuestionVariantModelTableTableManager(
+            $_db, $_db.questionQuestionVariantModel)
+        .filter((f) => f.question.id($_item.id));
+
+    final cache = $_typedResult
+        .readTableOrNull(_questionQuestionVariantModelRefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+}
+
+class $$QuestionModelsTableFilterComposer
+    extends FilterComposer<_$AppDatabase, $QuestionModelsTable> {
+  $$QuestionModelsTableFilterComposer(super.$state);
+  ColumnFilters<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get name => $state.composableBuilder(
+      column: $state.table.name,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get description => $state.composableBuilder(
+      column: $state.table.description,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnWithTypeConverterFilters<QuestionLayout, QuestionLayout, String>
+      get orientation => $state.composableBuilder(
+          column: $state.table.orientation,
+          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  ColumnWithTypeConverterFilters<QuestionType, QuestionType, String>
+      get questionType => $state.composableBuilder(
+          column: $state.table.questionType,
+          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  ColumnFilters<bool> get shuffle => $state.composableBuilder(
+      column: $state.table.shuffle,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ComposableFilter testQuestionModelRefs(
+      ComposableFilter Function($$TestQuestionModelTableFilterComposer f) f) {
+    final $$TestQuestionModelTableFilterComposer composer =
+        $state.composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.id,
+            referencedTable: $state.db.testQuestionModel,
+            getReferencedColumn: (t) => t.question,
+            builder: (joinBuilder, parentComposers) =>
+                $$TestQuestionModelTableFilterComposer(ComposerState(
+                    $state.db,
+                    $state.db.testQuestionModel,
+                    joinBuilder,
+                    parentComposers)));
+    return f(composer);
+  }
+
+  ComposableFilter questionQuestionVariantModelRefs(
+      ComposableFilter Function(
+              $$QuestionQuestionVariantModelTableFilterComposer f)
+          f) {
+    final $$QuestionQuestionVariantModelTableFilterComposer composer =
+        $state.composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.id,
+            referencedTable: $state.db.questionQuestionVariantModel,
+            getReferencedColumn: (t) => t.question,
+            builder: (joinBuilder, parentComposers) =>
+                $$QuestionQuestionVariantModelTableFilterComposer(ComposerState(
+                    $state.db,
+                    $state.db.questionQuestionVariantModel,
+                    joinBuilder,
+                    parentComposers)));
+    return f(composer);
+  }
+}
+
+class $$QuestionModelsTableOrderingComposer
+    extends OrderingComposer<_$AppDatabase, $QuestionModelsTable> {
+  $$QuestionModelsTableOrderingComposer(super.$state);
+  ColumnOrderings<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get name => $state.composableBuilder(
+      column: $state.table.name,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get description => $state.composableBuilder(
+      column: $state.table.description,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get orientation => $state.composableBuilder(
+      column: $state.table.orientation,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get questionType => $state.composableBuilder(
+      column: $state.table.questionType,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<bool> get shuffle => $state.composableBuilder(
+      column: $state.table.shuffle,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+}
+
+class $$QuestionModelsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $QuestionModelsTable,
+    QuestionModel,
+    $$QuestionModelsTableFilterComposer,
+    $$QuestionModelsTableOrderingComposer,
+    $$QuestionModelsTableCreateCompanionBuilder,
+    $$QuestionModelsTableUpdateCompanionBuilder,
+    (QuestionModel, $$QuestionModelsTableReferences),
+    QuestionModel,
+    PrefetchHooks Function(
+        {bool testQuestionModelRefs, bool questionQuestionVariantModelRefs})> {
+  $$QuestionModelsTableTableManager(
+      _$AppDatabase db, $QuestionModelsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer:
+              $$QuestionModelsTableFilterComposer(ComposerState(db, table)),
+          orderingComposer:
+              $$QuestionModelsTableOrderingComposer(ComposerState(db, table)),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String> name = const Value.absent(),
+            Value<String> description = const Value.absent(),
+            Value<QuestionLayout> orientation = const Value.absent(),
+            Value<QuestionType> questionType = const Value.absent(),
+            Value<bool> shuffle = const Value.absent(),
+          }) =>
+              QuestionModelsCompanion(
+            id: id,
+            name: name,
+            description: description,
+            orientation: orientation,
+            questionType: questionType,
+            shuffle: shuffle,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required String name,
+            required String description,
+            required QuestionLayout orientation,
+            required QuestionType questionType,
+            required bool shuffle,
+          }) =>
+              QuestionModelsCompanion.insert(
+            id: id,
+            name: name,
+            description: description,
+            orientation: orientation,
+            questionType: questionType,
+            shuffle: shuffle,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$QuestionModelsTableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: (
+              {testQuestionModelRefs = false,
+              questionQuestionVariantModelRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (testQuestionModelRefs) db.testQuestionModel,
+                if (questionQuestionVariantModelRefs)
+                  db.questionQuestionVariantModel
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (testQuestionModelRefs)
+                    await $_getPrefetchedData(
+                        currentTable: table,
+                        referencedTable: $$QuestionModelsTableReferences
+                            ._testQuestionModelRefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$QuestionModelsTableReferences(db, table, p0)
+                                .testQuestionModelRefs,
+                        referencedItemsForCurrentItem: (item,
+                                referencedItems) =>
+                            referencedItems.where((e) => e.question == item.id),
+                        typedResults: items),
+                  if (questionQuestionVariantModelRefs)
+                    await $_getPrefetchedData(
+                        currentTable: table,
+                        referencedTable: $$QuestionModelsTableReferences
+                            ._questionQuestionVariantModelRefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$QuestionModelsTableReferences(db, table, p0)
+                                .questionQuestionVariantModelRefs,
+                        referencedItemsForCurrentItem: (item,
+                                referencedItems) =>
+                            referencedItems.where((e) => e.question == item.id),
+                        typedResults: items)
+                ];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$QuestionModelsTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $QuestionModelsTable,
+    QuestionModel,
+    $$QuestionModelsTableFilterComposer,
+    $$QuestionModelsTableOrderingComposer,
+    $$QuestionModelsTableCreateCompanionBuilder,
+    $$QuestionModelsTableUpdateCompanionBuilder,
+    (QuestionModel, $$QuestionModelsTableReferences),
+    QuestionModel,
+    PrefetchHooks Function(
+        {bool testQuestionModelRefs, bool questionQuestionVariantModelRefs})>;
+typedef $$QuestionVariantModelsTableCreateCompanionBuilder
+    = QuestionVariantModelsCompanion Function({
+  Value<int> id,
+  Value<String?> textContent,
+  Value<String?> image,
+  required String uuid,
+  required QuestionVariantType variantType,
+});
+typedef $$QuestionVariantModelsTableUpdateCompanionBuilder
+    = QuestionVariantModelsCompanion Function({
+  Value<int> id,
+  Value<String?> textContent,
+  Value<String?> image,
+  Value<String> uuid,
+  Value<QuestionVariantType> variantType,
+});
+
+final class $$QuestionVariantModelsTableReferences extends BaseReferences<
+    _$AppDatabase, $QuestionVariantModelsTable, QuestionVariantModel> {
+  $$QuestionVariantModelsTableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<$QuestionQuestionVariantModelTable,
+          List<QuestionQuestionVariantEntry>>
+      _questionQuestionVariantModelRefsTable(_$AppDatabase db) =>
+          MultiTypedResultKey.fromTable(db.questionQuestionVariantModel,
+              aliasName: $_aliasNameGenerator(db.questionVariantModels.id,
+                  db.questionQuestionVariantModel.questionVariant));
+
+  $$QuestionQuestionVariantModelTableProcessedTableManager
+      get questionQuestionVariantModelRefs {
+    final manager = $$QuestionQuestionVariantModelTableTableManager(
+            $_db, $_db.questionQuestionVariantModel)
+        .filter((f) => f.questionVariant.id($_item.id));
+
+    final cache = $_typedResult
+        .readTableOrNull(_questionQuestionVariantModelRefsTable($_db));
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: cache));
+  }
+}
+
+class $$QuestionVariantModelsTableFilterComposer
+    extends FilterComposer<_$AppDatabase, $QuestionVariantModelsTable> {
+  $$QuestionVariantModelsTableFilterComposer(super.$state);
+  ColumnFilters<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get textContent => $state.composableBuilder(
+      column: $state.table.textContent,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get image => $state.composableBuilder(
+      column: $state.table.image,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnFilters<String> get uuid => $state.composableBuilder(
+      column: $state.table.uuid,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  ColumnWithTypeConverterFilters<QuestionVariantType, QuestionVariantType,
+          String>
+      get variantType => $state.composableBuilder(
+          column: $state.table.variantType,
+          builder: (column, joinBuilders) => ColumnWithTypeConverterFilters(
+              column,
+              joinBuilders: joinBuilders));
+
+  ComposableFilter questionQuestionVariantModelRefs(
+      ComposableFilter Function(
+              $$QuestionQuestionVariantModelTableFilterComposer f)
+          f) {
+    final $$QuestionQuestionVariantModelTableFilterComposer composer =
+        $state.composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.id,
+            referencedTable: $state.db.questionQuestionVariantModel,
+            getReferencedColumn: (t) => t.questionVariant,
+            builder: (joinBuilder, parentComposers) =>
+                $$QuestionQuestionVariantModelTableFilterComposer(ComposerState(
+                    $state.db,
+                    $state.db.questionQuestionVariantModel,
+                    joinBuilder,
+                    parentComposers)));
+    return f(composer);
+  }
+}
+
+class $$QuestionVariantModelsTableOrderingComposer
+    extends OrderingComposer<_$AppDatabase, $QuestionVariantModelsTable> {
+  $$QuestionVariantModelsTableOrderingComposer(super.$state);
+  ColumnOrderings<int> get id => $state.composableBuilder(
+      column: $state.table.id,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get textContent => $state.composableBuilder(
+      column: $state.table.textContent,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get image => $state.composableBuilder(
+      column: $state.table.image,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get uuid => $state.composableBuilder(
+      column: $state.table.uuid,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  ColumnOrderings<String> get variantType => $state.composableBuilder(
+      column: $state.table.variantType,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+}
+
+class $$QuestionVariantModelsTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $QuestionVariantModelsTable,
+    QuestionVariantModel,
+    $$QuestionVariantModelsTableFilterComposer,
+    $$QuestionVariantModelsTableOrderingComposer,
+    $$QuestionVariantModelsTableCreateCompanionBuilder,
+    $$QuestionVariantModelsTableUpdateCompanionBuilder,
+    (QuestionVariantModel, $$QuestionVariantModelsTableReferences),
+    QuestionVariantModel,
+    PrefetchHooks Function({bool questionQuestionVariantModelRefs})> {
+  $$QuestionVariantModelsTableTableManager(
+      _$AppDatabase db, $QuestionVariantModelsTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer: $$QuestionVariantModelsTableFilterComposer(
+              ComposerState(db, table)),
+          orderingComposer: $$QuestionVariantModelsTableOrderingComposer(
+              ComposerState(db, table)),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String?> textContent = const Value.absent(),
+            Value<String?> image = const Value.absent(),
+            Value<String> uuid = const Value.absent(),
+            Value<QuestionVariantType> variantType = const Value.absent(),
+          }) =>
+              QuestionVariantModelsCompanion(
+            id: id,
+            textContent: textContent,
+            image: image,
+            uuid: uuid,
+            variantType: variantType,
+          ),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<String?> textContent = const Value.absent(),
+            Value<String?> image = const Value.absent(),
+            required String uuid,
+            required QuestionVariantType variantType,
+          }) =>
+              QuestionVariantModelsCompanion.insert(
+            id: id,
+            textContent: textContent,
+            image: image,
+            uuid: uuid,
+            variantType: variantType,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$QuestionVariantModelsTableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({questionQuestionVariantModelRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (questionQuestionVariantModelRefs)
+                  db.questionQuestionVariantModel
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (questionQuestionVariantModelRefs)
+                    await $_getPrefetchedData(
+                        currentTable: table,
+                        referencedTable: $$QuestionVariantModelsTableReferences
+                            ._questionQuestionVariantModelRefsTable(db),
+                        managerFromTypedResult: (p0) =>
+                            $$QuestionVariantModelsTableReferences(
+                                    db, table, p0)
+                                .questionQuestionVariantModelRefs,
+                        referencedItemsForCurrentItem:
+                            (item, referencedItems) => referencedItems
+                                .where((e) => e.questionVariant == item.id),
+                        typedResults: items)
+                ];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$QuestionVariantModelsTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $QuestionVariantModelsTable,
+        QuestionVariantModel,
+        $$QuestionVariantModelsTableFilterComposer,
+        $$QuestionVariantModelsTableOrderingComposer,
+        $$QuestionVariantModelsTableCreateCompanionBuilder,
+        $$QuestionVariantModelsTableUpdateCompanionBuilder,
+        (QuestionVariantModel, $$QuestionVariantModelsTableReferences),
+        QuestionVariantModel,
+        PrefetchHooks Function({bool questionQuestionVariantModelRefs})>;
+typedef $$TestQuestionModelTableCreateCompanionBuilder
+    = TestQuestionModelCompanion Function({
+  required int test,
+  required int question,
+  Value<int> rowid,
+});
+typedef $$TestQuestionModelTableUpdateCompanionBuilder
+    = TestQuestionModelCompanion Function({
+  Value<int> test,
+  Value<int> question,
+  Value<int> rowid,
+});
+
+final class $$TestQuestionModelTableReferences extends BaseReferences<
+    _$AppDatabase, $TestQuestionModelTable, TestQuestionEntry> {
+  $$TestQuestionModelTableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $TestModelsTable _testTable(_$AppDatabase db) =>
+      db.testModels.createAlias(
+          $_aliasNameGenerator(db.testQuestionModel.test, db.testModels.id));
+
+  $$TestModelsTableProcessedTableManager? get test {
+    if ($_item.test == null) return null;
+    final manager = $$TestModelsTableTableManager($_db, $_db.testModels)
+        .filter((f) => f.id($_item.test!));
+    final item = $_typedResult.readTableOrNull(_testTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+
+  static $QuestionModelsTable _questionTable(_$AppDatabase db) =>
+      db.questionModels.createAlias($_aliasNameGenerator(
+          db.testQuestionModel.question, db.questionModels.id));
+
+  $$QuestionModelsTableProcessedTableManager? get question {
+    if ($_item.question == null) return null;
+    final manager = $$QuestionModelsTableTableManager($_db, $_db.questionModels)
+        .filter((f) => f.id($_item.question!));
+    final item = $_typedResult.readTableOrNull(_questionTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$TestQuestionModelTableFilterComposer
+    extends FilterComposer<_$AppDatabase, $TestQuestionModelTable> {
+  $$TestQuestionModelTableFilterComposer(super.$state);
+  $$TestModelsTableFilterComposer get test {
+    final $$TestModelsTableFilterComposer composer = $state.composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.test,
+        referencedTable: $state.db.testModels,
+        getReferencedColumn: (t) => t.id,
+        builder: (joinBuilder, parentComposers) =>
+            $$TestModelsTableFilterComposer(ComposerState($state.db,
+                $state.db.testModels, joinBuilder, parentComposers)));
+    return composer;
+  }
+
+  $$QuestionModelsTableFilterComposer get question {
+    final $$QuestionModelsTableFilterComposer composer = $state.composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.question,
+        referencedTable: $state.db.questionModels,
+        getReferencedColumn: (t) => t.id,
+        builder: (joinBuilder, parentComposers) =>
+            $$QuestionModelsTableFilterComposer(ComposerState($state.db,
+                $state.db.questionModels, joinBuilder, parentComposers)));
+    return composer;
+  }
+}
+
+class $$TestQuestionModelTableOrderingComposer
+    extends OrderingComposer<_$AppDatabase, $TestQuestionModelTable> {
+  $$TestQuestionModelTableOrderingComposer(super.$state);
+  $$TestModelsTableOrderingComposer get test {
+    final $$TestModelsTableOrderingComposer composer = $state.composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.test,
+        referencedTable: $state.db.testModels,
+        getReferencedColumn: (t) => t.id,
+        builder: (joinBuilder, parentComposers) =>
+            $$TestModelsTableOrderingComposer(ComposerState($state.db,
+                $state.db.testModels, joinBuilder, parentComposers)));
+    return composer;
+  }
+
+  $$QuestionModelsTableOrderingComposer get question {
+    final $$QuestionModelsTableOrderingComposer composer =
+        $state.composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.question,
+            referencedTable: $state.db.questionModels,
+            getReferencedColumn: (t) => t.id,
+            builder: (joinBuilder, parentComposers) =>
+                $$QuestionModelsTableOrderingComposer(ComposerState($state.db,
+                    $state.db.questionModels, joinBuilder, parentComposers)));
+    return composer;
+  }
+}
+
+class $$TestQuestionModelTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $TestQuestionModelTable,
+    TestQuestionEntry,
+    $$TestQuestionModelTableFilterComposer,
+    $$TestQuestionModelTableOrderingComposer,
+    $$TestQuestionModelTableCreateCompanionBuilder,
+    $$TestQuestionModelTableUpdateCompanionBuilder,
+    (TestQuestionEntry, $$TestQuestionModelTableReferences),
+    TestQuestionEntry,
+    PrefetchHooks Function({bool test, bool question})> {
+  $$TestQuestionModelTableTableManager(
+      _$AppDatabase db, $TestQuestionModelTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer:
+              $$TestQuestionModelTableFilterComposer(ComposerState(db, table)),
+          orderingComposer: $$TestQuestionModelTableOrderingComposer(
+              ComposerState(db, table)),
+          updateCompanionCallback: ({
+            Value<int> test = const Value.absent(),
+            Value<int> question = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              TestQuestionModelCompanion(
+            test: test,
+            question: question,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required int test,
+            required int question,
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              TestQuestionModelCompanion.insert(
+            test: test,
+            question: question,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$TestQuestionModelTableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({test = false, question = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (test) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.test,
+                    referencedTable:
+                        $$TestQuestionModelTableReferences._testTable(db),
+                    referencedColumn:
+                        $$TestQuestionModelTableReferences._testTable(db).id,
+                  ) as T;
+                }
+                if (question) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.question,
+                    referencedTable:
+                        $$TestQuestionModelTableReferences._questionTable(db),
+                    referencedColumn: $$TestQuestionModelTableReferences
+                        ._questionTable(db)
+                        .id,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$TestQuestionModelTableProcessedTableManager = ProcessedTableManager<
+    _$AppDatabase,
+    $TestQuestionModelTable,
+    TestQuestionEntry,
+    $$TestQuestionModelTableFilterComposer,
+    $$TestQuestionModelTableOrderingComposer,
+    $$TestQuestionModelTableCreateCompanionBuilder,
+    $$TestQuestionModelTableUpdateCompanionBuilder,
+    (TestQuestionEntry, $$TestQuestionModelTableReferences),
+    TestQuestionEntry,
+    PrefetchHooks Function({bool test, bool question})>;
+typedef $$QuestionQuestionVariantModelTableCreateCompanionBuilder
+    = QuestionQuestionVariantModelCompanion Function({
+  required int question,
+  required int questionVariant,
+  required bool correct,
+  Value<int> rowid,
+});
+typedef $$QuestionQuestionVariantModelTableUpdateCompanionBuilder
+    = QuestionQuestionVariantModelCompanion Function({
+  Value<int> question,
+  Value<int> questionVariant,
+  Value<bool> correct,
+  Value<int> rowid,
+});
+
+final class $$QuestionQuestionVariantModelTableReferences
+    extends BaseReferences<_$AppDatabase, $QuestionQuestionVariantModelTable,
+        QuestionQuestionVariantEntry> {
+  $$QuestionQuestionVariantModelTableReferences(
+      super.$_db, super.$_table, super.$_typedResult);
+
+  static $QuestionModelsTable _questionTable(_$AppDatabase db) =>
+      db.questionModels.createAlias($_aliasNameGenerator(
+          db.questionQuestionVariantModel.question, db.questionModels.id));
+
+  $$QuestionModelsTableProcessedTableManager? get question {
+    if ($_item.question == null) return null;
+    final manager = $$QuestionModelsTableTableManager($_db, $_db.questionModels)
+        .filter((f) => f.id($_item.question!));
+    final item = $_typedResult.readTableOrNull(_questionTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+
+  static $QuestionVariantModelsTable _questionVariantTable(_$AppDatabase db) =>
+      db.questionVariantModels.createAlias($_aliasNameGenerator(
+          db.questionQuestionVariantModel.questionVariant,
+          db.questionVariantModels.id));
+
+  $$QuestionVariantModelsTableProcessedTableManager? get questionVariant {
+    if ($_item.questionVariant == null) return null;
+    final manager = $$QuestionVariantModelsTableTableManager(
+            $_db, $_db.questionVariantModels)
+        .filter((f) => f.id($_item.questionVariant!));
+    final item = $_typedResult.readTableOrNull(_questionVariantTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+        manager.$state.copyWith(prefetchedData: [item]));
+  }
+}
+
+class $$QuestionQuestionVariantModelTableFilterComposer
+    extends FilterComposer<_$AppDatabase, $QuestionQuestionVariantModelTable> {
+  $$QuestionQuestionVariantModelTableFilterComposer(super.$state);
+  ColumnFilters<bool> get correct => $state.composableBuilder(
+      column: $state.table.correct,
+      builder: (column, joinBuilders) =>
+          ColumnFilters(column, joinBuilders: joinBuilders));
+
+  $$QuestionModelsTableFilterComposer get question {
+    final $$QuestionModelsTableFilterComposer composer = $state.composerBuilder(
+        composer: this,
+        getCurrentColumn: (t) => t.question,
+        referencedTable: $state.db.questionModels,
+        getReferencedColumn: (t) => t.id,
+        builder: (joinBuilder, parentComposers) =>
+            $$QuestionModelsTableFilterComposer(ComposerState($state.db,
+                $state.db.questionModels, joinBuilder, parentComposers)));
+    return composer;
+  }
+
+  $$QuestionVariantModelsTableFilterComposer get questionVariant {
+    final $$QuestionVariantModelsTableFilterComposer composer =
+        $state.composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.questionVariant,
+            referencedTable: $state.db.questionVariantModels,
+            getReferencedColumn: (t) => t.id,
+            builder: (joinBuilder, parentComposers) =>
+                $$QuestionVariantModelsTableFilterComposer(ComposerState(
+                    $state.db,
+                    $state.db.questionVariantModels,
+                    joinBuilder,
+                    parentComposers)));
+    return composer;
+  }
+}
+
+class $$QuestionQuestionVariantModelTableOrderingComposer
+    extends OrderingComposer<_$AppDatabase,
+        $QuestionQuestionVariantModelTable> {
+  $$QuestionQuestionVariantModelTableOrderingComposer(super.$state);
+  ColumnOrderings<bool> get correct => $state.composableBuilder(
+      column: $state.table.correct,
+      builder: (column, joinBuilders) =>
+          ColumnOrderings(column, joinBuilders: joinBuilders));
+
+  $$QuestionModelsTableOrderingComposer get question {
+    final $$QuestionModelsTableOrderingComposer composer =
+        $state.composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.question,
+            referencedTable: $state.db.questionModels,
+            getReferencedColumn: (t) => t.id,
+            builder: (joinBuilder, parentComposers) =>
+                $$QuestionModelsTableOrderingComposer(ComposerState($state.db,
+                    $state.db.questionModels, joinBuilder, parentComposers)));
+    return composer;
+  }
+
+  $$QuestionVariantModelsTableOrderingComposer get questionVariant {
+    final $$QuestionVariantModelsTableOrderingComposer composer =
+        $state.composerBuilder(
+            composer: this,
+            getCurrentColumn: (t) => t.questionVariant,
+            referencedTable: $state.db.questionVariantModels,
+            getReferencedColumn: (t) => t.id,
+            builder: (joinBuilder, parentComposers) =>
+                $$QuestionVariantModelsTableOrderingComposer(ComposerState(
+                    $state.db,
+                    $state.db.questionVariantModels,
+                    joinBuilder,
+                    parentComposers)));
+    return composer;
+  }
+}
+
+class $$QuestionQuestionVariantModelTableTableManager extends RootTableManager<
+    _$AppDatabase,
+    $QuestionQuestionVariantModelTable,
+    QuestionQuestionVariantEntry,
+    $$QuestionQuestionVariantModelTableFilterComposer,
+    $$QuestionQuestionVariantModelTableOrderingComposer,
+    $$QuestionQuestionVariantModelTableCreateCompanionBuilder,
+    $$QuestionQuestionVariantModelTableUpdateCompanionBuilder,
+    (
+      QuestionQuestionVariantEntry,
+      $$QuestionQuestionVariantModelTableReferences
+    ),
+    QuestionQuestionVariantEntry,
+    PrefetchHooks Function({bool question, bool questionVariant})> {
+  $$QuestionQuestionVariantModelTableTableManager(
+      _$AppDatabase db, $QuestionQuestionVariantModelTable table)
+      : super(TableManagerState(
+          db: db,
+          table: table,
+          filteringComposer: $$QuestionQuestionVariantModelTableFilterComposer(
+              ComposerState(db, table)),
+          orderingComposer: $$QuestionQuestionVariantModelTableOrderingComposer(
+              ComposerState(db, table)),
+          updateCompanionCallback: ({
+            Value<int> question = const Value.absent(),
+            Value<int> questionVariant = const Value.absent(),
+            Value<bool> correct = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              QuestionQuestionVariantModelCompanion(
+            question: question,
+            questionVariant: questionVariant,
+            correct: correct,
+            rowid: rowid,
+          ),
+          createCompanionCallback: ({
+            required int question,
+            required int questionVariant,
+            required bool correct,
+            Value<int> rowid = const Value.absent(),
+          }) =>
+              QuestionQuestionVariantModelCompanion.insert(
+            question: question,
+            questionVariant: questionVariant,
+            correct: correct,
+            rowid: rowid,
+          ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (
+                    e.readTable(table),
+                    $$QuestionQuestionVariantModelTableReferences(db, table, e)
+                  ))
+              .toList(),
+          prefetchHooksCallback: ({question = false, questionVariant = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins: <
+                  T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic>>(state) {
+                if (question) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.question,
+                    referencedTable:
+                        $$QuestionQuestionVariantModelTableReferences
+                            ._questionTable(db),
+                    referencedColumn:
+                        $$QuestionQuestionVariantModelTableReferences
+                            ._questionTable(db)
+                            .id,
+                  ) as T;
+                }
+                if (questionVariant) {
+                  state = state.withJoin(
+                    currentTable: table,
+                    currentColumn: table.questionVariant,
+                    referencedTable:
+                        $$QuestionQuestionVariantModelTableReferences
+                            ._questionVariantTable(db),
+                    referencedColumn:
+                        $$QuestionQuestionVariantModelTableReferences
+                            ._questionVariantTable(db)
+                            .id,
+                  ) as T;
+                }
+
+                return state;
+              },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ));
+}
+
+typedef $$QuestionQuestionVariantModelTableProcessedTableManager
+    = ProcessedTableManager<
+        _$AppDatabase,
+        $QuestionQuestionVariantModelTable,
+        QuestionQuestionVariantEntry,
+        $$QuestionQuestionVariantModelTableFilterComposer,
+        $$QuestionQuestionVariantModelTableOrderingComposer,
+        $$QuestionQuestionVariantModelTableCreateCompanionBuilder,
+        $$QuestionQuestionVariantModelTableUpdateCompanionBuilder,
+        (
+          QuestionQuestionVariantEntry,
+          $$QuestionQuestionVariantModelTableReferences
+        ),
+        QuestionQuestionVariantEntry,
+        PrefetchHooks Function({bool question, bool questionVariant})>;
+
+class $AppDatabaseManager {
+  final _$AppDatabase _db;
+  $AppDatabaseManager(this._db);
+  $$TestModelsTableTableManager get testModels =>
+      $$TestModelsTableTableManager(_db, _db.testModels);
+  $$QuestionModelsTableTableManager get questionModels =>
+      $$QuestionModelsTableTableManager(_db, _db.questionModels);
+  $$QuestionVariantModelsTableTableManager get questionVariantModels =>
+      $$QuestionVariantModelsTableTableManager(_db, _db.questionVariantModels);
+  $$TestQuestionModelTableTableManager get testQuestionModel =>
+      $$TestQuestionModelTableTableManager(_db, _db.testQuestionModel);
+  $$QuestionQuestionVariantModelTableTableManager
+      get questionQuestionVariantModel =>
+          $$QuestionQuestionVariantModelTableTableManager(
+              _db, _db.questionQuestionVariantModel);
 }

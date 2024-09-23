@@ -7,7 +7,7 @@ import '../test_data/test_data.dart';
 void main() {
   test('Test state factory', () {
     expect(
-      TestState.fromTest(testForEditing),
+      TestState.fromTest(savedTest),
       TestState.progress(
         index: 0,
         answers: savedQuestions.map(QuestionAnswer.fromQuestion).toList(),

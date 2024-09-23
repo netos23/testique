@@ -42,7 +42,7 @@ class _CreateQuestionPageBody extends StatelessWidget {
     return BlocConsumer<CreateQuestionBloc, CreateQuestionState>(
       listener: (context, state) {
         if (state is CreateQuestionCompletedState) {
-          context.router.pop(
+          context.router.popForced(
             QuestionTemplate(
               id: state.id,
               name: state.name,

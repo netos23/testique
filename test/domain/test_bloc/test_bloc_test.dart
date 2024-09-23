@@ -25,7 +25,7 @@ void main() {
       when(() => service.build('test', {})).thenReturn({'test'});
 
       testBloc = TestBloc(
-        serviceFactory: factory,
+        factory: factory,
         test: savedTest,
       );
     });

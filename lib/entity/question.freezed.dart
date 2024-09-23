@@ -12,7 +12,7 @@ part of 'question.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Question {
@@ -25,7 +25,9 @@ mixin _$Question {
   List<QuestionVariant> get variants => throw _privateConstructorUsedError;
   Set<String> get answer => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuestionCopyWith<Question> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +58,8 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,6 +136,8 @@ class __$$QuestionImplCopyWithImpl<$Res>
       _$QuestionImpl _value, $Res Function(_$QuestionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -259,7 +265,9 @@ class _$QuestionImpl implements _Question {
       const DeepCollectionEquality().hash(_variants),
       const DeepCollectionEquality().hash(_answer));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuestionImplCopyWith<_$QuestionImpl> get copyWith =>
@@ -293,8 +301,11 @@ abstract class _Question implements Question {
   List<QuestionVariant> get variants;
   @override
   Set<String> get answer;
+
+  /// Create a copy of Question
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuestionImplCopyWith<_$QuestionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -311,7 +322,9 @@ mixin _$QuestionTemplate {
       throw _privateConstructorUsedError;
   Set<String> get answer => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuestionTemplateCopyWith<QuestionTemplate> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -343,6 +356,8 @@ class _$QuestionTemplateCopyWithImpl<$Res, $Val extends QuestionTemplate>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuestionTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -419,6 +434,8 @@ class __$$QuestionTemplateImplCopyWithImpl<$Res>
       $Res Function(_$QuestionTemplateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuestionTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -546,7 +563,9 @@ class _$QuestionTemplateImpl implements _QuestionTemplate {
       const DeepCollectionEquality().hash(_variants),
       const DeepCollectionEquality().hash(_answer));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$QuestionTemplateImplCopyWith<_$QuestionTemplateImpl> get copyWith =>
@@ -581,8 +600,11 @@ abstract class _QuestionTemplate implements QuestionTemplate {
   List<IQuestionVariantTemplate> get variants;
   @override
   Set<String> get answer;
+
+  /// Create a copy of QuestionTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QuestionTemplateImplCopyWith<_$QuestionTemplateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

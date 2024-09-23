@@ -12,14 +12,16 @@ part of 'test_attempt.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TestAttempt {
   Test get test => throw _privateConstructorUsedError;
   List<QuestionAnswer> get answers => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestAttempt
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TestAttemptCopyWith<TestAttempt> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$TestAttemptCopyWithImpl<$Res, $Val extends TestAttempt>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TestAttempt
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -63,6 +67,8 @@ class _$TestAttemptCopyWithImpl<$Res, $Val extends TestAttempt>
     ) as $Val);
   }
 
+  /// Create a copy of TestAttempt
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TestCopyWith<$Res> get test {
@@ -94,6 +100,8 @@ class __$$TestAttemptImplCopyWithImpl<$Res>
       _$TestAttemptImpl _value, $Res Function(_$TestAttemptImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TestAttempt
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -148,7 +156,9 @@ class _$TestAttemptImpl implements _TestAttempt {
   int get hashCode => Object.hash(
       runtimeType, test, const DeepCollectionEquality().hash(_answers));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestAttempt
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TestAttemptImplCopyWith<_$TestAttemptImpl> get copyWith =>
@@ -164,8 +174,11 @@ abstract class _TestAttempt implements TestAttempt {
   Test get test;
   @override
   List<QuestionAnswer> get answers;
+
+  /// Create a copy of TestAttempt
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TestAttemptImplCopyWith<_$TestAttemptImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

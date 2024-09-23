@@ -12,7 +12,7 @@ part of 'test_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TestEvent {
@@ -89,6 +89,9 @@ class _$TestEventCopyWithImpl<$Res, $Val extends TestEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -105,6 +108,9 @@ class __$$NextQuestionImplCopyWithImpl<$Res>
   __$$NextQuestionImplCopyWithImpl(
       _$NextQuestionImpl _value, $Res Function(_$NextQuestionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -225,6 +231,9 @@ class __$$PreviousQuestionImplCopyWithImpl<$Res>
   __$$PreviousQuestionImplCopyWithImpl(_$PreviousQuestionImpl _value,
       $Res Function(_$PreviousQuestionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -348,6 +357,8 @@ class __$$JumpQuestionImplCopyWithImpl<$Res>
       _$JumpQuestionImpl _value, $Res Function(_$JumpQuestionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -386,7 +397,9 @@ class _$JumpQuestionImpl implements _JumpQuestion {
   @override
   int get hashCode => Object.hash(runtimeType, index);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$JumpQuestionImplCopyWith<_$JumpQuestionImpl> get copyWith =>
@@ -477,7 +490,10 @@ abstract class _JumpQuestion implements TestEvent {
   const factory _JumpQuestion(final int index) = _$JumpQuestionImpl;
 
   int get index;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$JumpQuestionImplCopyWith<_$JumpQuestionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -496,6 +512,9 @@ class __$$CompleteTestImplCopyWithImpl<$Res>
   __$$CompleteTestImplCopyWithImpl(
       _$CompleteTestImpl _value, $Res Function(_$CompleteTestImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -619,6 +638,8 @@ class __$$AnswerQuestionImplCopyWithImpl<$Res>
       _$AnswerQuestionImpl _value, $Res Function(_$AnswerQuestionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -666,7 +687,9 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
   @override
   int get hashCode => Object.hash(runtimeType, index, answerUuid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AnswerQuestionImplCopyWith<_$AnswerQuestionImpl> get copyWith =>
@@ -761,7 +784,10 @@ abstract class _AnswerQuestion implements TestEvent {
 
   int get index;
   String get answerUuid;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TestEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AnswerQuestionImplCopyWith<_$AnswerQuestionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -791,25 +817,27 @@ mixin _$TestState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ProgressTestState value) progress,
-    required TResult Function(_CompletedTestState value) completed,
+    required TResult Function(ProgressTestState value) progress,
+    required TResult Function(CompletedTestState value) completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ProgressTestState value)? progress,
-    TResult? Function(_CompletedTestState value)? completed,
+    TResult? Function(ProgressTestState value)? progress,
+    TResult? Function(CompletedTestState value)? completed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ProgressTestState value)? progress,
-    TResult Function(_CompletedTestState value)? completed,
+    TResult Function(ProgressTestState value)? progress,
+    TResult Function(CompletedTestState value)? completed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TestStateCopyWith<TestState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -832,6 +860,8 @@ class _$TestStateCopyWithImpl<$Res, $Val extends TestState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -865,6 +895,8 @@ class __$$ProgressTestStateImplCopyWithImpl<$Res>
       $Res Function(_$ProgressTestStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -886,7 +918,7 @@ class __$$ProgressTestStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressTestStateImpl implements _ProgressTestState {
+class _$ProgressTestStateImpl implements ProgressTestState {
   const _$ProgressTestStateImpl(
       {this.index = 0, required final List<QuestionAnswer> answers})
       : _answers = answers;
@@ -920,7 +952,9 @@ class _$ProgressTestStateImpl implements _ProgressTestState {
   int get hashCode => Object.hash(
       runtimeType, index, const DeepCollectionEquality().hash(_answers));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ProgressTestStateImplCopyWith<_$ProgressTestStateImpl> get copyWith =>
@@ -962,8 +996,8 @@ class _$ProgressTestStateImpl implements _ProgressTestState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ProgressTestState value) progress,
-    required TResult Function(_CompletedTestState value) completed,
+    required TResult Function(ProgressTestState value) progress,
+    required TResult Function(CompletedTestState value) completed,
   }) {
     return progress(this);
   }
@@ -971,8 +1005,8 @@ class _$ProgressTestStateImpl implements _ProgressTestState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ProgressTestState value)? progress,
-    TResult? Function(_CompletedTestState value)? completed,
+    TResult? Function(ProgressTestState value)? progress,
+    TResult? Function(CompletedTestState value)? completed,
   }) {
     return progress?.call(this);
   }
@@ -980,8 +1014,8 @@ class _$ProgressTestStateImpl implements _ProgressTestState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ProgressTestState value)? progress,
-    TResult Function(_CompletedTestState value)? completed,
+    TResult Function(ProgressTestState value)? progress,
+    TResult Function(CompletedTestState value)? completed,
     required TResult orElse(),
   }) {
     if (progress != null) {
@@ -991,16 +1025,19 @@ class _$ProgressTestStateImpl implements _ProgressTestState {
   }
 }
 
-abstract class _ProgressTestState implements TestState {
-  const factory _ProgressTestState(
+abstract class ProgressTestState implements TestState {
+  const factory ProgressTestState(
       {final int index,
       required final List<QuestionAnswer> answers}) = _$ProgressTestStateImpl;
 
   int get index;
   @override
   List<QuestionAnswer> get answers;
+
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProgressTestStateImplCopyWith<_$ProgressTestStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1026,6 +1063,8 @@ class __$$CompletedTestStateImplCopyWithImpl<$Res>
       $Res Function(_$CompletedTestStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1044,6 +1083,8 @@ class __$$CompletedTestStateImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TestCopyWith<$Res> get test {
@@ -1055,7 +1096,7 @@ class __$$CompletedTestStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CompletedTestStateImpl implements _CompletedTestState {
+class _$CompletedTestStateImpl implements CompletedTestState {
   const _$CompletedTestStateImpl(
       {required this.test, required final List<QuestionAnswer> answers})
       : _answers = answers;
@@ -1088,7 +1129,9 @@ class _$CompletedTestStateImpl implements _CompletedTestState {
   int get hashCode => Object.hash(
       runtimeType, test, const DeepCollectionEquality().hash(_answers));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CompletedTestStateImplCopyWith<_$CompletedTestStateImpl> get copyWith =>
@@ -1130,8 +1173,8 @@ class _$CompletedTestStateImpl implements _CompletedTestState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ProgressTestState value) progress,
-    required TResult Function(_CompletedTestState value) completed,
+    required TResult Function(ProgressTestState value) progress,
+    required TResult Function(CompletedTestState value) completed,
   }) {
     return completed(this);
   }
@@ -1139,8 +1182,8 @@ class _$CompletedTestStateImpl implements _CompletedTestState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ProgressTestState value)? progress,
-    TResult? Function(_CompletedTestState value)? completed,
+    TResult? Function(ProgressTestState value)? progress,
+    TResult? Function(CompletedTestState value)? completed,
   }) {
     return completed?.call(this);
   }
@@ -1148,8 +1191,8 @@ class _$CompletedTestStateImpl implements _CompletedTestState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ProgressTestState value)? progress,
-    TResult Function(_CompletedTestState value)? completed,
+    TResult Function(ProgressTestState value)? progress,
+    TResult Function(CompletedTestState value)? completed,
     required TResult orElse(),
   }) {
     if (completed != null) {
@@ -1159,16 +1202,19 @@ class _$CompletedTestStateImpl implements _CompletedTestState {
   }
 }
 
-abstract class _CompletedTestState implements TestState {
-  const factory _CompletedTestState(
+abstract class CompletedTestState implements TestState {
+  const factory CompletedTestState(
       {required final Test test,
       required final List<QuestionAnswer> answers}) = _$CompletedTestStateImpl;
 
   Test get test;
   @override
   List<QuestionAnswer> get answers;
+
+  /// Create a copy of TestState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompletedTestStateImplCopyWith<_$CompletedTestStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

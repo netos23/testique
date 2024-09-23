@@ -33,7 +33,7 @@ class _CreateTestPageBody extends StatelessWidget {
     return BlocConsumer<CreateTestBloc, CreateTestState>(
       listener: (context, state) {
         if (state is CreateTestCompletedState) {
-          context.router.pop();
+          context.router.popForced();
         }
       },
       builder: (context, state) {

@@ -6,6 +6,7 @@ import 'package:testique/pages/begin_test_page/begin_test_page.dart';
 import 'package:testique/pages/create_test_page/create_test_page.dart';
 import 'package:testique/pages/history_page/history_page.dart';
 import 'package:testique/pages/menu_page/menu_page.dart';
+import 'package:testique/pages/test_page/test_page.dart';
 import 'package:testique/pages/tests_page/tests_page.dart';
 
 import '../pages/crate_question_page/create_question_page.dart';
@@ -13,7 +14,7 @@ import '../pages/crate_question_page/create_question_page.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
@@ -26,6 +27,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/beginTest/:testId',
           page: BeginTestRoute.page,
+        ),
+        AutoRoute(
+          path: '/test/:testId',
+          page: TestRoute.page,
         ),
         AutoRoute(
           page: HistoryRoute.page,

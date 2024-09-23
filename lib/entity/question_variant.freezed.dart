@@ -12,7 +12,7 @@ part of 'question_variant.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$QuestionVariant {
@@ -57,7 +57,9 @@ mixin _$QuestionVariant {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionVariant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuestionVariantCopyWith<QuestionVariant> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -81,6 +83,8 @@ class _$QuestionVariantCopyWithImpl<$Res, $Val extends QuestionVariant>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuestionVariant
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,6 +123,8 @@ class __$$TextQuestionVariantImplCopyWithImpl<$Res>
       $Res Function(_$TextQuestionVariantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuestionVariant
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -174,7 +180,9 @@ class _$TextQuestionVariantImpl implements TextQuestionVariant {
   @override
   int get hashCode => Object.hash(runtimeType, id, text, uuid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionVariant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TextQuestionVariantImplCopyWith<_$TextQuestionVariantImpl> get copyWith =>
@@ -256,8 +264,11 @@ abstract class TextQuestionVariant
   String get text;
   @override
   String get uuid;
+
+  /// Create a copy of QuestionVariant
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TextQuestionVariantImplCopyWith<_$TextQuestionVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -281,6 +292,8 @@ class __$$ImageQuestionVariantImplCopyWithImpl<$Res>
       $Res Function(_$ImageQuestionVariantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuestionVariant
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -336,7 +349,9 @@ class _$ImageQuestionVariantImpl implements ImageQuestionVariant {
   @override
   int get hashCode => Object.hash(runtimeType, id, image, uuid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionVariant
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ImageQuestionVariantImplCopyWith<_$ImageQuestionVariantImpl>
@@ -419,8 +434,11 @@ abstract class ImageQuestionVariant
   String get image;
   @override
   String get uuid;
+
+  /// Create a copy of QuestionVariant
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ImageQuestionVariantImplCopyWith<_$ImageQuestionVariantImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -468,7 +486,9 @@ mixin _$QuestionVariantTemplate {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionVariantTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $QuestionVariantTemplateCopyWith<QuestionVariantTemplate> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -493,6 +513,8 @@ class _$QuestionVariantTemplateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of QuestionVariantTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -534,6 +556,8 @@ class __$$TextQuestionVariantTemplateImplCopyWithImpl<$Res>
       $Res Function(_$TextQuestionVariantTemplateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuestionVariantTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -589,7 +613,9 @@ class _$TextQuestionVariantTemplateImpl implements TextQuestionVariantTemplate {
   @override
   int get hashCode => Object.hash(runtimeType, id, text, uuid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionVariantTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TextQuestionVariantTemplateImplCopyWith<_$TextQuestionVariantTemplateImpl>
@@ -671,8 +697,11 @@ abstract class TextQuestionVariantTemplate
   String get text;
   @override
   String get uuid;
+
+  /// Create a copy of QuestionVariantTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TextQuestionVariantTemplateImplCopyWith<_$TextQuestionVariantTemplateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -699,6 +728,8 @@ class __$$ImageQuestionVariantTemplateImplCopyWithImpl<$Res>
       $Res Function(_$ImageQuestionVariantTemplateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of QuestionVariantTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -755,7 +786,9 @@ class _$ImageQuestionVariantTemplateImpl
   @override
   int get hashCode => Object.hash(runtimeType, id, image, uuid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of QuestionVariantTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ImageQuestionVariantTemplateImplCopyWith<
@@ -838,8 +871,11 @@ abstract class ImageQuestionVariantTemplate
   String get image;
   @override
   String get uuid;
+
+  /// Create a copy of QuestionVariantTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ImageQuestionVariantTemplateImplCopyWith<
           _$ImageQuestionVariantTemplateImpl>
       get copyWith => throw _privateConstructorUsedError;

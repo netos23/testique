@@ -9,64 +9,6 @@
 
 part of 'app_router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    BeginTestRoute.name: (routeData) {
-      final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<BeginTestRouteArgs>(
-          orElse: () =>
-              BeginTestRouteArgs(testId: pathParams.getInt('testId')));
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: BeginTestPage(
-          key: args.key,
-          testPreview: args.testPreview,
-          testId: args.testId,
-        ),
-      );
-    },
-    CreateQuestionRoute.name: (routeData) {
-      final args = routeData.argsAs<CreateQuestionRouteArgs>(
-          orElse: () => const CreateQuestionRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: CreateQuestionPage(
-          key: args.key,
-          question: args.question,
-        ),
-      );
-    },
-    CreateTestRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const CreateTestPage(),
-      );
-    },
-    HistoryRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HistoryPage(),
-      );
-    },
-    MenuRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const MenuPage(),
-      );
-    },
-    TestsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const TestsPage(),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [BeginTestPage]
 class BeginTestRoute extends PageRouteInfo<BeginTestRouteArgs> {
@@ -88,8 +30,20 @@ class BeginTestRoute extends PageRouteInfo<BeginTestRouteArgs> {
 
   static const String name = 'BeginTestRoute';
 
-  static const PageInfo<BeginTestRouteArgs> page =
-      PageInfo<BeginTestRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final args = data.argsAs<BeginTestRouteArgs>(
+          orElse: () =>
+              BeginTestRouteArgs(testId: pathParams.getInt('testId')));
+      return BeginTestPage(
+        key: args.key,
+        testPreview: args.testPreview,
+        testId: args.testId,
+      );
+    },
+  );
 }
 
 class BeginTestRouteArgs {
@@ -129,8 +83,17 @@ class CreateQuestionRoute extends PageRouteInfo<CreateQuestionRouteArgs> {
 
   static const String name = 'CreateQuestionRoute';
 
-  static const PageInfo<CreateQuestionRouteArgs> page =
-      PageInfo<CreateQuestionRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<CreateQuestionRouteArgs>(
+          orElse: () => const CreateQuestionRouteArgs());
+      return CreateQuestionPage(
+        key: args.key,
+        question: args.question,
+      );
+    },
+  );
 }
 
 class CreateQuestionRouteArgs {
@@ -160,7 +123,12 @@ class CreateTestRoute extends PageRouteInfo<void> {
 
   static const String name = 'CreateTestRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const CreateTestPage();
+    },
+  );
 }
 
 /// generated route for
@@ -174,7 +142,12 @@ class HistoryRoute extends PageRouteInfo<void> {
 
   static const String name = 'HistoryRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const HistoryPage();
+    },
+  );
 }
 
 /// generated route for
@@ -188,7 +161,64 @@ class MenuRoute extends PageRouteInfo<void> {
 
   static const String name = 'MenuRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MenuPage();
+    },
+  );
+}
+
+/// generated route for
+/// [TestPage]
+class TestRoute extends PageRouteInfo<TestRouteArgs> {
+  TestRoute({
+    Key? key,
+    required Test? test,
+    required int testId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          TestRoute.name,
+          args: TestRouteArgs(
+            key: key,
+            test: test,
+            testId: testId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'TestRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<TestRouteArgs>();
+      return TestPage(
+        key: args.key,
+        test: args.test,
+        testId: args.testId,
+      );
+    },
+  );
+}
+
+class TestRouteArgs {
+  const TestRouteArgs({
+    this.key,
+    required this.test,
+    required this.testId,
+  });
+
+  final Key? key;
+
+  final Test? test;
+
+  final int testId;
+
+  @override
+  String toString() {
+    return 'TestRouteArgs{key: $key, test: $test, testId: $testId}';
+  }
 }
 
 /// generated route for
@@ -202,5 +232,10 @@ class TestsRoute extends PageRouteInfo<void> {
 
   static const String name = 'TestsRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TestsPage();
+    },
+  );
 }

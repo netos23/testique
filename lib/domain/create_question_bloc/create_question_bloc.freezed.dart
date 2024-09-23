@@ -12,7 +12,7 @@ part of 'create_question_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CreateQuestionEvent {
@@ -126,6 +126,9 @@ class _$CreateQuestionEventCopyWithImpl<$Res, $Val extends CreateQuestionEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -145,6 +148,8 @@ class __$$EditNameImplCopyWithImpl<$Res>
       _$EditNameImpl _value, $Res Function(_$EditNameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -183,7 +188,9 @@ class _$EditNameImpl implements _EditName {
   @override
   int get hashCode => Object.hash(runtimeType, name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditNameImplCopyWith<_$EditNameImpl> get copyWith =>
@@ -310,7 +317,10 @@ abstract class _EditName implements CreateQuestionEvent {
   const factory _EditName(final String name) = _$EditNameImpl;
 
   String get name;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditNameImplCopyWith<_$EditNameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -332,6 +342,8 @@ class __$$EditDescriptionImplCopyWithImpl<$Res>
       _$EditDescriptionImpl _value, $Res Function(_$EditDescriptionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -371,7 +383,9 @@ class _$EditDescriptionImpl implements _EditDescription {
   @override
   int get hashCode => Object.hash(runtimeType, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditDescriptionImplCopyWith<_$EditDescriptionImpl> get copyWith =>
@@ -500,7 +514,10 @@ abstract class _EditDescription implements CreateQuestionEvent {
       _$EditDescriptionImpl;
 
   String get description;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditDescriptionImplCopyWith<_$EditDescriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -522,6 +539,8 @@ class __$$EditLayoutImplCopyWithImpl<$Res>
       _$EditLayoutImpl _value, $Res Function(_$EditLayoutImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -560,7 +579,9 @@ class _$EditLayoutImpl implements _EditLayout {
   @override
   int get hashCode => Object.hash(runtimeType, layout);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditLayoutImplCopyWith<_$EditLayoutImpl> get copyWith =>
@@ -687,7 +708,10 @@ abstract class _EditLayout implements CreateQuestionEvent {
   const factory _EditLayout(final QuestionLayout layout) = _$EditLayoutImpl;
 
   QuestionLayout get layout;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditLayoutImplCopyWith<_$EditLayoutImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -709,6 +733,8 @@ class __$$EditShuffleImplCopyWithImpl<$Res>
       _$EditShuffleImpl _value, $Res Function(_$EditShuffleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -747,7 +773,9 @@ class _$EditShuffleImpl implements _EditShuffle {
   @override
   int get hashCode => Object.hash(runtimeType, shuffle);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditShuffleImplCopyWith<_$EditShuffleImpl> get copyWith =>
@@ -874,7 +902,10 @@ abstract class _EditShuffle implements CreateQuestionEvent {
   const factory _EditShuffle(final bool shuffle) = _$EditShuffleImpl;
 
   bool get shuffle;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditShuffleImplCopyWith<_$EditShuffleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -896,6 +927,8 @@ class __$$AddTextVariantImplCopyWithImpl<$Res>
       _$AddTextVariantImpl _value, $Res Function(_$AddTextVariantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -934,7 +967,9 @@ class _$AddTextVariantImpl implements _AddTextVariant {
   @override
   int get hashCode => Object.hash(runtimeType, text);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddTextVariantImplCopyWith<_$AddTextVariantImpl> get copyWith =>
@@ -1062,7 +1097,10 @@ abstract class _AddTextVariant implements CreateQuestionEvent {
   const factory _AddTextVariant(final String text) = _$AddTextVariantImpl;
 
   String get text;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddTextVariantImplCopyWith<_$AddTextVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1084,6 +1122,8 @@ class __$$EditTextVariantImplCopyWithImpl<$Res>
       _$EditTextVariantImpl _value, $Res Function(_$EditTextVariantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1130,7 +1170,9 @@ class _$EditTextVariantImpl implements _EditTextVariant {
   @override
   int get hashCode => Object.hash(runtimeType, uuid, text);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditTextVariantImplCopyWith<_$EditTextVariantImpl> get copyWith =>
@@ -1261,7 +1303,10 @@ abstract class _EditTextVariant implements CreateQuestionEvent {
 
   String get uuid;
   String get text;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditTextVariantImplCopyWith<_$EditTextVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1283,6 +1328,8 @@ class __$$AddImageVariantImplCopyWithImpl<$Res>
       _$AddImageVariantImpl _value, $Res Function(_$AddImageVariantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1321,7 +1368,9 @@ class _$AddImageVariantImpl implements _AddImageVariant {
   @override
   int get hashCode => Object.hash(runtimeType, image);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddImageVariantImplCopyWith<_$AddImageVariantImpl> get copyWith =>
@@ -1449,7 +1498,10 @@ abstract class _AddImageVariant implements CreateQuestionEvent {
   const factory _AddImageVariant(final String image) = _$AddImageVariantImpl;
 
   String get image;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddImageVariantImplCopyWith<_$AddImageVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1471,6 +1523,8 @@ class __$$EditImageVariantImplCopyWithImpl<$Res>
       $Res Function(_$EditImageVariantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1517,7 +1571,9 @@ class _$EditImageVariantImpl implements _EditImageVariant {
   @override
   int get hashCode => Object.hash(runtimeType, uuid, image);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EditImageVariantImplCopyWith<_$EditImageVariantImpl> get copyWith =>
@@ -1648,7 +1704,10 @@ abstract class _EditImageVariant implements CreateQuestionEvent {
 
   String get uuid;
   String get image;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EditImageVariantImplCopyWith<_$EditImageVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1670,6 +1729,8 @@ class __$$RemoveVariantImplCopyWithImpl<$Res>
       _$RemoveVariantImpl _value, $Res Function(_$RemoveVariantImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1708,7 +1769,9 @@ class _$RemoveVariantImpl implements _RemoveVariant {
   @override
   int get hashCode => Object.hash(runtimeType, uuid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveVariantImplCopyWith<_$RemoveVariantImpl> get copyWith =>
@@ -1835,7 +1898,10 @@ abstract class _RemoveVariant implements CreateQuestionEvent {
   const factory _RemoveVariant(final String uuid) = _$RemoveVariantImpl;
 
   String get uuid;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveVariantImplCopyWith<_$RemoveVariantImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1857,6 +1923,8 @@ class __$$AddCorrectImplCopyWithImpl<$Res>
       _$AddCorrectImpl _value, $Res Function(_$AddCorrectImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1895,7 +1963,9 @@ class _$AddCorrectImpl implements _AddCorrect {
   @override
   int get hashCode => Object.hash(runtimeType, uuid);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddCorrectImplCopyWith<_$AddCorrectImpl> get copyWith =>
@@ -2022,7 +2092,10 @@ abstract class _AddCorrect implements CreateQuestionEvent {
   const factory _AddCorrect(final String uuid) = _$AddCorrectImpl;
 
   String get uuid;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddCorrectImplCopyWith<_$AddCorrectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2041,6 +2114,9 @@ class __$$SaveQuestionImplCopyWithImpl<$Res>
   __$$SaveQuestionImplCopyWithImpl(
       _$SaveQuestionImpl _value, $Res Function(_$SaveQuestionImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CreateQuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -2287,7 +2363,9 @@ mixin _$CreateQuestionState {
   }) =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CreateQuestionStateCopyWith<CreateQuestionState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2319,6 +2397,8 @@ class _$CreateQuestionStateCopyWithImpl<$Res, $Val extends CreateQuestionState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CreateQuestionState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2398,6 +2478,8 @@ class __$$CreateQuestionTemplateStateImplCopyWithImpl<$Res>
       $Res Function(_$CreateQuestionTemplateStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2532,7 +2614,9 @@ class _$CreateQuestionTemplateStateImpl implements CreateQuestionTemplateState {
       const DeepCollectionEquality().hash(_variants),
       const DeepCollectionEquality().hash(_answer));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateQuestionTemplateStateImplCopyWith<_$CreateQuestionTemplateStateImpl>
@@ -2686,8 +2770,11 @@ abstract class CreateQuestionTemplateState implements CreateQuestionState {
   List<IQuestionVariantTemplate> get variants;
   @override
   Set<String> get answer;
+
+  /// Create a copy of CreateQuestionState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateQuestionTemplateStateImplCopyWith<_$CreateQuestionTemplateStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -2722,6 +2809,8 @@ class __$$CreateQuestionCompletedStateImplCopyWithImpl<$Res>
       $Res Function(_$CreateQuestionCompletedStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CreateQuestionState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2849,7 +2938,9 @@ class _$CreateQuestionCompletedStateImpl
       const DeepCollectionEquality().hash(_variants),
       const DeepCollectionEquality().hash(_answer));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CreateQuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateQuestionCompletedStateImplCopyWith<
@@ -3004,8 +3095,11 @@ abstract class CreateQuestionCompletedState implements CreateQuestionState {
   List<IQuestionVariantTemplate> get variants;
   @override
   Set<String> get answer;
+
+  /// Create a copy of CreateQuestionState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CreateQuestionCompletedStateImplCopyWith<
           _$CreateQuestionCompletedStateImpl>
       get copyWith => throw _privateConstructorUsedError;

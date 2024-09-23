@@ -1,8 +1,10 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart' hide TestRoute;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:testique/data/repository/test_repository.dart';
 import 'package:testique/entity/test.dart';
+import 'package:testique/navigation/app_router.dart';
 import 'package:testique/resources/res.dart';
 
 @RoutePage()
@@ -29,31 +31,31 @@ class _BeginTestPageState extends State<BeginTestPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const BackButton(
-          color: AppColors.primary,
-        ),
-        title: const Text('Вы точно готовы?'),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: FutureBuilder(
-          future: _testFuture,
-          builder: (context, snapshot) {
-            final test = snapshot.data;
-            final preview = widget.testPreview;
-            final name = test?.name ?? preview?.name;
-            final description = test?.description ?? preview?.description;
-            final questionCount = test?.questions.length;
+    return FutureBuilder(
+      future: _testFuture,
+      builder: (context, snapshot) {
+        final test = snapshot.data;
+        final preview = widget.testPreview;
+        final name = test?.name ?? preview?.name;
+        final description = test?.description ?? preview?.description;
+        final questionCount = test?.questions.length;
 
-            if (name == null) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
+        if (test == null || name == null) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
 
-            return Padding(
+        return Scaffold(
+          appBar: AppBar(
+            leading: const BackButton(
+              color: AppColors.primary,
+            ),
+            title: const Text('Вы точно готовы?'),
+            centerTitle: true,
+          ),
+          body: SafeArea(
+            child: Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
                 vertical: 30,
@@ -75,6 +77,7 @@ class _BeginTestPageState extends State<BeginTestPage> {
                         height: 44 / 18,
                       ),
                     ),
+                  // TODO(netos23): always has a description
                   if (description != null)
                     Text(
                       description,
@@ -82,28 +85,36 @@ class _BeginTestPageState extends State<BeginTestPage> {
                     ),
                 ],
               ),
-            );
-          },
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SizedBox(
-          height: 52,
-          child: FilledButton(
-            onPressed: () {},
-            child: Center(
-              child: Text(
-                'Начать тест!',
-                style: headline.copyWith(
-                  color: AppColors.background,
+            ),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SizedBox(
+              height: 52,
+              child: FilledButton(
+                onPressed: () {
+                  context.router.replace(
+                    TestRoute(
+                      testId: widget.testId,
+                      test: test,
+                    ),
+                  );
+                },
+                child: Center(
+                  child: Text(
+                    'Начать тест!',
+                    style: headline.copyWith(
+                      color: AppColors.background,
+                    ),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
